@@ -26,7 +26,8 @@ export default defineConfig({
         text: 'Komponenty & Systemy',
         items: [
           { text: 'Buoyancy Component', link: '/components/buoyancy' },
-          { text: 'Simulation Domain', link: '/components/simulation-domain' } // <-- Nowy wpis
+          { text: 'Simulation Domain', link: '/components/simulation-domain' },
+          { text: 'Coastline Domain', link: '/components/coastline-domain' } 
         ]
       }
     ]
