@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/fluid-flux-docs/',
   title: "Fluid Flux",
   description: "Dokumentacja systemu symulacji płynów w Unreal Engine",
   themeConfig: {
