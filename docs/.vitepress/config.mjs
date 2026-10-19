@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  base: '/fluid-flux-docs/',
+  base: '/imaginaryblend-docs/',
   lang: 'en-US',
   title: 'Fluid Flux Documentation',
   description:
@@ -53,7 +53,7 @@ export default defineConfig({
       }
     ],
     editLink: {
-      pattern: 'https://github.com/grackomi-sys/fluid-flux-docs/edit/main/docs/:path',
+      pattern: 'https://github.com/ImaginaryBlend/imaginaryblend-docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub'
     },
     footer: {
