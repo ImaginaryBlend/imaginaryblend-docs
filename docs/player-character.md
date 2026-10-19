@@ -21,7 +21,7 @@ After running the demo, you can notice the help panel located in the bottom righ
 
 1. Add ToggleVisible in “begin play” FluidFluxPlayerController like this:
 
-   ![image.png](/images/help-panel-toggle-visible.png)
+   <!-- ![image.png](/images/help-panel-toggle-visible.png) -->
 
 2. Remove the “Create BP_HudWidged” node in the player controller
 3. Switch the game mode (controller) in your level from the demo to your game controller.
