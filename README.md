@@ -10,7 +10,7 @@ Strona: https://grackomi-sys.github.io/fluid-flux-docs/
 4. Zatrzymanie podglądu: Ctrl+C
 
 ## Struktura
-- `docs/*.md` – podstrony (introduction, player-character, surface-actor, ground-capture, simulation-domain, coastline-domain, glass-system)
+- `docs/*.md` – podstrony (introduction, release-notes-3-0, installation-process, player-character, surface-actor, ground-capture, simulation-domain, coastline-domain, glass-system)
 - `docs/index.md` – strona główna
 - `docs/.vitepress/config.mjs` – menu, linki, nazwa strony
 - `docs/.vitepress/theme/` – komponenty `<YouTube />` i `<MediaVideo />` oraz style
@@ -36,5 +36,10 @@ Po zmianach sprawdź `git diff` / zakładkę Changes w GitHub Desktop.
 3. GitHub → zakładka **Actions**: poczekaj na zielony przebieg (ok. 1 minuty)
 4. Odśwież stronę (Ctrl+F5)
 
+## Pierwsze uruchomienie po wgraniu nowych podstron
+Strony `release-notes-3-0.md` i `installation-process.md` mają jeszcze linki do obrazków i filmów na starym WordPressie.
+Uruchom raz `npm run assets` – skrypt pobierze pliki do `docs/public/images/` i przepisze linki na lokalne. Potem `npm run check` powinien pokazać tylko brakujący obrazek poniżej.
+
 ## Do uzupełnienia
 - Brakuje obrazka `docs/public/images/help-panel-toggle-visible.png` (zrzut węzła ToggleVisible w „begin play" FluidFluxPlayerController). Po dodaniu pliku usuń znaczniki `<!--` i `-->` w `docs/player-character.md` (sekcja „Disabling the help panel").
+- Podstrona „Support and Reporting Bugs” (w Introduction link nadal prowadzi na stary WordPress) – po dodaniu pliku `docs/reporting-bugs.md` zmień ten link na `/reporting-bugs` i dopisz stronę w `config.mjs`.

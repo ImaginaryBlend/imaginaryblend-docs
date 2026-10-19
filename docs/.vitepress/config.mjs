@@ -13,8 +13,7 @@ export default defineConfig({
       { text: 'Documentation', link: '/introduction' },
       { text: 'Download', link: 'https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11' },
       { text: 'Forum', link: 'https://discord.gg/rG2q3SB5EB' },
-      { text: 'Release notes 3.0', link: 'https://imaginaryblend.com/2024/11/21/fluid-flux-3-0-release-notes/' },
-      { text: 'Imaginary Blend', link: 'https://imaginaryblend.com/' }
+      { text: 'Release notes 3.0', link: '/release-notes-3-0' }
     ],
     sidebar: [
       {
@@ -32,6 +31,13 @@ export default defineConfig({
             ]
           },
           { text: 'Glass system', link: '/glass-system' }
+        ]
+      },
+      {
+        text: 'Release notes and installation',
+        items: [
+          { text: 'Fluid Flux 3.0 Release Notes', link: '/release-notes-3-0' },
+          { text: 'Package Installation Process', link: '/installation-process' }
         ]
       }
     ],

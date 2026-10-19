@@ -19,7 +19,7 @@ You can purchase Fluid Flux on the Fab marketplace and install it using the **FA
 
 Fluid Flux receives frequent updates, so always use the latest version. The latest version is listed on the Unreal Marketplace page and at the beginning of the documentation.
 
-Following the [installation/update procedure](https://imaginaryblend.com/2024/01/17/marketplace-product-update-process/) ensures a smooth transition and minimizes the risk of potential issues arising during the update process.
+Following the [installation/update procedure](/installation-process) ensures a smooth transition and minimizes the risk of potential issues arising during the update process.
 
 ---
 
