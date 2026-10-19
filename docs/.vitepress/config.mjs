@@ -19,18 +19,89 @@ export default defineConfig({
       {
         text: 'Fluid Flux Documentation',
         items: [
-          { text: 'Introduction', link: '/introduction' },
-          { text: 'Player character', link: '/player-character' },
-          { text: 'Surface actor', link: '/surface-actor' },
           {
-            text: 'Domain actors',
+            text: 'Introduction',
+            link: '/introduction',
+            collapsed: false,
             items: [
-              { text: 'Ground capture', link: '/ground-capture' },
-              { text: 'Simulation Domain', link: '/simulation-domain' },
-              { text: 'Coastline Domain', link: '/coastline-domain' }
+              { text: 'Installation', link: '/introduction#installation' },
+              { text: 'Substrate compatibility', link: '/introduction#substrate-compatibility' },
+              { text: 'Project structure', link: '/introduction#project-structure' },
+              { text: 'Reporting Bugs', link: '/introduction#reporting-bugs' }
             ]
           },
-          { text: 'Glass system', link: '/glass-system' }
+          {
+            text: 'Player character',
+            link: '/player-character',
+            collapsed: false,
+            items: [
+              { text: 'Swimming component', link: '/player-character#swimming-component' },
+              { text: 'Vehicle driver', link: '/player-character#vehicle-driver' },
+              { text: 'Buoyancy component', link: '/player-character#buoyancy-component' }
+            ]
+          },
+          {
+            text: 'Surface actor',
+            link: '/surface-actor',
+            collapsed: false,
+            items: [
+              { text: 'Interaction system', link: '/surface-actor#interaction-system' },
+              { text: 'Color presets', link: '/surface-actor#color-presets' },
+              { text: 'World painter and brush', link: '/surface-actor#world-painter-and-brush' },
+              { text: 'Reading fluid data', link: '/surface-actor#reading-fluid-data' },
+              { text: 'Niagara integration', link: '/surface-actor#niagara-integration' },
+              { text: 'Translucency', link: '/surface-actor#translucency' },
+              { text: 'Cut the mask and holes', link: '/surface-actor#cut-the-mask-and-holes' }
+            ]
+          },
+          {
+            text: 'Domain actors',
+            collapsed: false,
+            items: [
+              {
+                text: 'Ground capture',
+                link: '/ground-capture',
+                collapsed: false,
+                items: [
+                  { text: 'Visibility options', link: '/ground-capture#visibility-options' },
+                  { text: 'Solving issues', link: '/ground-capture#solving-issues' }
+                ]
+              },
+              {
+                text: 'Simulation Domain',
+                link: '/simulation-domain',
+                collapsed: false,
+                items: [
+                  { text: 'Modifier Component', link: '/simulation-domain#modifier-component' },
+                  { text: 'Modifier Container', link: '/simulation-domain#modifier-container' },
+                  { text: 'Solving issues', link: '/simulation-domain#solving-issues' },
+                  { text: 'Fluid state', link: '/simulation-domain#fluid-state' },
+                  { text: 'Dynamic ground', link: '/simulation-domain#dynamic-ground' },
+                  { text: 'Mesh generator', link: '/simulation-domain#mesh-generator' },
+                  { text: 'Recreating Ocean', link: '/simulation-domain#recreating-ocean' },
+                  { text: 'Sequencer', link: '/simulation-domain#sequencer' }
+                ]
+              },
+              {
+                text: 'Coastline Domain',
+                link: '/coastline-domain',
+                collapsed: false,
+                items: [
+                  { text: 'Coastline state', link: '/coastline-domain#coastline-state' },
+                  { text: 'Solving Issues', link: '/coastline-domain#solving-issues' }
+                ]
+              }
+            ]
+          },
+          {
+            text: 'Glass system',
+            link: '/glass-system',
+            collapsed: false,
+            items: [
+              { text: 'Masking surface', link: '/glass-system#masking-surface' },
+              { text: 'Glass rendering', link: '/glass-system#glass-rendering' }
+            ]
+          }
         ]
       },
       {
