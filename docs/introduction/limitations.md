@@ -1,6 +1,6 @@
 # Limitations
 
-With great power comes great responsibility. I am committed to being a reliable marketplace creator, so I must communicate the limitations and disadvantages of using simulations. The Fluid Flux system is somewhat **overhyped**, so please read the description below before purchasing and ensure everything aligns with your expectations and requirements. Ensuring that is crucial for the [Refund Policy](https://imaginaryblend.com/2023/06/11/refund-policy/).
+With great power comes great responsibility. I am committed to being a reliable marketplace creator, so I must communicate the limitations and disadvantages of using simulations. The Fluid Flux system is somewhat **overhyped**, so please read the description below before purchasing and ensure everything aligns with your expectations and requirements. Ensuring that is crucial for the [Refund Policy](/support/refund-policy).
 
 The system is advanced, so it may be **overwhelming for beginners**. The code is clean and elegant, but reading blueprints and analyzing example code are required.
 
@@ -20,72 +20,31 @@ The system is advanced, so it may be **overwhelming for beginners**. The code is
 - Rendering a translucent underwater mesh is a challenging problem. Single-layer water materials do not support translucency, so translucent objects are invisible when viewed from above the water. The Fluid Flux mesh-based post-process material implementation is more functional because it can be overlaid before translucent meshes.
 - Shadows on water may look a bit blocky. This is a limitation of the single-layer water material in Unreal. Epic improved it in version UE5.3, and it should look better. The fix is described in [Project settings → Rendering settings](/getting-started/project-settings#rendering-settings).
 - The maximum heightmap range is 32000 units. This limitation was introduced with Unreal Engine. The problem concerns rendering clamped colors to render targets for unexplained reasons.
-- **Single-layer water** material mode is not supported on **mobile**. It’s an engine limitation that Epic Games should solve. Generally, this material mode does not support the absorption coefficient on mobile, so water will look different.
-- Path tracing is not supported because the Single Layer Water mode does not work.
-- The **PS5/Xbox** shader compiler defaults to 16-bit float per channel, which means you will have to lower the precision settings in the simulation domain to make it work on console platforms. Unfortunately, this change may cause water loss, as 16bit is not precise enough to simulate conservative water flow in the long term. Please pay attention when your gameplay depends on simulation results.
 - Statistically generated mesh of water can be inconsistent with the waterline post-process. This issue will be addressed in the future.
-- The underwater post-process effects in VR mode only work when Project Settings > VR > (enable) **Instanced Stereo = false**. This rendering mode breaks rendering of the translucent meshes and should be **disabled.**
+- Platform-specific issues (consoles, VR, mobile, path tracing) are listed in [Compatibility → Platforms](/compatibility/platforms).
 
-## Scalability
+## Scalability and performance
 
-The simulation domain requires allocating floating-point render targets and updating them every frame, which can be expensive.
-The size of domains can be increased by changing the precision of details per simulation cell. Ocean setup does not require allocating memory, but rendering water is limited by floating-point calculations. You may encourage many unpredictable behaviors, such as disappearing post-process and surfacing far from the center of the map; 20 km in every direction is the limit.
+Domain size limits, memory and example performance results are described on the [Performance](/introduction/performance) page.
 
-| Domain | Resolution | Precision | Maximum domain size |
-| --- | --- | --- | --- |
-| Simulation | up to 1024 x 1024 | up to 100 cm per pixel | 1km x 1km |
-| Coastline (island) | up to 2048 x 2048 | up to 1000 cm per pixel | 20 km x 20 km (pixel size 500 cm) |
-| Ocean | n/a | n/a | 40 km x 40 km (limit of floating point) |
+## Compatibility
 
-## Performance
+How Fluid Flux works together with various Unreal Engine systems, platforms and third-party plugins. Each entry links to a page with details.
 
-Many users are concerned about performance and don’t know if it requires a high-spec PC. Performance depends on the GPU, render resolution, and enabled engine options, but the product is optimized for older devices and can be adjusted for more demanding projects.
-
-I heavily recommend downloading the demo and testing it on the target device. Example results of my tests are presented below:
-
-| GPU | Resolution | River map | Island map |
-| --- | --- | --- | --- |
-| RTX 3080 | 2560×1440 | 320-380 FPS | 260-310 FPS |
-| RTX 2080 | 2560×1440 | 160-200 FPS | 110-160 FPS |
-| GTX 860M (8-year-old notebook, Lenovo Y50) | 1920×1080 | 25-30 FPS | 20-25 FPS |
-
-In the case of bigger maps, efficiency may sometimes be a problem. I recommend avoiding simulation resolutions larger than 1024×1024 in games. The calculation of a large-scale simulation often requires a substantial number of computations. I suggest utilizing the lowest feasible resolution for the simulation. For example, the maximum resolution in the example demos I provide is 1024×256 (BeachMap). The simulation frame can be baked into data assets and rendered without the additional cost of updating the simulation, which is incredibly efficient and valuable for rivers. You can also reduce memory usage by applying additional compression.
-
-## Multiplayer
-
-Fluid Flux is not inherently designed for multiplayer environments. However, under specific conditions and certain limitations, it can be utilized in multiplayer scenarios as a visual addition through carefully crafted gameplay design. This chapter outlines the challenges, technical limitations, and potential workarounds developers should consider when integrating Fluid Flux into multiplayer games.
-
-The table below presents the current status of multiplayer support inside different domain types.
-
-| Domain type | Status | Description |
+| Feature | Status | Details |
 | --- | --- | --- |
-| Ocean | Replicated | The server sends the wave time and wind settings to the clients. |
-| Coastline | **Client-side** | Coastline time replication has not been implemented yet. |
-| Simulation (dynamic) | **Client-side** | It can easily desynchronize between the client and the server. The wave generator uses render time, so it is not yet deterministic. |
-| Simulation state | Works | The state is the same for the client and server. It does not require any replication. |
-
-### Technical Limitations
-
-1. **Client-Side Simulation**: Fluid Flux uses Niagara readback to sample water data, which is essential for GPU computations. However, Niagara does not function on dedicated servers, making it impossible to process critical data from the server side. Simulations are calculated client-side only, and Niagara Readback results are automatically sent to the server. This approach is unsafe for games that rely on an authoritative server, which can be problematic for competitive gameplay.
-2. **Bandwidth Constraints**: The simulation involves substantial dynamic data changes, which are challenging to synchronize over a network due to limited bandwidth. Transmitting large amounts of fluid data in real-time is impractical for most multiplayer setups. Simulations can quickly desynchronize without mechanisms to correct discrepancies between the server and clients, leading to inconsistent results across players.
-3. **Non-Deterministic Behavior Across GPUs**: While the simulation is deterministic on the same machine under controlled conditions, differences in floating-point operations across GPUs can lead to minor discrepancies, complicating synchronization.
-4. **State Recovery Issues**: Synchronizing the simulation’s state is particularly challenging when new players join or frame spikes occur. The system cannot recover smoothly from these situations, even with limits on the number of accumulated iterations per frame. In situations like this, storing prebaked simulation states that can be loaded after the player joins the game is recommended. For example, the state of the water the client should be prepared for when the dam breaks.
-5. **Vehicle Replication**: The demo maps include a drivable board system that works in multiplayer. However, client-side movement lacks smoothness and would require external plugins to improve actor physics replication. Unreal Engine 5.5 introduces features such as the “mover” and enhanced physics replication for multiplayer games, which will be used in future versions of Fluid Flux.
-
-Fluid Flux’s multiplayer capabilities are experimental and come with notable limitations. It’s not recommended in competitive gameplay. Developers should weigh these limitations carefully and design gameplay around them to ensure a stable and enjoyable experience for players.
-
-## Open-world
-
-The accurate **open-world** setup has **not been tested**. The demo examples show how the system can be used. I can’t promise anything more at this point of development. Just assume that you get what you see in my videos, no more, no less.
-
-## Voxel Plugin
-
-Fluid Flux can be used in combination with the **Voxel Plugin**, but it is also limited to heightfield projection, so caves and planets are unsupported.
-
-<YouTube id="vJLU2CLuyNg" />
-
-Use `Simulation.RuntimeCaptureDelay` = 1.0 to force the simulation to wait for the voxel plugin map to generate a mesh before rendering it to the height map.
-The heightmap in this presentation is updated every frame using **CaptureGroundHeightmap**. It is inefficient and should probably be optimized to update the area around the brush only when something changes on the map. The **UpdateGroundMap**(Position, Size) function would be a better choice.
+| Substrate | Supported | Natively compatible since Unreal Engine 5.7. UE 5.4–5.5 require patched materials. [Substrate](/compatibility/substrate) |
+| Multiplayer | Experimental | Ocean is replicated, simulation runs client-side. [Multiplayer](/compatibility/multiplayer) |
+| Open world | Not tested | No dedicated open-world setup has been tested. [Open world](/compatibility/open-world#open-world) |
+| Large World Coordinates | Supported | Works up to 150 km from the center of the level, mainly for open-ocean use. [Large World Coordinates](/compatibility/open-world#large-world-coordinates) |
+| Sequencer | Partial | Simulation can’t be previewed in the Sequencer editor; Movie Render works in real-time mode. [Sequencer](/guide/simulation-domain#sequencer) |
+| Consoles (PS5, Xbox) | Supported with limitations | 16-bit shader precision requires lower simulation precision. [Platforms](/compatibility/platforms#consoles-ps5-xbox) |
+| VR | Limited | Underwater post-process requires Instanced Stereo disabled. [Platforms](/compatibility/platforms#vr) |
+| Mobile | Not supported | Only baked meshes/states; single-layer water is not supported on mobile. [Platforms](/compatibility/platforms#mobile) |
+| Path tracing | Not supported | Single Layer Water mode does not work with path tracing. [Platforms](/compatibility/platforms#path-tracing) |
+| Voxel Plugin | Partial | Works with heightfield projection only – no caves or planets. [Third-party plugins](/compatibility/plugins#voxel-plugin) |
+| Water Plugin | Not supported | Combining the materials is possible, but not officially supported. [Third-party plugins](/compatibility/plugins#water-plugin) |
+| ALS, UDS, Fluid Ninja | No official integration | Integrations are planned. [Third-party plugins](/compatibility/plugins#als-uds-fluid-ninja-and-other-packs) |
 
 ## Good and bad practices
 

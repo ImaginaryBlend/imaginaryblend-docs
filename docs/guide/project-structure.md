@@ -4,7 +4,7 @@ The Fluid Flux project is structured in a specific manner. This brief descriptio
 
 ![](/images/2021/09/Structure-1.png)
 
-- **Demo** – The Demo folder is the most important for new users. The demo examples present how to use this pack, achieve effects, and integrate systems with characters. The demo files demonstrate everything covered in this documentation. The product does not link files in the Demo folder, and **you can remove it** from the project at any time to optimize build/project size.
+- **Demo** – The Demo folder is the most important for new users. The demo examples present how to use this pack, achieve effects, and integrate systems with characters. The demo files demonstrate everything covered in this documentation. None of the core systems reference any assets from the Demo folder, so **you can safely remove it** from the project at any time to reduce the project and build size.
 - **Editor** – editor-related tools, icons, utilities, procedural mesh generator
 - **Simulation** – Shallow water simulation actor and tools for controlling fluids and generating states.
 - **Coastline** – Generating coastline data for oceans.
@@ -19,7 +19,8 @@ The Fluid Flux project is structured in a specific manner. This brief descriptio
 The documentation follows the main actors of the pack:
 
 - [Player character](/guide/player-character) – swimming and vehicles
-- [Buoyancy component](/guide/buoyancy) – floating objects, boats and ragdolls
-- [Surface actor](/guide/surface-actor) – rendering water, interactions, color presets
+- [Buoyancy](/guide/buoyancy) – floating objects, boats and ragdolls
+- [Surface actor](/guide/surface-actor) – rendering water, color presets
+- [Interactions](/guide/interactions) – ripples and splashes around characters and objects
 - [Simulation Domain](/guide/simulation-domain) and [Coastline Domain](/guide/coastline-domain) – simulating rivers and oceans
 - [Glass system](/guide/glass-system) – underwater glass and tunnels

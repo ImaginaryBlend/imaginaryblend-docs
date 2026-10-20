@@ -3,18 +3,23 @@
 Dokumentacja Fluid Flux przeniesiona z WordPressa. Treść jest w plikach Markdown w folderze `docs/`.
 Strona: https://imaginaryblend.github.io/imaginaryblend-docs/
 ## Uruchomienie lokalnie
+Najprościej: kliknij dwukrotnie `start-docs.bat` – zainstaluje zależności (tylko za pierwszym razem), uruchomi podgląd i otworzy stronę w przeglądarce. Zamknięcie okna zatrzymuje serwer.
+
+Ręcznie:
 1. Zainstaluj Node.js (wersja 20 lub nowsza).
 2. W folderze projektu: `npm install`
 3. Podgląd na żywo: `npm run docs:dev` i otwórz http://localhost:5173/imaginaryblend-docs/
 4. Zatrzymanie podglądu: Ctrl+C
 
 ## Struktura
-- `docs/index.md` – strona główna
-- `docs/introduction/` – Introduction: opis produktu (`index.md`), `limitations.md`, `faq.md`
-- `docs/getting-started/` – Getting started: `installation.md`, `project-settings.md`, `project-structure.md`, `updating.md`, `substrate.md`
-- `docs/guide/` – Documentation: player-character, buoyancy, surface-actor, ground-capture, simulation-domain, coastline-domain, glass-system
+- `docs/index.md` – strona główna „Features” (opis, pokaz zdjęć, lista funkcji, trailer, demo)
+- `docs/introduction/` – Fluid Flux: `limitations.md`, `performance.md`, `faq.md` (`index.md` i `features.md` tylko przekierowują na stronę główną)
+- `docs/getting-started/` – Getting started: `installation.md`, `project-settings.md`, `updating.md`, `tutorials.md`
+- `docs/compatibility/` – Compatibility: `index.md` (przekierowanie do Limitations → Compatibility), `substrate.md`, `multiplayer.md`, `open-world.md`, `platforms.md`, `plugins.md`
+- `docs/guide/` – Documentation (Core systems): project-structure, player-character, buoyancy, surface-actor, interactions, ground-capture, simulation-domain, coastline-domain, glass-system
+- `docs/showcase/` – Showcase: `index.md` (filmy, galeria, gry; `videos.md`, `gallery.md`, `games.md` tylko przekierowują)
 - `docs/release-notes/` – `index.md` (aktualizacje i roadmapa), `3-0.md`, `2-0.md`, `1-1.md`
-- `docs/support/index.md` – kontakt, zgłaszanie błędów, refund policy, licencja
+- `docs/support/` – `index.md` (kontakt, zgłaszanie błędów, refund policy), `license.md` (licencje), `refund-policy.md`, `reporting-bugs.md`
 - `docs/.vitepress/config.mjs` – menu, linki, nazwa strony
 - `docs/.vitepress/theme/` – komponenty `<YouTube />` i `<MediaVideo />` oraz style
 - `docs/public/images/` – wszystkie obrazki i filmy
@@ -44,4 +49,3 @@ Jeśli wkleisz treść z imaginaryblend.com z linkami do `wp-content/uploads`, u
 
 ## Do uzupełnienia
 - Brakuje obrazka `docs/public/images/help-panel-toggle-visible.png` (zrzut węzła ToggleVisible w „begin play" FluidFluxPlayerController). Po dodaniu pliku usuń znaczniki `<!--` i `-->` w `docs/guide/player-character.md` (sekcja „Disabling the help panel").
-- Podstrona „Support and Reporting Bugs” (w Support link nadal prowadzi na stary WordPress) – po dodaniu pliku `docs/support/reporting-bugs.md` zmień ten link i dopisz stronę w `config.mjs`.

@@ -4,10 +4,6 @@
 
 The Fluid Flux simulation implementation is based on the **Shallow Water Equations** (SWE) solver. The algorithm was published by **Matthias Müller** in [“Real-time Simulation of Large Bodies of Water with Small Scale Details”](https://matthias-research.github.io/pages/publications/hfFluid.pdf). Simulation is calculated on **a heightfield mesh,** meaning all obstacles are rendered to a heightmap using a top-down projection. Fluid flows in the X and Y directions between grid cells that describe the volume of water. Forces that move fluid are calculated based on the difference in the ground and water heights between neighboring cells. The coastline system uses a signed distance field to represent the water-ground edge intersection and renders animated wave profiles based on wave motion.
 
-## Can I use Fluid Flux in my game if I purchase it?
-
-Take a look at the general FAB license terms. You can use it in your projects/games and release it in-store. However, you are not allowed to publish/sell the product’s source code. If the Unreal Engine licensing model does not suit you, contact support so we can create a custom license that matches your specific requirements.
-
 ## Why is the price so high? Can you offer any promotions or discounts?
 
 - Creating a Fluid Flux required over three years of research and development. Typically, a system of this nature would cost the company at least 350,000 USD. The current price makes it a significant time and cost-saving solution for everyone.
@@ -21,10 +17,14 @@ Take a look at the general FAB license terms. You can use it in your projects/ga
 
 I plan to work on some integrations in the future. If you have a specific pack in mind, let me know.
 
+See also [Compatibility → Third-party plugins](/compatibility/plugins).
+
 ## What about VR and mobile?
 
 I currently do not support VR devices or mobile devices.
 Dynamic fluid simulations with high precision can’t be computed on mobile devices, so only baked meshes/states can be used on this platform. I am planning to add VR and mobile support in future updates. The pack will receive a cheap surface material mode similar to the solution presented in Aquatic Surface. One user notified me that my demo maps are working without issues on Oculus Quest 2, but I haven’t tested it yet, so I can’t confirm.
+
+See also [Compatibility → Platforms](/compatibility/platforms).
 
 ## How to add swimming to ALS? Can you show me?
 
@@ -37,6 +37,8 @@ This system is fully implemented in blueprints but relies mainly on GPU (shaders
 ## Is the Water plugin supported?
 
 Water Plugin is not supported. Combining my water material with the water plugin mesh is possible, but not officially supported.
+
+See also [Compatibility → Third-party plugins](/compatibility/plugins#water-plugin).
 
 ## Do I need this pack? Is it better than WaterPlugin/Oceanology or Aquatic Surface?
 

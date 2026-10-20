@@ -1,5 +1,7 @@
 # Project settings
 
+This chapter lists everything that has to be set up once per project. It is best to complete these steps right after [installing the package](/getting-started/installation) and before opening the demo maps, so you can see the examples exactly as intended. Most of the changes require restarting the editor.
+
 ## Required plugins
 
 Fluid Flux depends on several engine plugins. All of them ship with Unreal Engine – nothing needs to be downloaded, the plugins only need to be enabled:
@@ -9,7 +11,7 @@ Fluid Flux depends on several engine plugins. All of them ship with Unreal Engin
 3. Check the **Enabled** box next to the plugin (confirm the beta warning if it appears).
 4. Repeat for every plugin from the table below, then click **Restart Now** – the editor must be restarted before the plugins become active.
 
-![](/images/2021/09/plugins-1.png)
+![](/images/2021/09/plugins-1.png){style="width: 70%; display: block; margin-left: auto; margin-right: auto"}
 
 | Plugin | Used for | Description |
 | --- | --- | --- |
