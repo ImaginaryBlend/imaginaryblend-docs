@@ -15,27 +15,27 @@ Fluid Flux is a real-time water system for Unreal Engine, built on 2D shallow-wa
 
 ## Simulation
 
-- **Realtime shallow water simulation** – fluid data modifiers, wave generator, and extendable interface. See [Simulation Domain](/guide/simulation-domain).
-- **Fluid state management** – advanced fluid state management and loading state in gameplay. See [Fluid state](/guide/simulation-domain#fluid-state).
-- **Static mesh generator** – a tool for generating ultra-fast static meshes with flow maps baked into vertex color and UV. See [Mesh generator](/guide/simulation-domain#mesh-generator).
+- **Realtime shallow water simulation** – fluid data modifiers, wave generator, and extendable interface. See [Simulation Domain](/core-systems/simulation-domain).
+- **Fluid state management** – advanced fluid state management and loading state in gameplay. See [Fluid state](/core-systems/simulation-domain#fluid-state).
+- **Static mesh generator** – a tool for generating ultra-fast static meshes with flow maps baked into vertex color and UV. See [Mesh generator](/core-systems/simulation-domain#mesh-generator).
 - **Flow advection** – velocity-based fluid flow advection method for foam, caustics and waves.
 
 ## Rendering
 
-- **Fluid surface rendering** – caustics, wetness, underwater, waterline, advected foam, advected waves, blending with the ocean, dynamic audio detection. See [Surface actor](/guide/surface-actor).
-- **Ocean wave blending** – rendering tillable ocean heightmap texture in a single pass. See [Recreating Ocean](/guide/simulation-domain#recreating-ocean).
-- **Coastline** – coastline wave break rendering. See [Coastline Domain](/guide/coastline-domain).
-- **Underwater glass** – underwater glass and spline-based tunnels, lights, decals. See [Glass system](/guide/glass-system).
+- **Fluid surface rendering** – caustics, wetness, underwater, waterline, advected foam, advected waves, blending with the ocean, dynamic audio detection. See [Surface actor](/core-systems/surface-actor).
+- **Ocean wave blending** – rendering tillable ocean heightmap texture in a single pass. See [Recreating Ocean](/core-systems/simulation-domain#recreating-ocean).
+- **Coastline** – coastline wave break rendering. See [Coastline Domain](/core-systems/coastline-domain).
+- **Underwater glass** – underwater glass and spline-based tunnels, lights, decals. See [Glass system](/core-systems/glass-system).
 
 ## Interaction and gameplay
 
-- **Fluid Interaction** – simple, cheap ripple solver moving with character, optimized to an absolute minimum. See [Interactions](/guide/interactions).
-- **Niagara environment interaction** – high-quality effects, bouncy plants, character swimming, boats. See [Niagara integration](/guide/surface-actor#niagara-integration).
-- **Async readback** – Niagara fluid async readback system for sampling height and fluid flow in blueprints. See [Reading fluid data](/guide/surface-actor#reading-fluid-data).
-- **Vehicles** – possessable vehicle system implemented especially for boats. See [Vehicle driver](/guide/player-character#vehicle-driver).
+- **Fluid Interaction** – simple, cheap ripple solver moving with character, optimized to an absolute minimum. See [Interactions](/core-systems/interactions).
+- **Niagara environment interaction** – high-quality effects, bouncy plants, character swimming, boats. See [Niagara integration](/core-systems/surface-actor#niagara-integration).
+- **Async readback** – Niagara fluid async readback system for sampling height and fluid flow in blueprints. See [Reading fluid data](/core-systems/surface-actor#reading-fluid-data).
+- **Vehicles** – possessable vehicle system implemented especially for boats. See [Vehicle driver](/core-systems/player-character#vehicle-driver).
 - **Surface particles** – simulation-driven surface particles (leaves and dust).
 - **Dynamic audio** – dynamic audio analyzer. The sound source is positioned based on fluid movement.
-- **Replication** – replicated ocean waves and vehicle movement. See [Multiplayer](/compatibility/multiplayer).
+- **Replication** – replicated ocean waves and vehicle movement. See [Multiplayer](/requirements/compatibility/multiplayer).
 
 ## Implementation
 
@@ -53,14 +53,14 @@ The executable demo is available for free on [itch.io](https://imaginaryblend.it
 
 ## Where to go next
 
-Before planning a project, read the [Limitations](/introduction/limitations) page, including the [compatibility summary](/introduction/limitations#compatibility).
+Before planning a project, read the [Limitations](/requirements/limitations) page, including the [compatibility summary](/requirements/limitations#compatibility).
 
 <div class="link-cards">
 
-[**Limitations**<br>Read before purchasing](/introduction/limitations)
-[**Compatibility**<br>Substrate, multiplayer, platforms](/introduction/limitations#compatibility)
-[**Documentation**<br>Actors, systems and tools](/guide/player-character)
-[**Release notes**<br>What changed in each version](/release-notes/)
-[**Support**<br>Discord, email, license](/support/)
+[**Limitations**<br>Read before purchasing](/requirements/limitations)
+[**Compatibility**<br>Substrate, multiplayer, platforms](/requirements/limitations#compatibility)
+[**Documentation**<br>Actors, systems and tools](/core-systems/player-character)
+[**Release notes**<br>What changed in each version](/updates/)
+[**Support**<br>Discord, email, license](/help/support)
 
 </div>

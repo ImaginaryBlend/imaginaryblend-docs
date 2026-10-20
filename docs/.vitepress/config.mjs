@@ -18,17 +18,17 @@ const SIDEBAR_FLUIDFLUX = [
         text: 'Requirements',
         collapsed: true,
         items: [
-          { text: 'Limitations', link: '/introduction/limitations' },
-          { text: 'Performance', link: '/introduction/performance' },
+          { text: 'Limitations', link: '/requirements/limitations' },
+          { text: 'Performance', link: '/requirements/performance' },
           {
             text: 'Compatibility',
             collapsed: true,
             items: [
-              { text: 'Substrate', link: '/compatibility/substrate' },
-              { text: 'Multiplayer', link: '/compatibility/multiplayer' },
-              { text: 'Open world', link: '/compatibility/open-world' },
-              { text: 'Platforms', link: '/compatibility/platforms' },
-              { text: 'Third-party plugins', link: '/compatibility/plugins' }
+              { text: 'Substrate', link: '/requirements/compatibility/substrate' },
+              { text: 'Multiplayer', link: '/requirements/compatibility/multiplayer' },
+              { text: 'Open world', link: '/requirements/compatibility/open-world' },
+              { text: 'Platforms', link: '/requirements/compatibility/platforms' },
+              { text: 'Third-party plugins', link: '/requirements/compatibility/plugins' }
             ]
           }
         ]
@@ -37,27 +37,27 @@ const SIDEBAR_FLUIDFLUX = [
         text: 'Purchase',
         collapsed: true,
         items: [
-          { text: 'License', link: '/support/license' },
-          { text: 'Refund Policy', link: '/support/refund-policy' }
+          { text: 'License', link: '/purchase/license' },
+          { text: 'Refund Policy', link: '/purchase/refund-policy' }
         ]
       },
       {
         text: 'Updates',
         collapsed: true,
         items: [
-          { text: 'Roadmap', link: '/release-notes/' },
-          { text: 'Fluid Flux 3.0', link: '/release-notes/3-0' },
-          { text: 'Fluid Flux 2.0', link: '/release-notes/2-0' },
-          { text: 'Fluid Flux 1.1', link: '/release-notes/1-1' }
+          { text: 'Roadmap', link: '/updates/' },
+          { text: 'Fluid Flux 3.0', link: '/updates/3-0' },
+          { text: 'Fluid Flux 2.0', link: '/updates/2-0' },
+          { text: 'Fluid Flux 1.1', link: '/updates/1-1' }
         ]
       },
       {
         text: 'Help',
         collapsed: true,
         items: [
-          { text: 'Questions & Answers', link: '/introduction/faq' },
-          { text: 'Support', link: '/support/' },
-          { text: 'Reporting bugs', link: '/support/reporting-bugs' }
+          { text: 'Questions & Answers', link: '/help/faq' },
+          { text: 'Support', link: '/help/support' },
+          { text: 'Reporting bugs', link: '/help/reporting-bugs' }
         ]
       }
     ]
@@ -82,90 +82,90 @@ const SIDEBAR_DOCUMENTATION = [
         text: 'Core systems',
         collapsed: true,
         items: [
-          { text: 'Project structure', link: '/guide/project-structure' },
+          { text: 'Project structure', link: '/core-systems/project-structure' },
           {
             text: 'Player character',
-            link: '/guide/player-character',
+            link: '/core-systems/player-character',
             collapsed: true,
             items: [
-              { text: 'Swimming component', link: '/guide/player-character#swimming-component' },
-              { text: 'Vehicle driver', link: '/guide/player-character#vehicle-driver' }
+              { text: 'Swimming component', link: '/core-systems/player-character#swimming-component' },
+              { text: 'Vehicle driver', link: '/core-systems/player-character#vehicle-driver' }
             ]
           },
           {
             text: 'Buoyancy',
-            link: '/guide/buoyancy',
+            link: '/core-systems/buoyancy',
             collapsed: true,
             items: [
-              { text: 'Limitations', link: '/guide/buoyancy#limitations' },
-              { text: 'Adding a buoyancy system', link: '/guide/buoyancy#adding-a-buoyancy-system-to-the-actor' },
-              { text: 'Using FluxBuoyancyEditor', link: '/guide/buoyancy#using-fluxbuoyancyeditor' },
-              { text: 'Good practices', link: '/guide/buoyancy#good-practices-and-solving-problems' }
+              { text: 'Limitations', link: '/core-systems/buoyancy#limitations' },
+              { text: 'Adding a buoyancy system', link: '/core-systems/buoyancy#adding-a-buoyancy-system-to-the-actor' },
+              { text: 'Using FluxBuoyancyEditor', link: '/core-systems/buoyancy#using-fluxbuoyancyeditor' },
+              { text: 'Good practices', link: '/core-systems/buoyancy#good-practices-and-solving-problems' }
             ]
           },
           {
             text: 'Surface actor',
-            link: '/guide/surface-actor',
+            link: '/core-systems/surface-actor',
             collapsed: true,
             items: [
-              { text: 'Color presets', link: '/guide/surface-actor#color-presets' },
-              { text: 'World painter and brush', link: '/guide/surface-actor#world-painter-and-brush' },
-              { text: 'Reading fluid data', link: '/guide/surface-actor#reading-fluid-data' },
-              { text: 'Niagara integration', link: '/guide/surface-actor#niagara-integration' },
-              { text: 'Translucency', link: '/guide/surface-actor#translucency' },
-              { text: 'Cut the mask and holes', link: '/guide/surface-actor#cut-the-mask-and-holes' }
+              { text: 'Color presets', link: '/core-systems/surface-actor#color-presets' },
+              { text: 'World painter and brush', link: '/core-systems/surface-actor#world-painter-and-brush' },
+              { text: 'Reading fluid data', link: '/core-systems/surface-actor#reading-fluid-data' },
+              { text: 'Niagara integration', link: '/core-systems/surface-actor#niagara-integration' },
+              { text: 'Translucency', link: '/core-systems/surface-actor#translucency' },
+              { text: 'Cut the mask and holes', link: '/core-systems/surface-actor#cut-the-mask-and-holes' }
             ]
           },
           {
             text: 'Interactions',
-            link: '/guide/interactions',
+            link: '/core-systems/interactions',
             collapsed: true,
             items: [
-              { text: 'Setting up interactions', link: '/guide/interactions#setting-up-interactions' },
-              { text: 'Splashes', link: '/guide/interactions#splashes' }
+              { text: 'Setting up interactions', link: '/core-systems/interactions#setting-up-interactions' },
+              { text: 'Splashes', link: '/core-systems/interactions#splashes' }
             ]
           },
           {
             text: 'Ground capture',
-            link: '/guide/ground-capture',
+            link: '/core-systems/ground-capture',
             collapsed: true,
             items: [
-              { text: 'Visibility options', link: '/guide/ground-capture#visibility-options' },
-              { text: 'Solving issues', link: '/guide/ground-capture#solving-issues' }
+              { text: 'Visibility options', link: '/core-systems/ground-capture#visibility-options' },
+              { text: 'Solving issues', link: '/core-systems/ground-capture#solving-issues' }
             ]
           },
           {
             text: 'Simulation Domain',
-            link: '/guide/simulation-domain',
+            link: '/core-systems/simulation-domain',
             collapsed: true,
             items: [
-              { text: 'Modifier Component', link: '/guide/simulation-domain#modifier-component' },
-              { text: 'Modifier Container', link: '/guide/simulation-domain#modifier-container' },
-              { text: 'Solving issues', link: '/guide/simulation-domain#solving-issues' },
-              { text: 'Fluid state', link: '/guide/simulation-domain#fluid-state' },
-              { text: 'Dynamic ground', link: '/guide/simulation-domain#dynamic-ground' },
-              { text: 'Mesh generator', link: '/guide/simulation-domain#mesh-generator' },
-              { text: 'Recreating Ocean', link: '/guide/simulation-domain#recreating-ocean' },
-              { text: 'Sequencer', link: '/guide/simulation-domain#sequencer' }
+              { text: 'Modifier Component', link: '/core-systems/simulation-domain#modifier-component' },
+              { text: 'Modifier Container', link: '/core-systems/simulation-domain#modifier-container' },
+              { text: 'Solving issues', link: '/core-systems/simulation-domain#solving-issues' },
+              { text: 'Fluid state', link: '/core-systems/simulation-domain#fluid-state' },
+              { text: 'Dynamic ground', link: '/core-systems/simulation-domain#dynamic-ground' },
+              { text: 'Mesh generator', link: '/core-systems/simulation-domain#mesh-generator' },
+              { text: 'Recreating Ocean', link: '/core-systems/simulation-domain#recreating-ocean' },
+              { text: 'Sequencer', link: '/core-systems/simulation-domain#sequencer' }
             ]
           },
           {
             text: 'Coastline Domain',
-            link: '/guide/coastline-domain',
+            link: '/core-systems/coastline-domain',
             collapsed: true,
             items: [
-              { text: 'Coastline state', link: '/guide/coastline-domain#coastline-state' },
-              { text: 'Solving Issues', link: '/guide/coastline-domain#solving-issues' }
+              { text: 'Coastline state', link: '/core-systems/coastline-domain#coastline-state' },
+              { text: 'Solving Issues', link: '/core-systems/coastline-domain#solving-issues' }
             ]
           },
           {
             text: 'Glass system',
-            link: '/guide/glass-system',
+            link: '/core-systems/glass-system',
             collapsed: true,
             items: [
-              { text: 'Examples', link: '/guide/glass-system#examples' },
-              { text: 'Masking surface', link: '/guide/glass-system#masking-surface' },
-              { text: 'Glass rendering', link: '/guide/glass-system#glass-rendering' }
+              { text: 'Examples', link: '/core-systems/glass-system#examples' },
+              { text: 'Masking surface', link: '/core-systems/glass-system#masking-surface' },
+              { text: 'Glass rendering', link: '/core-systems/glass-system#glass-rendering' }
             ]
           }
         ]
@@ -187,17 +187,12 @@ export default defineConfig({
     search: { provider: 'local' },
     outline: [2, 3],
     nav: [
-      { text: 'Documentation', link: '/getting-started/installation', activeMatch: '^/(getting-started|guide)/' },
+      { text: 'Documentation', link: '/getting-started/installation', activeMatch: '^/(getting-started|core-systems)/' },
       { text: 'Download', link: FAB }
     ],
     sidebar: {
       '/getting-started/': SIDEBAR_DOCUMENTATION,
-      '/guide/': SIDEBAR_DOCUMENTATION,
-      '/introduction/': SIDEBAR_FLUIDFLUX,
-      '/compatibility/': SIDEBAR_FLUIDFLUX,
-      '/showcase/': SIDEBAR_FLUIDFLUX,
-      '/release-notes/': SIDEBAR_FLUIDFLUX,
-      '/support/': SIDEBAR_FLUIDFLUX,
+      '/core-systems/': SIDEBAR_DOCUMENTATION,
       '/': SIDEBAR_FLUIDFLUX
     },
     socialLinks: [

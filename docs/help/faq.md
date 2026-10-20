@@ -17,18 +17,18 @@ The Fluid Flux simulation implementation is based on the **Shallow Water Equatio
 
 I plan to work on some integrations in the future. If you have a specific pack in mind, let me know.
 
-See also [Compatibility → Third-party plugins](/compatibility/plugins).
+See also [Compatibility → Third-party plugins](/requirements/compatibility/plugins).
 
 ## What about VR and mobile?
 
 I currently do not support VR devices or mobile devices.
 Dynamic fluid simulations with high precision can’t be computed on mobile devices, so only baked meshes/states can be used on this platform. I am planning to add VR and mobile support in future updates. The pack will receive a cheap surface material mode similar to the solution presented in Aquatic Surface. One user notified me that my demo maps are working without issues on Oculus Quest 2, but I haven’t tested it yet, so I can’t confirm.
 
-See also [Compatibility → Platforms](/compatibility/platforms).
+See also [Compatibility → Platforms](/requirements/compatibility/platforms).
 
 ## How to add swimming to ALS? Can you show me?
 
-This task heavily depends on the character implementation, so I can’t provide an ALS implementation. The Fluid Flux `BP_FluxDataComponent` delivers all the data you need to implement swimming. I’ve also prepared an example swimming implementation (`BP_FluxSwimmingComponent`) for the default engine mannequin, so you can check it out and learn from it. See [Player character → Swimming component](/guide/player-character#swimming-component).
+This task heavily depends on the character implementation, so I can’t provide an ALS implementation. The Fluid Flux `BP_FluxDataComponent` delivers all the data you need to implement swimming. I’ve also prepared an example swimming implementation (`BP_FluxSwimmingComponent`) for the default engine mannequin, so you can check it out and learn from it. See [Player character → Swimming component](/core-systems/player-character#swimming-component).
 
 ## Why blueprints? Is Fluid Flux slow because of that?
 
@@ -38,7 +38,7 @@ This system is fully implemented in blueprints but relies mainly on GPU (shaders
 
 Water Plugin is not supported. Combining my water material with the water plugin mesh is possible, but not officially supported.
 
-See also [Compatibility → Third-party plugins](/compatibility/plugins#water-plugin).
+See also [Compatibility → Third-party plugins](/requirements/compatibility/plugins#water-plugin).
 
 ## Do I need this pack? Is it better than WaterPlugin/Oceanology or Aquatic Surface?
 

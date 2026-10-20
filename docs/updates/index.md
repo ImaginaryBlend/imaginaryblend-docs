@@ -4,9 +4,9 @@ Fluid Flux has received numerous updates, all provided free of charge to existin
 
 | Version | Highlights |
 | --- | --- |
-| [Fluid Flux 3.0](/release-notes/3-0) | Underwater glass and lights |
-| [Fluid Flux 2.0](/release-notes/2-0) | Coastline effects, and water break |
-| [Fluid Flux 1.1](/release-notes/1-1) | Performance and usability improvements |
+| [Fluid Flux 3.0](/updates/3-0) | Underwater glass and lights |
+| [Fluid Flux 2.0](/updates/2-0) | Coastline effects, and water break |
+| [Fluid Flux 1.1](/updates/1-1) | Performance and usability improvements |
 
 Before installing a new version, follow the [Updating process](/getting-started/updating).
 

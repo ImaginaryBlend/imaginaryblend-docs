@@ -3,7 +3,7 @@
 Step-by-step video tutorials showing how to set up and use the main Fluid Flux systems. All of them are also available in the [tutorial playlist](https://www.youtube.com/playlist?list=PLU2BtkTjRiuiW1MVy0VJopQqV5JYQECf8) on YouTube.
 
 ::: warning Note
-Some tutorials were recorded for older versions of Fluid Flux, so the interface and parameter names may differ slightly from the current version. Videos become outdated quickly as the package evolves, which is why I keep the written [Core systems](/guide/project-structure) documentation up to date with every release. I encourage you to treat it as the primary source for learning Fluid Flux and use the videos as a visual supplement.
+Some tutorials were recorded for older versions of Fluid Flux, so the interface and parameter names may differ slightly from the current version. Videos become outdated quickly as the package evolves, which is why I keep the written [Core systems](/core-systems/project-structure) documentation up to date with every release. I encourage you to treat it as the primary source for learning Fluid Flux and use the videos as a visual supplement.
 :::
 
 ## Official tutorials

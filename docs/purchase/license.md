@@ -35,7 +35,7 @@ Prices are base prices in USD. The final price on Fab may differ depending on yo
 I do not offer free trial versions, educational licenses, or custom discounts. Before purchasing, make sure that Fluid Flux meets the requirements of your project:
 
 - check what the package offers on the [Features](/) page,
-- read the [Limitations](/introduction/limitations) of the simulation and the [Compatibility](/introduction/limitations#compatibility) summary,
-- check the [Performance](/introduction/performance) results and domain size limits,
+- read the [Limitations](/requirements/limitations) of the simulation and the [Compatibility](/requirements/limitations#compatibility) summary,
+- check the [Performance](/requirements/performance) results and domain size limits,
 - try the free [executable demo](https://imaginaryblend.itch.io/fluid-flux) on your target hardware,
-- read the [Refund Policy](/support/refund-policy).
+- read the [Refund Policy](/purchase/refund-policy).

@@ -54,4 +54,4 @@ Find **Fluid Flux**, open its page (double-click) and click **Add to Project**.
 ## Next steps
 
 - [Project settings](/getting-started/project-settings) – enable the required plugins and configure the project before opening the demo maps.
-- [Project structure](/guide/project-structure) – find your way around the Fluid Flux folders.
+- [Project structure](/core-systems/project-structure) – find your way around the Fluid Flux folders.

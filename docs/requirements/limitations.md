@@ -1,6 +1,6 @@
 # Limitations
 
-With great power comes great responsibility. I am committed to being a reliable marketplace creator, so I must communicate the limitations and disadvantages of using simulations. The Fluid Flux system is somewhat **overhyped**, so please read the description below before purchasing and ensure everything aligns with your expectations and requirements. Ensuring that is crucial for the [Refund Policy](/support/refund-policy).
+With great power comes great responsibility. I am committed to being a reliable marketplace creator, so I must communicate the limitations and disadvantages of using simulations. The Fluid Flux system is somewhat **overhyped**, so please read the description below before purchasing and ensure everything aligns with your expectations and requirements. Ensuring that is crucial for the [Refund Policy](/purchase/refund-policy).
 
 The system is advanced, so it may be **overwhelming for beginners**. The code is clean and elegant, but reading blueprints and analyzing example code are required.
 
@@ -21,11 +21,11 @@ The system is advanced, so it may be **overwhelming for beginners**. The code is
 - Shadows on water may look a bit blocky. This is a limitation of the single-layer water material in Unreal. Epic improved it in version UE5.3, and it should look better. The fix is described in [Project settings → Rendering settings](/getting-started/project-settings#rendering-settings).
 - The maximum heightmap range is 32000 units. This limitation was introduced with Unreal Engine. The problem concerns rendering clamped colors to render targets for unexplained reasons.
 - Statistically generated mesh of water can be inconsistent with the waterline post-process. This issue will be addressed in the future.
-- Platform-specific issues (consoles, VR, mobile, path tracing) are listed in [Compatibility → Platforms](/compatibility/platforms).
+- Platform-specific issues (consoles, VR, mobile, path tracing) are listed in [Compatibility → Platforms](/requirements/compatibility/platforms).
 
 ## Scalability and performance
 
-Domain size limits, memory and example performance results are described on the [Performance](/introduction/performance) page.
+Domain size limits, memory and example performance results are described on the [Performance](/requirements/performance) page.
 
 ## Compatibility
 
@@ -33,18 +33,18 @@ How Fluid Flux works together with various Unreal Engine systems, platforms and 
 
 | Feature | Status | Details |
 | --- | --- | --- |
-| Substrate | Supported | Natively compatible since Unreal Engine 5.7. UE 5.4–5.5 require patched materials. [Substrate](/compatibility/substrate) |
-| Multiplayer | Experimental | Ocean is replicated, simulation runs client-side. [Multiplayer](/compatibility/multiplayer) |
-| Open world | Not tested | No dedicated open-world setup has been tested. [Open world](/compatibility/open-world#open-world) |
-| Large World Coordinates | Supported | Works up to 150 km from the center of the level, mainly for open-ocean use. [Large World Coordinates](/compatibility/open-world#large-world-coordinates) |
-| Sequencer | Partial | Simulation can’t be previewed in the Sequencer editor; Movie Render works in real-time mode. [Sequencer](/guide/simulation-domain#sequencer) |
-| Consoles (PS5, Xbox) | Supported with limitations | 16-bit shader precision requires lower simulation precision. [Platforms](/compatibility/platforms#consoles-ps5-xbox) |
-| VR | Limited | Underwater post-process requires Instanced Stereo disabled. [Platforms](/compatibility/platforms#vr) |
-| Mobile | Not supported | Only baked meshes/states; single-layer water is not supported on mobile. [Platforms](/compatibility/platforms#mobile) |
-| Path tracing | Not supported | Single Layer Water mode does not work with path tracing. [Platforms](/compatibility/platforms#path-tracing) |
-| Voxel Plugin | Partial | Works with heightfield projection only – no caves or planets. [Third-party plugins](/compatibility/plugins#voxel-plugin) |
-| Water Plugin | Not supported | Combining the materials is possible, but not officially supported. [Third-party plugins](/compatibility/plugins#water-plugin) |
-| ALS, UDS, Fluid Ninja | No official integration | Integrations are planned. [Third-party plugins](/compatibility/plugins#als-uds-fluid-ninja-and-other-packs) |
+| Substrate | Supported | Natively compatible since Unreal Engine 5.7. UE 5.4–5.5 require patched materials. [Substrate](/requirements/compatibility/substrate) |
+| Multiplayer | Experimental | Ocean is replicated, simulation runs client-side. [Multiplayer](/requirements/compatibility/multiplayer) |
+| Open world | Not tested | No dedicated open-world setup has been tested. [Open world](/requirements/compatibility/open-world#open-world) |
+| Large World Coordinates | Supported | Works up to 150 km from the center of the level, mainly for open-ocean use. [Large World Coordinates](/requirements/compatibility/open-world#large-world-coordinates) |
+| Sequencer | Partial | Simulation can’t be previewed in the Sequencer editor; Movie Render works in real-time mode. [Sequencer](/core-systems/simulation-domain#sequencer) |
+| Consoles (PS5, Xbox) | Supported with limitations | 16-bit shader precision requires lower simulation precision. [Platforms](/requirements/compatibility/platforms#consoles-ps5-xbox) |
+| VR | Limited | Underwater post-process requires Instanced Stereo disabled. [Platforms](/requirements/compatibility/platforms#vr) |
+| Mobile | Not supported | Only baked meshes/states; single-layer water is not supported on mobile. [Platforms](/requirements/compatibility/platforms#mobile) |
+| Path tracing | Not supported | Single Layer Water mode does not work with path tracing. [Platforms](/requirements/compatibility/platforms#path-tracing) |
+| Voxel Plugin | Partial | Works with heightfield projection only – no caves or planets. [Third-party plugins](/requirements/compatibility/plugins#voxel-plugin) |
+| Water Plugin | Not supported | Combining the materials is possible, but not officially supported. [Third-party plugins](/requirements/compatibility/plugins#water-plugin) |
+| ALS, UDS, Fluid Ninja | No official integration | Integrations are planned. [Third-party plugins](/requirements/compatibility/plugins#als-uds-fluid-ninja-and-other-packs) |
 
 ## Good and bad practices
 
@@ -54,4 +54,4 @@ How Fluid Flux works together with various Unreal Engine systems, platforms and 
 - Avoid hard-edged geometry (boxes). It can be approximated wrongly in height maps, and steep slopes sometimes look terrible.
 - Try not to overestimate this system. If I haven’t prepared the ocean with ships and a vast island covered by rivers and simulated lakes, there is probably a reason for that.
 - Try not to update the simulation ground in every frame. It may cost you significant performance.
-- Meshes using materials with “PixelDepthOffset” active may not render correctly in a ground height map. A simple workaround is described in the chapter [Ground Capture → Solving issues](/guide/ground-capture#solving-issues).
+- Meshes using materials with “PixelDepthOffset” active may not render correctly in a ground height map. A simple workaround is described in the chapter [Ground Capture → Solving issues](/core-systems/ground-capture#solving-issues).

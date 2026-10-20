@@ -12,16 +12,23 @@ Ręcznie:
 4. Zatrzymanie podglądu: Ctrl+C
 
 ## Struktura
-- `docs/index.md` – strona główna „Features” (opis, pokaz zdjęć, lista funkcji, trailer, demo)
-- `docs/introduction/` – Fluid Flux: `limitations.md`, `performance.md`, `faq.md` (`index.md` i `features.md` tylko przekierowują na stronę główną)
+Foldery odpowiadają menu po lewej stronie.
+
+**Dział Fluid Flux** (logo w górnym pasku)
+- `docs/index.md` – Product → Features (strona startowa: opis, pokaz zdjęć, lista funkcji, trailer, demo)
+- `docs/showcase/` – Product → Showcase (filmy, galeria, gry)
+- `docs/requirements/` – Requirements: `limitations.md`, `performance.md`, `compatibility/` (substrate, multiplayer, open-world, platforms, plugins)
+- `docs/purchase/` – Purchase: `license.md`, `refund-policy.md`
+- `docs/updates/` – Updates: `index.md` (Roadmap), `3-0.md`, `2-0.md`, `1-1.md`
+- `docs/help/` – Help: `faq.md`, `support.md`, `reporting-bugs.md`
+
+**Dział Documentation**
 - `docs/getting-started/` – Getting started: `installation.md`, `project-settings.md`, `updating.md`, `tutorials.md`
-- `docs/compatibility/` – Compatibility: `index.md` (przekierowanie do Limitations → Compatibility), `substrate.md`, `multiplayer.md`, `open-world.md`, `platforms.md`, `plugins.md`
-- `docs/guide/` – Documentation (Core systems): project-structure, player-character, buoyancy, surface-actor, interactions, ground-capture, simulation-domain, coastline-domain, glass-system
-- `docs/showcase/` – Showcase: `index.md` (filmy, galeria, gry; `videos.md`, `gallery.md`, `games.md` tylko przekierowują)
-- `docs/release-notes/` – `index.md` (aktualizacje i roadmapa), `3-0.md`, `2-0.md`, `1-1.md`
-- `docs/support/` – `index.md` (kontakt, zgłaszanie błędów, refund policy), `license.md` (licencje), `refund-policy.md`, `reporting-bugs.md`
+- `docs/core-systems/` – Core systems: project-structure, player-character, buoyancy, surface-actor, interactions, ground-capture, simulation-domain, coastline-domain, glass-system
+
+**Pozostałe**
 - `docs/.vitepress/config.mjs` – menu, linki, nazwa strony
-- `docs/.vitepress/theme/` – komponenty `<YouTube />` i `<MediaVideo />` oraz style
+- `docs/.vitepress/theme/` – komponenty, style i skrypty (m.in. `redirects.mjs` – przekierowania ze starych adresów)
 - `docs/public/images/` – wszystkie obrazki i filmy
 - `scripts/` – pomocnicze skrypty
 
@@ -48,4 +55,4 @@ Po zmianach sprawdź `git diff` / zakładkę Changes w GitHub Desktop.
 Jeśli wkleisz treść z imaginaryblend.com z linkami do `wp-content/uploads`, uruchom `npm run assets` – skrypt pobierze pliki do `docs/public/images/` i przepisze linki na lokalne. Potem `npm run check`.
 
 ## Do uzupełnienia
-- Brakuje obrazka `docs/public/images/help-panel-toggle-visible.png` (zrzut węzła ToggleVisible w „begin play" FluidFluxPlayerController). Po dodaniu pliku usuń znaczniki `<!--` i `-->` w `docs/guide/player-character.md` (sekcja „Disabling the help panel").
+- Brakuje obrazka `docs/public/images/help-panel-toggle-visible.png` (zrzut węzła ToggleVisible w „begin play" FluidFluxPlayerController). Po dodaniu pliku usuń znaczniki `<!--` i `-->` w `docs/core-systems/player-character.md` (sekcja „Disabling the help panel").
