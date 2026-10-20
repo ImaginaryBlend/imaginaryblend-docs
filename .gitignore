@@ -1,3 +1,17 @@
+# Zależności
 node_modules
+
+# Pliki tymczasowe i wynik budowania VitePress
 docs/.vitepress/cache
 docs/.vitepress/dist
+
+# Logi
+*.log
+npm-debug.log*
+
+# Pliki systemowe i edytorów
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode
+.idea
