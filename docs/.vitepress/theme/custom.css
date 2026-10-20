@@ -23,3 +23,388 @@
   max-width: 100%;
   height: auto;
 }
+
+/* Kolorystyka z imaginaryblend.com */
+:root {
+  --ib-teal: #37bebe;
+  --ib-teal-dark: #2a9e9e;
+  --ib-teal-light: #5fd0d0;
+
+  --vp-c-brand-1: var(--ib-teal);
+  --vp-c-brand-2: var(--ib-teal-dark);
+  --vp-c-brand-3: var(--ib-teal);
+  --vp-c-brand-soft: rgba(55, 190, 190, 0.14);
+}
+
+:root:not(.dark) {
+  --vp-c-bg: #ffffff;
+  --vp-c-text-1: #444444;
+  --vp-c-text-2: rgba(51, 51, 51, 0.7);
+}
+
+:root:not(.dark) .vp-doc h1 {
+  color: #2f2f2f;
+}
+
+/* Tryb ciemny: nagłówki i linki w kolorze turkusowym */
+.dark {
+  --vp-c-brand-1: var(--ib-teal);
+  --vp-c-brand-2: var(--ib-teal-light);
+  --vp-c-brand-3: var(--ib-teal-dark);
+  --vp-c-brand-soft: rgba(55, 190, 190, 0.16);
+}
+
+.dark .vp-doc h1,
+.dark .vp-doc h2,
+.dark .vp-doc h3,
+.dark .vp-doc h4,
+.dark .vp-doc h5,
+.dark .vp-doc h6 {
+  color: var(--ib-teal);
+}
+
+/* Galeria zdjęć */
+.gallery p {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Kafelki z linkami */
+.link-cards p {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.link-cards a {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.link-cards a strong {
+  color: var(--vp-c-brand-1);
+}
+.link-cards a:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+/* Obrazek na stronie głównej */
+.VPHero .image-src {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+@media (min-width: 960px) {
+  .VPHero .image-container {
+    width: 440px;
+    height: 320px;
+  }
+  .VPHero .image-src {
+    max-width: 440px;
+  }
+}
+
+/* Szerszy układ strony */
+:root {
+  --vp-layout-max-width: 1760px;
+}
+@media (min-width: 1280px) {
+  html .VPDoc.has-aside .content-container.content-container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 960px) {
+  html .VPDoc:not(.has-sidebar) .container.container {
+    max-width: 1280px;
+  }
+  html .VPDoc:not(.has-sidebar) .content.content {
+    max-width: 960px;
+  }
+}
+
+/* Tabele w stylu imaginaryblend.com */
+:root {
+  --ib-table-head-bg: #e8fbfb;
+  --ib-table-bg: rgba(0, 0, 0, 0.03);
+}
+.dark {
+  --ib-table-head-bg: rgba(55, 190, 190, 0.14);
+  --ib-table-bg: rgba(255, 255, 255, 0.04);
+}
+.vp-doc table {
+  border-collapse: collapse;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+@media (min-width: 768px) {
+  .vp-doc table {
+    display: table;
+    width: 100%;
+  }
+}
+.vp-doc tr,
+.vp-doc tr:nth-child(2n) {
+  background-color: transparent;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.vp-doc th,
+.vp-doc td {
+  border: none;
+  padding: 10px 16px;
+}
+.vp-doc thead tr {
+  border-top: none;
+}
+.vp-doc th {
+  background-color: var(--ib-table-head-bg);
+  border-bottom: 2px solid var(--ib-teal);
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+.vp-doc td {
+  background-color: var(--ib-table-bg);
+}
+
+/* Pasek boczny: podświetlenie aktualnej strony i czytanego rozdziału */
+html .VPSidebarItem.is-active > .item,
+html .VPSidebarItem.ib-reading > .item {
+  margin-left: -10px;
+  padding-left: 10px;
+  border-radius: 4px;
+  background-color: var(--vp-c-brand-soft);
+}
+html .VPSidebarItem.is-active > .item > .indicator {
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  background-color: var(--vp-c-brand-1);
+}
+/* Gdy czytany jest konkretny rozdział, strona zostaje tylko z paskiem */
+html .VPSidebarItem.is-active:has(.ib-reading) > .item {
+  background-color: transparent;
+}
+html .VPSidebarItem.ib-reading > .item .link > .text {
+  color: var(--vp-c-brand-1);
+}
+/* Kotwice (#rozdział) podświetla tylko przewijanie, nie ostatnio kliknięty link */
+html .VPSidebarItem.is-active:not(.ib-reading):has(> .item > a[href*="#"]) > .item {
+  margin-left: 0;
+  padding-left: 0;
+  background-color: transparent;
+}
+html .VPSidebarItem.is-active:not(.ib-reading):has(> .item > a[href*="#"]) > .item > .indicator {
+  background-color: transparent;
+}
+html .VPSidebarItem.is-active:not(.ib-reading):has(> .item > a[href*="#"]) > .item .link > .text {
+  color: var(--vp-c-text-2);
+}
+
+/* Pasek boczny: płynne zwijanie i rozwijanie działów */
+html body .VPSidebarItem.collapsed .items.items {
+  display: block;
+}
+html .VPSidebarItem .items.items {
+  display: block;
+  overflow: hidden;
+  interpolate-size: allow-keywords;
+  height: auto;
+  opacity: 1;
+  transition: height 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+html .VPSidebarItem.collapsed > .items.items {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+/* miejsce na podświetlenie, które wystaje w lewo poza listę */
+html .VPSidebarItem.level-0 > .items.items {
+  margin-left: -12px;
+  padding-left: 12px;
+}
+/* Przeglądarki bez animowania height: auto (Firefox, Safari) */
+@supports not (interpolate-size: allow-keywords) {
+  html .VPSidebarItem .items.items {
+    height: auto;
+    max-height: 1500px;
+    transition: max-height 0.35s ease, opacity 0.3s ease, visibility 0.3s;
+  }
+  html .VPSidebarItem.collapsed > .items.items {
+    height: auto;
+    max-height: 0;
+  }
+}
+
+/* Kolorowe ramki z podpowiedziami (jak na imaginaryblend.com) */
+:root:not(.dark) {
+  --vp-custom-block-tip-bg: #c7f4d8;
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: #2f2f2f;
+  --vp-custom-block-info-bg: #c7e7f4;
+  --vp-custom-block-info-border: transparent;
+  --vp-custom-block-info-text: #2f2f2f;
+  --vp-custom-block-warning-bg: #f3f4c7;
+  --vp-custom-block-warning-border: transparent;
+  --vp-custom-block-warning-text: #2f2f2f;
+  --vp-custom-block-danger-bg: #f4c7ca;
+  --vp-custom-block-danger-border: transparent;
+  --vp-custom-block-danger-text: #2f2f2f;
+}
+.dark {
+  --vp-custom-block-tip-bg: rgba(60, 200, 120, 0.14);
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-info-bg: rgba(60, 160, 220, 0.14);
+  --vp-custom-block-info-border: transparent;
+  --vp-custom-block-warning-bg: rgba(220, 210, 60, 0.13);
+  --vp-custom-block-warning-border: transparent;
+  --vp-custom-block-danger-bg: rgba(230, 80, 90, 0.16);
+  --vp-custom-block-danger-border: transparent;
+}
+.vp-doc .custom-block {
+  border-radius: 4px;
+}
+.vp-doc .custom-block.tip .custom-block-title { color: #1f8a4c; }
+.vp-doc .custom-block.info .custom-block-title { color: #1f6f9a; }
+.vp-doc .custom-block.warning .custom-block-title { color: #8a7a10; }
+.vp-doc .custom-block.danger .custom-block-title { color: #b0303a; }
+.dark .vp-doc .custom-block.tip .custom-block-title { color: #5fd38f; }
+.dark .vp-doc .custom-block.info .custom-block-title { color: #6cbcea; }
+.dark .vp-doc .custom-block.warning .custom-block-title { color: #e2d45c; }
+.dark .vp-doc .custom-block.danger .custom-block-title { color: #f07a83; }
+
+/* Nazwy klas (kod w tekście) – czytelniejsze w trybie jasnym */
+:root:not(.dark) {
+  --vp-code-color: #16706f;
+  --vp-code-bg: rgba(55, 190, 190, 0.12);
+}
+.vp-doc :not(pre) > code {
+  font-weight: 500;
+}
+
+/* Typografia w stylu dokumentacji Unreal Engine */
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.65;
+}
+.vp-doc ul,
+.vp-doc ol {
+  padding-left: 2rem;
+}
+.vp-doc li + li {
+  margin-top: 12px;
+}
+.vp-doc li > ul,
+.vp-doc li > ol {
+  margin-top: 8px;
+}
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.vp-doc h1 {
+  font-size: 36px;
+  line-height: 1.25;
+}
+.vp-doc h2 {
+  margin: 56px 0 12px;
+  padding-top: 0;
+  border-top: none;
+  font-size: 30px;
+  line-height: 1.25;
+}
+.vp-doc h3 {
+  margin: 40px 0 8px;
+  font-size: 24px;
+  line-height: 1.3;
+}
+.vp-doc h4 {
+  margin: 32px 0 8px;
+  font-size: 19px;
+}
+.vp-doc h1 + p,
+.vp-doc h2 + p,
+.vp-doc h3 + p,
+.vp-doc h4 + p {
+  margin-top: 0;
+}
+.vp-doc img {
+  margin: 8px 0;
+  border-radius: 8px;
+}
+@media (max-width: 767px) {
+  .vp-doc h1 { font-size: 30px; }
+  .vp-doc h2 { font-size: 25px; margin-top: 44px; }
+  .vp-doc h3 { font-size: 21px; }
+}
+
+/* Numeracja w kółkach (jak na imaginaryblend.com), podświetlana po najechaniu */
+:root {
+  --ib-ol-bg: #f6f6f7;
+  --ib-ol-color: #666666;
+  --ib-ol-hover-bg: #eaffff;
+}
+.dark {
+  --ib-ol-bg: rgba(255, 255, 255, 0.07);
+  --ib-ol-color: var(--vp-c-text-2);
+  --ib-ol-hover-bg: rgba(55, 190, 190, 0.22);
+}
+.vp-doc ol {
+  list-style: none;
+  padding-left: 44px;
+}
+.vp-doc ol > li {
+  position: relative;
+}
+.vp-doc ol > li::before {
+  content: counter(list-item);
+  position: absolute;
+  top: -1px;
+  left: -44px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--ib-ol-bg);
+  color: var(--ib-ol-color);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+.vp-doc ol > li:hover::before {
+  background-color: var(--ib-ol-hover-bg);
+}
+
+/* Większy odstęp przed listami i po nich */
+.vp-doc ul,
+.vp-doc ol {
+  margin: 24px 0;
+}
+.vp-doc li > ul,
+.vp-doc li > ol {
+  margin: 8px 0;
+}
+
+/* Mniejszy odstęp między punktami listy */
+.vp-doc li + li {
+  margin-top: 6px;
+}
+
+/* Bez znaczka # przy nagłówkach */
+.vp-doc .header-anchor {
+  display: none;
+}
