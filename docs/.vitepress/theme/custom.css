@@ -46,7 +46,7 @@
   color: #2f2f2f;
 }
 
-/* Tryb ciemny: nagłówki i linki w kolorze turkusowym */
+/* Tryb ciemny: nagłówki rozdziałów i linki w kolorze turkusowym */
 .dark {
   --vp-c-brand-1: var(--ib-teal);
   --vp-c-brand-2: var(--ib-teal-light);
@@ -54,13 +54,16 @@
   --vp-c-brand-soft: rgba(55, 190, 190, 0.16);
 }
 
-.dark .vp-doc h1,
+/* turkus tylko dla tytułu strony (h1) – rozdziały i podrozdziały w kolorze tekstu */
+.dark .vp-doc h1 {
+  color: var(--ib-teal);
+}
 .dark .vp-doc h2,
 .dark .vp-doc h3,
 .dark .vp-doc h4,
 .dark .vp-doc h5,
 .dark .vp-doc h6 {
-  color: var(--ib-teal);
+  color: var(--vp-c-text-1);
 }
 
 /* Galeria zdjęć */
@@ -106,7 +109,7 @@
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
-@media (min-width: 960px) {
+@media (min-width: 1280px) {
   .VPHero .image-container {
     width: 440px;
     height: 320px;
@@ -407,4 +410,467 @@ html .VPSidebarItem.level-0 > .items.items {
 /* Bez znaczka # przy nagłówkach */
 .vp-doc .header-anchor {
   display: none;
+}
+
+/* Powiększanie obrazków po kliknięciu */
+:root {
+  --ib-zoom-bg: rgba(255, 255, 255, 0.95);
+}
+.dark {
+  --ib-zoom-bg: rgba(20, 20, 24, 0.95);
+}
+.vp-doc img:not(.no-zoom) {
+  cursor: zoom-in;
+}
+.ib-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ib-zoom-bg);
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.ib-lightbox.open {
+  opacity: 1;
+}
+.ib-lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  height: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Większy odstęp pod głównym tytułem strony */
+.vp-doc h1 {
+  margin-bottom: 28px;
+}
+
+/* Górne menu: logo, lupka, przełącznik trybu, menu i ikony – zbite razem i wyśrodkowane */
+html body .VPNavBar .content-body.content-body {
+  justify-content: flex-start;
+}
+.VPNavBarTitle .logo {
+  width: var(--vp-nav-logo-height);
+  flex-shrink: 0;
+}
+/* lupka bez tekstu i skrótu */
+html body .VPNavBarSearch.search {
+  flex-grow: 0;
+  order: 1;
+  padding-left: 0;
+}
+.VPNavBarSearch .DocSearch-Button-Placeholder,
+.VPNavBarSearch .DocSearch-Button-Keys {
+  display: none !important;
+}
+.VPNavBarSearch .DocSearch-Button {
+  margin: 0;
+  padding: 0 8px;
+  background: transparent;
+}
+/* przełącznik trybu jasny/ciemny zawsze widoczny, obok lupki */
+html body .VPNavBarAppearance.appearance {
+  display: flex;
+  order: 2;
+  margin-left: 4px;
+}
+html body .VPNavBar .content-body .appearance::before,
+html body .VPNavBar .content-body .social-links::before {
+  display: none;
+}
+html body .VPNavBarMenu.menu {
+  order: 3;
+  margin-left: 16px;
+}
+html body .VPNavBarSocialLinks.social-links {
+  order: 4;
+  margin-left: auto;
+}
+html body .VPNavBarExtra.extra {
+  order: 5;
+  margin-left: auto;
+}
+html body .VPNavBarHamburger.hamburger {
+  order: 6;
+  margin-left: auto;
+}
+@media (min-width: 960px) {
+  /* jednolite tło całego paska zamiast kolumny nad menu bocznym */
+  html body .VPNavBar.has-sidebar.has-sidebar {
+    background-color: var(--vp-nav-bg-color);
+  }
+  html body .VPNavBar .divider.divider {
+    padding-left: 0;
+  }
+  html body .VPNavBarTitle.has-sidebar .title {
+    border-bottom-color: transparent;
+  }
+  /* wszystkie elementy obok siebie, na środku paska */
+  html body .VPNavBar .container.container {
+    justify-content: center;
+    max-width: 100%;
+  }
+  html body .VPNavBar .container > .title.title {
+    position: static;
+    width: auto;
+    padding: 0 12px 0 0;
+  }
+  html body .VPNavBar.VPNavBar .container > .content.content {
+    flex-grow: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  html body .VPNavBarSocialLinks.social-links,
+  html body .VPNavBarExtra.extra {
+    margin-left: 16px;
+    margin-right: 0;
+  }
+}
+
+/* Odrobinę mniejsze nagłówki rozdziałów */
+.vp-doc h2 {
+  font-size: 26px;
+}
+.vp-doc h3 {
+  font-size: 21px;
+}
+@media (max-width: 767px) {
+  .vp-doc h2 { font-size: 23px; }
+  .vp-doc h3 { font-size: 19px; }
+}
+
+/* Turkusowa obwódka na obrazku po najechaniu (jak na imaginaryblend.com) */
+.vp-doc img,
+.VPHero .image-src {
+  outline: 5px solid transparent;
+  outline-offset: -5px;
+  transition: outline-color 0.2s;
+}
+.vp-doc img:hover,
+.VPHero .image-src:hover {
+  outline-color: rgba(55, 190, 190, 0.6);
+}
+.dark .vp-doc img:hover,
+.dark .VPHero .image-src:hover {
+  outline-color: #1b3133;
+}
+
+/* Obrazki z ostrymi krawędziami (bez zaokrągleń) */
+.vp-doc img,
+.vp-doc .gallery img,
+.VPHero .image-src {
+  border-radius: 0;
+}
+/* obwódka rysowana na zewnątrz obrazka */
+.vp-doc img,
+.VPHero .image-src {
+  outline-offset: 0;
+}
+.vp-doc img:hover {
+  position: relative;
+  z-index: 1;
+}
+
+/* Nazwy klas: wariant 2 – prawie czarny tekst na jasnoszarym tle (tryb jasny) */
+:root:not(.dark) {
+  --vp-code-color: #2f2f2f;
+  --vp-code-bg: #eef0f2;
+  --vp-code-link-color: #16706f;
+  --vp-code-link-hover-color: #0f5453;
+}
+:root:not(.dark) .vp-doc :not(pre) > code {
+  border: 1px solid #dde1e4;
+}
+.vp-doc a > code {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+/* odrobinę szerszy odstęp między literami w nazwach klas */
+.vp-doc :not(pre) > code {
+  letter-spacing: 0.03em;
+}
+/* jedno, delikatne podkreślenie pod nazwą klasy w linku */
+.vp-doc a:has(> code) {
+  text-decoration: none;
+}
+.vp-doc a > code {
+  text-decoration-color: rgba(22, 112, 111, 0.45);
+}
+.dark .vp-doc a > code {
+  text-decoration-color: rgba(55, 190, 190, 0.45);
+}
+.vp-doc a:hover > code {
+  text-decoration-color: currentColor;
+}
+
+/* Tablet (768–959 px): menu pod przyciskiem ☰ jak na telefonie, żeby pasek się mieścił */
+@media (min-width: 768px) and (max-width: 959px) {
+  html body .VPNavBarMenu.menu,
+  html body .VPNavBarExtra.extra {
+    display: none;
+  }
+  html body .VPNavBarHamburger.hamburger {
+    display: flex;
+  }
+  html body .VPNavScreen.VPNavScreen {
+    display: block;
+  }
+}
+
+/* Strona główna: tekst nie nachodzi na obrazek na średnich ekranach */
+@media (min-width: 960px) and (max-width: 1279.98px) {
+  .VPHero.has-image .main .tagline,
+  .VPHero.has-image .main .text {
+    max-width: 460px;
+  }
+}
+
+/* Strona główna: mniejszy opis pod tytułem */
+.VPHero .tagline {
+  font-size: 18px;
+  line-height: 1.6;
+}
+@media (min-width: 960px) {
+  .VPHero .tagline {
+    font-size: 20px;
+    padding-top: 16px;
+  }
+}
+
+/* Strona główna: większy pokaz zdjęć w nagłówku */
+@media (min-width: 1280px) {
+  .VPHero .image-container {
+    width: 600px;
+    height: 340px;
+  }
+  .VPHero .image-src {
+    max-width: 600px;
+  }
+  .VPHero.has-image .main .tagline {
+    max-width: 480px;
+  }
+}
+@media (min-width: 960px) and (max-width: 1279.98px) {
+  .VPHero .image-container {
+    width: clamp(320px, calc(100vw - 720px), 400px);
+    height: 260px;
+  }
+  .VPHero .image-src {
+    max-width: 400px;
+  }
+}
+
+/* Strona główna: tytuł „FLUID FLUX” wielkimi literami, biały/czarny */
+:root {
+  --vp-home-hero-name-color: var(--vp-c-text-1);
+}
+.VPHero .name {
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Przełącznik trybu jasny/ciemny po prawej, obok ikon */
+html body .VPNavBarAppearance.appearance {
+  order: 4;
+  margin-left: 16px;
+}
+html body .VPNavBarSocialLinks.social-links.social-links {
+  order: 5;
+  margin-left: 4px;
+}
+html body .VPNavBarExtra.extra.extra {
+  order: 6;
+}
+html body .VPNavBarHamburger.hamburger.hamburger {
+  order: 7;
+}
+@media (max-width: 959px) {
+  html body .VPNavBarAppearance.appearance {
+    margin-left: auto;
+  }
+  html body .VPNavBarHamburger.hamburger.hamburger {
+    margin-left: 4px;
+  }
+}
+
+/* „Fluid Flux” w górnym pasku = przycisk działu Introduction, podświetlony gdy ten dział jest otwarty */
+.VPNavBarTitle .title span {
+  transition: color 0.25s;
+}
+.VPNavBarTitle .title:hover span,
+.VPNavBarTitle.ib-active .title span {
+  color: var(--vp-c-brand-1);
+}
+
+/* Kroki z obrazkami obok siebie (np. Installing from Fab) */
+.vp-doc .steps {
+  counter-reset: ib-step;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+@media (max-width: 767px) {
+  .vp-doc .steps {
+    grid-template-columns: 1fr;
+  }
+}
+.vp-doc .step {
+  counter-increment: ib-step;
+  position: relative;
+  padding: 12px 14px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg-soft);
+}
+.vp-doc .step::before {
+  content: counter(ib-step);
+  position: absolute;
+  top: -12px;
+  left: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--vp-c-brand-1);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 26px;
+  text-align: center;
+}
+.vp-doc .step p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.vp-doc .step p:first-child {
+  margin-top: 4px;
+}
+.vp-doc .step img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin: 0;
+  object-fit: contain;
+  background-color: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+}
+/* obrazek kroku w naturalnych proporcjach – dzięki temu powiększenie pokazuje go w pełnym rozmiarze */
+.vp-doc .step img {
+  width: auto;
+  max-width: 100%;
+  height: 150px;
+  margin: 0 auto;
+  object-fit: initial;
+  background: none;
+}
+
+/* Lupka wyszukiwania po prawej, tuż przed przełącznikiem trybu */
+html body .VPNavBarSearch.search.search {
+  order: 4;
+  margin-left: 16px;
+}
+html body .VPNavBarAppearance.appearance.appearance {
+  order: 5;
+  margin-left: 0;
+}
+html body .VPNavBarSocialLinks.social-links.social-links {
+  order: 6;
+}
+html body .VPNavBarExtra.extra.extra {
+  order: 7;
+}
+html body .VPNavBarHamburger.hamburger.hamburger {
+  order: 8;
+}
+@media (max-width: 959px) {
+  html body .VPNavBarSearch.search.search {
+    margin-left: auto;
+  }
+}
+
+/* Showcase: filmy po dwa w rzędzie */
+.vp-doc .video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 20px;
+}
+@media (max-width: 767px) {
+  .vp-doc .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.vp-doc .video-grid p {
+  margin: 0;
+  font-size: 15px;
+}
+.vp-doc .video-grid .video-frame {
+  margin: 8px 0 16px;
+}
+
+/* Licencje w stylu cennika: nazwa u góry, opis, przycisk na dole */
+.vp-doc .pricing {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+@media (max-width: 767px) {
+  .vp-doc .pricing {
+    grid-template-columns: 1fr;
+  }
+}
+.vp-doc .plan {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-top: 3px solid var(--ib-teal);
+  border-radius: 8px;
+  background-color: var(--vp-c-bg-soft);
+  text-align: center;
+}
+.vp-doc .plan-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+.vp-doc .plan-sub {
+  margin-top: 2px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-2);
+}
+.vp-doc .plan-desc {
+  flex-grow: 1;
+  margin: 16px 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+.vp-doc .plan-button {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background-color: var(--ib-teal);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.vp-doc .plan-button:hover {
+  background-color: var(--ib-teal-dark);
+  color: #fff;
+}
+.vp-doc .plan-price {
+  margin-top: 14px;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ib-teal);
 }

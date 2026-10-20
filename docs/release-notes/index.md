@@ -1,4 +1,4 @@
-# Updates & roadmap
+# Roadmap
 
 Fluid Flux has received numerous updates, all provided free of charge to existing users.
 
@@ -10,7 +10,7 @@ Fluid Flux has received numerous updates, all provided free of charge to existin
 
 Before installing a new version, follow the [Updating process](/getting-started/updating).
 
-## Roadmap
+## Planned updates
 
 You can keep track of the current progress of improvements on [Trello](https://trello.com/b/NBN93cSo/fluidflux-roadmap). Numerous updates are planned, but I don’t have a specific timeframe. It’s essential to base your purchasing decisions on the product demonstrated in the demo rather than relying solely on my promises.
 

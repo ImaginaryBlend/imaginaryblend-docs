@@ -7,7 +7,7 @@ Character-related implementation is simplified to a minimum and encapsulated in 
 | Component | Description |
 | --- | --- |
 | `FluxDataComponent` | Used for extracting surface information (velocity, height, and volume) from the water system. Provides that to other systems. |
-| `FluxInteractionComponent` | It generates waves after interaction on the water surface. |
+| **[`FluxInteractionComponent`](/guide/interactions)** | It generates waves after interaction on the water surface. |
 | **[`FluxBuoyancyComponent`](/guide/buoyancy)** | Character floating on water. Activates only when the character switches to a ragdoll state. |
 | `FluxSwimmingComponent` | Implements swimming movement. It changes the character’s state when it’s in water and can swim (not ragdoll). |
 | `FluxDriverComponent` | Implements communication between the vehicle and the character, which allows possession. |

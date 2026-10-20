@@ -1,4 +1,4 @@
-# Buoyancy component
+# Buoyancy
 
 The **buoyancy** is an upward force exerted by a fluid that opposes the weight of a partially or wholly immersed object. The `BP_FluxBuoyancyComponent` calculates physical forces based on the configuration set using a `PDA_FluxBuoyancyData` data asset. Additionally, the system supports **drag** and **current** forces that use fluid velocity to determine movement.
 

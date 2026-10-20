@@ -1,4 +1,4 @@
-# Substrate compatibility
+# Substrate
 
 ::: tip Tip
 Since the release of Unreal Engine 5.7, the Substrate-related chapter is no longer relevant; Substrate is officially stable and compatible with Fluid Flux.
