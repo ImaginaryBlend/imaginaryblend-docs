@@ -3,13 +3,14 @@
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute, withBase } from 'vitepress'
 
-const MAIN = /^\/($|index|introduction\/|compatibility\/|showcase\/|release-notes\/|support\/)/
+// everything outside the Documentation section belongs to the main Fluid Flux section
+const DOCS = /^\/(getting-started|core-systems)\//
 
 export function useTitleActive() {
   const route = useRoute()
   const update = () => {
     const path = route.path.replace(withBase('/'), '/')
-    document.querySelector('.VPNavBarTitle')?.classList.toggle('ib-active', MAIN.test(path))
+    document.querySelector('.VPNavBarTitle')?.classList.toggle('ib-active', !DOCS.test(path))
   }
   onMounted(update)
   watch(

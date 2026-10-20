@@ -36,5 +36,5 @@ It’s best to avoid **making modifications** to the pack by yourself. If you ne
 In case of any problem, contact me using the support email at [imaginaryblend@gmail.com](mailto:imaginaryblend@gmail.com).
 
 ::: tip
-Before updating, read the [release notes](/release-notes/) of the new version – they list changes that are not backward compatible.
+Before updating, read the [release notes](/updates/) of the new version – they list changes that are not backward compatible.
 :::

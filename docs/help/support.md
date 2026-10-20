@@ -4,7 +4,7 @@ The **weakest** point of this product is its documentation, which may be incompl
 
 - [Documentation](/)
 - [Video tutorials](https://www.youtube.com/playlist?list=PLU2BtkTjRiuiW1MVy0VJopQqV5JYQECf8) (some videos already deprecated)
-- [Questions & Answers](/introduction/faq)
+- [Questions & Answers](/help/faq)
 
 ## Contact
 
@@ -15,12 +15,12 @@ I always answer support questions, but my availability is limited due to the hig
 
 ## Reporting bugs
 
-The [Reporting bugs](/support/reporting-bugs) guide provides essential guidance on reporting system errors. Learn how to identify, report, and analyze bugs to ensure smooth support.
+The [Reporting bugs](/help/reporting-bugs) guide provides essential guidance on reporting system errors. Learn how to identify, report, and analyze bugs to ensure smooth support.
 
 ## Refund Policy
 
-This refund policy ensures fairness for all customers and creators in the Unreal Marketplace. Refunds are typically granted for faulty products or those that do not function as intended. Please read the [Refund Policy](/support/refund-policy).
+This refund policy ensures fairness for all customers and creators in the Unreal Marketplace. Refunds are typically granted for faulty products or those that do not function as intended. Please read the [Refund Policy](/purchase/refund-policy).
 
 ## License
 
-License options (FAB Personal, FAB Professional and custom licenses) are described on the [License](/support/license) page.
+License options (FAB Personal, FAB Professional and custom licenses) are described on the [License](/purchase/license) page.

@@ -11,7 +11,7 @@ The interaction system configuration is demonstrated in several example blueprin
 
 A detailed explanation of the implementation presented in `BP_DemoCharacter` can be found below:
 
-1. `Component.BP_FluxDataComponent` – This component reads the fluid data required for further interaction calculations, including height and velocity. You can find more information about this component and its configuration in the [Reading fluid data](/guide/surface-actor#reading-fluid-data) section.
+1. `Component.BP_FluxDataComponent` – This component reads the fluid data required for further interaction calculations, including height and velocity. You can find more information about this component and its configuration in the [Reading fluid data](/core-systems/surface-actor#reading-fluid-data) section.
 
 2. `Component.BP_FluxInteractionComponent` – This component stores a list of **interaction sources**. The **interaction source** is a sphere attached to the component (or skeletal mesh bone) that generates waves after interacting with fluid.
 

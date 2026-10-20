@@ -6,9 +6,9 @@ This document provides essential guidance on reporting system errors. Learn how 
 
 Most of the issues are already known and can be easily avoided by you, which is why I prepared this checklist.
 
-1. Check the product’s [**limitations**](/introduction/limitations); there is a chance that your use case is not handled yet.
-2. Ensure that the bug is not listed in the [**known issues**](/introduction/limitations#known-issues) of the product. 
-3. Read the documentation, mainly focusing on the chapters titled **Solving issues** (for example [Ground capture](/guide/ground-capture#solving-issues), [Simulation Domain](/guide/simulation-domain#solving-issues) and [Coastline Domain](/guide/coastline-domain#solving-issues)), which cover the most common problems.
+1. Check the product’s [**limitations**](/requirements/limitations); there is a chance that your use case is not handled yet.
+2. Ensure that the bug is not listed in the [**known issues**](/requirements/limitations#known-issues) of the product. 
+3. Read the documentation, mainly focusing on the chapters titled **Solving issues** (for example [Ground capture](/core-systems/ground-capture#solving-issues), [Simulation Domain](/core-systems/simulation-domain#solving-issues) and [Coastline Domain](/core-systems/coastline-domain#solving-issues)), which cover the most common problems.
 4. Check the marketplace launcher and ensure you use the **newest version** of the product.
 5. Ensure you are my client and use the product from legal sources; support may require verification.
 

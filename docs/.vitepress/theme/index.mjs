@@ -6,6 +6,7 @@ import { useReadingSection } from './readingSection.mjs'
 import { useSidebarAccordion } from './sidebarAccordion.mjs'
 import { useImageZoom } from './imageZoom.mjs'
 import { useTitleActive } from './titleActive.mjs'
+import { useRedirects } from './redirects.mjs'
 import './custom.css'
 
 export default {
@@ -20,5 +21,6 @@ export default {
     useSidebarAccordion()
     useImageZoom()
     useTitleActive()
+    useRedirects()
   }
 }

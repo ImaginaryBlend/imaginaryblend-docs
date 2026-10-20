@@ -18,9 +18,9 @@ The Fluid Flux project is structured in a specific manner. This brief descriptio
 
 The documentation follows the main actors of the pack:
 
-- [Player character](/guide/player-character) – swimming and vehicles
-- [Buoyancy](/guide/buoyancy) – floating objects, boats and ragdolls
-- [Surface actor](/guide/surface-actor) – rendering water, color presets
-- [Interactions](/guide/interactions) – ripples and splashes around characters and objects
-- [Simulation Domain](/guide/simulation-domain) and [Coastline Domain](/guide/coastline-domain) – simulating rivers and oceans
-- [Glass system](/guide/glass-system) – underwater glass and tunnels
+- [Player character](/core-systems/player-character) – swimming and vehicles
+- [Buoyancy](/core-systems/buoyancy) – floating objects, boats and ragdolls
+- [Surface actor](/core-systems/surface-actor) – rendering water, color presets
+- [Interactions](/core-systems/interactions) – ripples and splashes around characters and objects
+- [Simulation Domain](/core-systems/simulation-domain) and [Coastline Domain](/core-systems/coastline-domain) – simulating rivers and oceans
+- [Glass system](/core-systems/glass-system) – underwater glass and tunnels
