@@ -1,6 +1,8 @@
 # Limitations
 
-With great power comes great responsibility. I am committed to being a reliable marketplace creator, so I must communicate the limitations and disadvantages of using simulations. The Fluid Flux system is somewhat **overhyped**, so please read the description below before purchasing and ensure everything aligns with your expectations and requirements. Ensuring that is crucial for the [Refund Policy](/purchase/refund-policy).
+<blockquote class="ib-quote"><p>With great power comes great responsibility.</p></blockquote>
+
+I am committed to being a reliable marketplace creator, so I must communicate the limitations and disadvantages of using simulations. The Fluid Flux system is somewhat **overhyped**, so please read the description below before purchasing and ensure everything aligns with your expectations and requirements. Ensuring that is crucial for the [Refund Policy](/purchase/refund-policy).
 
 The system is advanced, so it may be **overwhelming for beginners**. The code is clean and elegant, but reading blueprints and analyzing example code are required.
 

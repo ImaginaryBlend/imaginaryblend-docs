@@ -1,6 +1,10 @@
 ---
 title: Fluid Flux
 titleTemplate: Real-time water for Unreal Engine
+editLink: false
+lastUpdated: false
+prev: false
+next: false
 ---
 
 <div class="ib-hero">
@@ -29,12 +33,12 @@ titleTemplate: Real-time water for Unreal Engine
 
 <div class="link-cards even">
 
-[**Features and showcase**<br>Features, demo, videos and games](/product/showcase){.i-image}
+[**Showcase**<br>Features, demo, videos and games](/product/showcase){.i-image}
 [**Limitations**<br>Read before purchasing](/product/limitations){.i-alert}
 [**Compatibility**<br>Substrate, multiplayer, platforms](/product/limitations#compatibility){.i-puzzle}
 [**License**<br>Personal, professional and custom](/purchase/license){.i-cart}
 [**Getting started**<br>Installation and project setup](/getting-started/installation){.i-rocket}
-[**Documentation**<br>Actors, systems and tools](/getting-started/installation){.i-book}
+[**Documentation**<br>Actors, systems and tools](/core-systems/project-structure){.i-book}
 [**Release notes**<br>What changed in each version](/updates/){.i-map}
 [**Support**<br>Discord, email, license](/help/support){.i-lifebuoy}
 
