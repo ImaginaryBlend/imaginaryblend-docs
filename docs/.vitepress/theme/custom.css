@@ -527,7 +527,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   margin-bottom: 28px;
 }
 
-/* Górne menu: logo, lupka, przełącznik trybu, menu i ikony – zbite razem i wyśrodkowane */
+/* Górne menu: logo, Documentation i lupka z lewej, przełącznik trybu i ikony z prawej (podział na końcu pliku) */
 html body .VPNavBar .content-body.content-body {
   justify-content: flex-start;
 }
@@ -587,7 +587,7 @@ html body .VPNavBarHamburger.hamburger {
   html body .VPNavBarTitle.has-sidebar .title {
     border-bottom-color: transparent;
   }
-  /* wszystkie elementy obok siebie, na środku paska */
+  /* elementy paska obok siebie – podział na lewą i prawą grupę jest na końcu pliku */
   html body .VPNavBar .container.container {
     justify-content: center;
     max-width: 100%;
@@ -1199,4 +1199,22 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
 }
 .vp-doc td:has(> .ib-ue-logo) {
   white-space: nowrap;
+}
+
+/* Górny pasek rozdzielony: logo, Documentation i lupka z lewej, przełącznik trybu i ikony z prawej */
+@media (min-width: 960px) {
+  /* pasek w granicach kolumny treści: logo w linii z tytułem strony, ikony kończą się z prawą krawędzią treści
+     (pozycję mierzy theme/navAlign.mjs; bez pomiaru – szerokość układu strony) */
+  html body .VPNavBar .container.container.container {
+    justify-content: flex-start;
+    width: var(--ib-nav-width, calc(min(1760px, 100%) - 64px));
+    max-width: none;
+    margin: 0 0 0 var(--ib-nav-left, 32px);
+  }
+  html body .VPNavBar.VPNavBar .container > .content.content.content {
+    flex-grow: 1;
+  }
+  html body .VPNavBarAppearance.appearance.appearance.appearance {
+    margin-left: auto;
+  }
 }

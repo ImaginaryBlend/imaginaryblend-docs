@@ -12,7 +12,7 @@ The surface actor implements a list of advanced subsystems:
 | --- | --- |
 | DecalCausticsWet | caustics decal<br>surface wetness decal |
 | SurfaceOverMesh | surface mesh<br>surface scattering<br>surface foam<br>surface detail advection |
-| Post-Process | underwater postprocess<br>underwater waterline |
+| Post-Process | underwater post-process<br>underwater waterline |
 | SurfaceUnderMesh | underwater surface |
 | AudioComponent | Analyzing the fluid surface for the audio source |
 | Volume Absorption, Volume Scattering | Rendering underwater fog and absorption volume |
@@ -26,7 +26,7 @@ The `BP_FluxSurface` is an abstract base parent class, meaning it can’t be pla
 | `BP_FluxSurface_Ocean` | Advanced ocean materials, ocean audio, materials blended with wave actor, underwater mesh, underwater scattering, and absorption volume. |
 | `BP_FluxSurface_Coastline` | Rendering two domains, simulation, and coastline at the same time. |
 
-Users can also implement their surface templates and extend the surface’s functionalities.
+Users can also implement their own surface templates and extend the surface’s functionalities.
 
 The surface actor does not have any data to render, meaning that simulation or coastline domains must send it to the actor by setting the **SurfaceActorReference**. The **SurfaceActorReference** attribute in the **Domain** actor you use (SimulationDomain or CoastlineDomain) should reference the surface actor that will render the data. Otherwise, the domain will spawn a temporary water surface that can’t be configured by hand.
 

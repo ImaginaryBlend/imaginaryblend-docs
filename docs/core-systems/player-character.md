@@ -2,7 +2,7 @@
 
 The demo maps showcase the features of Fluid Flux with the help of example classes like `BP_DemoCharacter`, which provide a fully functional implementation of the character interacting with water. The Fluid Flux build for UE 5.3+ uses **Enhanced Input**, which implements character input inside the project.
 
-Character-related implementation is simplified to a minimum and encapsulated in separate classes, making the transfer of implementation even more straightforward. This document does not provide a detailed step-by-step description of implementing character, but highlights the components and features used. More detailed descriptions can be found in the sections dedicated to these tools:
+Character-related implementation is simplified to a minimum and encapsulated in separate classes, making the transfer of implementation even more straightforward. This document does not provide a detailed step-by-step description of implementing the character, but highlights the components and features used. More detailed descriptions can be found in the sections dedicated to these tools:
 
 | Component | Description |
 | --- | --- |
@@ -14,33 +14,33 @@ Character-related implementation is simplified to a minimum and encapsulated in 
 | `FluxModifierForceComponent` | Simulation modifier that moves water around the character only inside the domain area. |
 
 ::: info
-The easiest way to investigate how components are used in the character is to click the right mouse button on **Component -> “find references,”** the engine will show you all the places where it is implemented.
+The easiest way to investigate how components are used in the character is to right-click the component and choose **Find References** – the engine will show you all the places where it is used.
 :::
 
 ## Disabling the help panel
 
-After running the demo, you can notice the help panel located in the bottom right corner of the screen, which is helpful for testing features in the maps. The panel is added automatically. If you use an example character in your project and want to remove this HUD, there are many ways to choose:
+After running the demo, you will notice the help panel located in the bottom right corner of the screen, which is helpful for testing features in the maps. The panel is added automatically. If you use an example character in your project and want to remove this HUD, you can do it in one of the following ways:
 
-1. Add ToggleVisible in “begin play” FluidFluxPlayerController like this:
+1. Add the ToggleVisible node to the BeginPlay event of FluidFluxPlayerController.
 
    <!-- ![image.png](/images/help-panel-toggle-visible.png) -->
 
-2. Remove the “Create `BP_HudWidged`” node in the player controller
+2. Remove the “Create `BP_Hud`” node from the player controller.
 3. Switch the game mode (controller) in your level from the demo to your game controller.
 
 ## Swimming component
 
 In general, swimming is not a prominent feature of this product; it is more of an additional example that presents one of many ways to do it. The swimming example is demonstrated in DemoCharacter and requires several components to function properly.
 
-1. Swimming requires **PhysicsVolume** on the map with `PhysicsVolume` → **Water Volume** = true is used to activate swimming when the character is inside.
-2. The swimming system requires `Character.BP_FluxDataComponent` that provides data from water.
-3. The `BP_FluxSwimmingComponent` implements movement for you and controls CharacterMovement, which is required.
-4. Open and click the right mouse button on `BP_FluxSwimming` → **“Find References”**, and you will see how it is controlled using input.
+1. Swimming requires a **PhysicsVolume** on the map with `PhysicsVolume` → **Water Volume** = true. It activates swimming when the character is inside.
+2. The swimming system requires `Character.BP_FluxDataComponent`, which provides data from the water.
+3. `BP_FluxSwimmingComponent` implements the movement for you and controls the required CharacterMovement component.
+4. Right-click `BP_FluxSwimming` and choose **Find References** to see how it is controlled using input.
 5. The swimming animation depends on the character animation blueprint implementation and will vary in every project, so there are many ways to implement it. My simple example switches animation when **SwimmingState** is detected in SwimmingComponent.
 
 ## Vehicle driver
 
-The Fluid Flux has a unique vehicle pawn actor that can be possessed and controlled. The actor `BP_FluxBuoyancyVehiclePawn` is a template for the vehicle that can be inherited and implemented as needed.
+Fluid Flux includes a vehicle pawn actor that can be possessed and controlled. The actor `BP_FluxBuoyancyVehiclePawn` is a template for the vehicle that can be inherited and implemented as needed.
 
 The vehicle system supports many valuable features:
 

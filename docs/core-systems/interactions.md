@@ -29,7 +29,7 @@ A detailed explanation of the implementation presented in `BP_DemoCharacter` can
 
    *Player character interfaces*
 
-5. Implement the **GetInteractions** in `BPI_FluxInteraction`. When `BP_FluxInteractionCapture` is an overlapping interactive actor, it calls the GetInteractions function to retrieve information about the interactions that are occurring.
+5. Implement the **GetInteractions** in `BPI_FluxInteraction`. When `BP_FluxInteractionCapture` overlaps an interactive actor, it calls the GetInteractions function to retrieve information about the interactions that are occurring.
 
    ![](/images/2021/09/interaction.png)
 
@@ -38,13 +38,13 @@ A detailed explanation of the implementation presented in `BP_DemoCharacter` can
 6. The `BP_FluxInteractionCapture` actor is placed on every map. The actor detects the interactable actors and manages the whole process of generating the interaction effect. The **InteractionCapture** actor uses the **overlap** to identify actors within the interaction actor’s area. This mechanism ensures that only the area’s actors are considered potential sources of interaction. For example, a character uses the Capsule component for overlap; custom actors require the addition of a collision component, such as SphereCollision.
 
 ::: warning
-There are many steps to do before interaction start working but no worries you can debug and make sure that every part of your implementation works correctly:
+Interactions require several steps to work. If something does not work, check every part of your implementation:
 
-1. Test it on demo maps at first
+1. Test it on the demo maps first.
 2. Enable DrawDebug in `BP_FluxInteractionCapture`
 3. Enable DebugDraw in `BP_FluxDataComponent`
 4. Enable DebugDraw in `BP_FluxInteractionComponent`
-5. Make sure that “GetInteractions” is evaluated. Put a breakpoint in this function to check. If its not then your actor is not detected by overlap with **InteractionCapture** and you may have to add collision volume to your actor.
+5. Make sure that “GetInteractions” is evaluated. Put a breakpoint in this function to check. If it is not, your actor is not detected by the **InteractionCapture** overlap, and you may need to add a collision volume to your actor.
 :::
 
 ## Splashes

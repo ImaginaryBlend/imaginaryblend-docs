@@ -20,7 +20,7 @@ Example use cases of glass systems are presented on demonstration maps and can b
 - `FluxOceanMap` – The simplest example of an SDF domain and a sphere of glass cutting a hole in the ocean.
 - `FluxCoastlineMap` – Single SDF domain capturing the spline mesh tunnel and rendering glass combined with the coastline.
 - `FluxIslandMap` – Advanced example presenting a mix of multiple types of SDF bodies and glass meshes (spline, Box, Sphere) and a simulation reacting on the glass mesh.
-- **`UseCase_02_InverseTube`** – Inverted spline mesh glass and inverted SDF cut. Additionally, the configuration presents the top cap of the ground map used as a blocker for fluid inside the tube (see the ground map after selecting Simulation Domain)
+- **`UseCase_02_InverseTube`** – Inverted spline mesh glass and inverted SDF cut. Additionally, the configuration presents the top cap of the ground map used as a blocker for fluid inside the tube (see the ground map after selecting the Simulation Domain).
 
 ## Examples
 
@@ -39,12 +39,12 @@ Example use cases of glass systems are presented on demonstration maps and can b
 
 ### Example C – Adding a glass tube (advanced)
 
-1. Add `BP_SDFOutline` on the map. This actor represents a canvas for ActuPrint spline actors.
+1. Add `BP_SDFOutline` on the map. This actor represents a canvas for spline actors.
 2. Select `BP_SDFVolumeDomain`, find the **SourceActors** list. Add a new item to the list and set its reference to the `BP_SDFOutline` you just created on the map.
 3. Add `BP_FluxGlassSplineActor` and set the MeshCrossectionSDF in it. It’s basically the description of the tube shape.
 4. Select the `BP_SDFOutline`
 5. Adjust the `BP_SDFOutline` location, resolution, and world pixel size to overlap the spline actor area with the required precision. It’s good practice to start with the parameters to `BP_SDFVolumeDomain`, and you can later adjust the precision or size to get better/optimal results.
-6. Select `BP_SDFOutline` and sdd spline actors to the **CapturedActors** list. This step is required to indicate to the system which spline actors should be used as data sources.
+6. Select `BP_SDFOutline` and add spline actors to the **CapturedActors** list. This step is required to indicate to the system which spline actors should be used as data sources.
 7. Select `BP_SDFVolumeDomain` and click **CaptureDistanceFields**. The button forces the signed distance field to be refreshed based on the current geometry.
 
 From now on, you should see holes in the surface of water. I’m aware that the current setup isn’t as straightforward as it should be, and I’m working on a much simpler solution that will bake SDFs directly from static meshes, eliminating the need for additional complex actors.
@@ -55,7 +55,7 @@ A **Signed Distance Field (SDF) volume** is a 3D representation where each point
 
 ### Capturing shapes
 
-Building an SDF volume requires capturing the distance to the surface of the scene geometry. This process requires a specified list of actors that will be captured by adding them to the array `BP_SDFVolumeDomain.SourceActors` is an array. Those sources of data can be generated differently depending on the type of geometry, and Fluid Flux supports a few basing types of SDF sources (implementing the `BPI_SDFSource`):
+Building an SDF volume requires capturing the distance to the surface of the scene geometry. The actors to capture are listed in the `BP_SDFVolumeDomain.SourceActors` array. These data sources can be generated differently depending on the type of geometry, and Fluid Flux supports a few basic types of SDF sources (implementing the `BPI_SDFSource` interface):
 
 - `BP_SDFShape` – The most straightforward mesh shape represents a box with round corners.
 - `BP_SDFOutline` – Intermediate actor capturing data from Spline actor meshes that can capture many spline meshes simultaneously.
@@ -66,18 +66,18 @@ Building an SDF volume requires capturing the distance to the surface of the sce
 
 The `BP_SDFVolumeDomain` is the only container that generates and stores information about the signed distance field. That data needs to be sent to other actors for further use. The list of actors that should receive data from Domain is defined in `BP_SDFVolumeDomain->TargetActors`.
 
-Example systems that use the SDF data,
+Example systems that use the SDF data:
 
 - `BP_SDFPreview` (**implements `BPI_SDFRenderer`**) is a simple actor that can be used to debug the SDF on the plane mesh.
 - `BP_FluxSurface` (**attribute SignedDistanceFieldMask**), the surface actor, uses that data to cut holes and volumes.
 
 ### Exporting SDF to data asset
 
-Overall, the system is designed to generate SDFs in real-time. However, an additional feature is the ability to save a baked SDF volume as a data asset (`PDA_FluxSignedDistanceField`). This enables the SDF to be stored statically on disk, bypassing the resource-intensive runtime generation process. The export method is similar to that used for other data assets in Fluid Flux.
+The system is designed to generate SDFs at runtime. However, an additional feature is the ability to save a baked SDF volume as a data asset (`PDA_FluxSignedDistanceField`). This enables the SDF to be stored statically on disk, bypassing the resource-intensive runtime generation process. The export method is similar to that used for other data assets in Fluid Flux.
 
 1. Create `PDA_FluxSignedDistanceField` data asset.
 2. Select `BP_SDFVolumeDomain`
-3. Click the right button on it and choose Script at **Actor Actions** → `SignedDistanceField->Export`.
+3. Right-click it and choose **Scripted Actions** → `SignedDistanceField->Export`.
 
 ::: info
 The exported `PDA_FluxSignedDistanceField` asset can be used directly in the Surface actor as `BP_FluxSurface->SignedDistanceFieldMask`. Remember to disable generation of the `BP_SDFVolumeDomain` by using the attribute AffectWorld=false or removing the Domain.
@@ -87,18 +87,18 @@ Limitations:
 
 - **SDF Domain Coverage –** The SDF (Signed Distance Field) domain must cover the entire tunnel area, represented as a 3D texture. Stretching the SDF across a large scale can significantly increase memory usage. I intend to address this limitation by implementing virtual texturing in a future update.
 - **Spline Mesh to SDF Workflow –** Baking spline meshes into the SDF is slow and involves multiple steps, which can be confusing for new users. I aim to streamline this process by transitioning the implementation to Niagara, making it more efficient and user-friendly.
-- **Surface Hole Cutting: Precision** Cutting Holes in the Surface Using the SDF can occasionally appear imprecise. While increasing the SDF resolution can address these issues, it may also lead to excessive memory consumption that exceeds practical budgets.
+- **Surface hole precision –** Holes cut in the surface using the SDF can occasionally look imprecise. While increasing the SDF resolution can address these issues, it may also lead to excessive memory consumption that exceeds practical budgets.
 
 ## Glass rendering
 
-A glass rendering system is an advanced combination of materials that uses advanced translucency rendering in Unreal Engine.
+The glass rendering system combines several materials that use advanced translucency rendering in Unreal Engine.
 
 The system is based on `BP_FluxGlassActor`, which implements a few functionalities and attributes shared between numerous predefined types of glass actors that can be placed on a map:
 
 - `BP_FluxGlassBox`
 - `BP_FluxGlassSphere`
 - `BP_FluxGlassSection`
-- `BP_FluxGlassSphere`
+- `BP_FluxGlassSplineActor`
 
 The glass is rendered as multiple instances of the same mesh, interpreted differently depending on the material used. Those material layers can be adjusted in glass actors:
 
@@ -106,5 +106,5 @@ The glass is rendered as multiple instances of the same mesh, interpreted differ
 
 - **Absorption/Scattering** – is responsible for rendering the volume of water behind glass. The mesh utilizes data from the Fluid Flux surface to calculate depth and truncates the mesh in areas where water volume should not be displayed. It is rendered as two independent translucent passes, multiplicative absorption, and additive scattering. The scattering layer also supports the refraction effect of the waterline and water drops.
 - **Glass Inside** – material used for rendering dirty glass and prebaked cube map refraction.
-- **Glass outside** – this layer renders the dithered glass material visible outside the tunnel. It utilizes dithered transparency, which causes some smearing but improves performance, fixes bugs related to invisible glass under single-layer water surfaces, and enhances translucency sorting. This mesh is also used to render soft shadows.
+- **Glass Outside** – this layer renders the dithered glass material visible outside the tunnel. It utilizes dithered transparency, which causes some smearing but improves performance, fixes bugs related to invisible glass under single-layer water surfaces, and enhances translucency sorting. This mesh is also used to render soft shadows.
 - **Simulation Phantom** – This mesh is used to exclude the area from the simulation ground map.

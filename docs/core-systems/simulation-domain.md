@@ -16,13 +16,13 @@ The Shallow Water simulation is based on the assumption of linear vertical press
    **Velocity** (RG) **Depth**(B) **Foam**(A) map – stores information about fluid<br>
    **Height**(R) **Wetness**(G) map – stores surface height and wetness of the surface
 2. The slope of the ground height field and the slope of the fluid are combined and used to calculate the pressure and velocity.
-3. Simulation is an interactive process of updating fluid height and velocity.
+3. Simulation is an iterative process of updating fluid height and velocity.
 4. The result of integration is used for foam and velocity advection.
 5. Fluid modifiers are used as input for the simulation to change the current state.
 6. The simulation frame accumulates fluid wetness and generates the fluid surface mesh displacement.
 
 ::: info
-The `BP_FluxSimulationDomain` actor placed on the map is doing nothing because it’s empty and needs to be filled with fluid. The simplest way to fill containers with fluid is by using a Modifier source actor.
+The `BP_FluxSimulationDomain` actor placed on the map does nothing because it’s empty and needs to be filled with fluid. The simplest way to fill containers with fluid is by using a Modifier source actor.
 :::
 
 The `BP_FluxSimulationDomain` blueprint has a straightforward editor that simulates the fluid’s state on the map in the editor mode. Simulation can be prepared in the editor, baked to a state, or dynamically updated by the simulation blueprint.
@@ -31,7 +31,7 @@ The `BP_FluxSimulationDomain` blueprint has a straightforward editor that simula
 
 ## Modifier Component
 
-A modifier component is a powerful tool that affects the simulation state and changes the current simulation state. It’s the simplest way to interact with the simulation. Modifiers can be used for:
+A modifier component is a powerful tool that changes the current simulation state. It’s the simplest way to interact with the simulation. Modifiers can be used for:
 
 - Adding/removing fluid in the simulation domain.
 - Changing the velocity and flow direction of the fluid
@@ -42,7 +42,7 @@ The tutorial below presents how to add a source modifier to the scene and fill t
 
 <YouTube id="4SWe_DZshOw" />
 
-The Fluid Flux contains predefined modifiers:
+Fluid Flux contains predefined modifiers:
 
 - `BP_FluxModifierComponent` – Base parent class for all fluid modifiers. Every modifier component extends it and implements specific behavior. Users can create custom modifier classes and materials for specific use cases, such as whirlpools/waves. Describing the architecture is outside the scope of documentation. The `BP_FluxModifierSourceComponent` component is an excellent example of a modifier that can be used as a starting point for learning how the system is designed.
 - `BP_FluxModifierSourceComponent` – Simple modifier that allows adding/removing fluid and changing velocity in a specific area.
@@ -55,8 +55,8 @@ The Fluid Flux contains predefined modifiers:
   | Mode | Defines how the modifier is applied to the simulation. All modifiers are rendered to a simulation buffer. Mode is a method of blending used during this process.<br>**Add** – This mode will add the ‘volume’ of fluid and its velocity to the current fluid on the map.<br>**Adjust** – adjusting the current state of fluid to the height of the modifier.<br>**Set** – will set the constant height of fluid in the area. |
   | Edge | The softness/hardness of the modifier edge. Useful for soft mixing with fluid or for uniform filling of the vessel. |
   | Intensity | Scale the modifier’s effect on the domain (0.0, 1.0>. |
-  | Duration | Defines the duration for which the fluid source will remain active. (less than 0 means infinite), (0 Rendered in a single frame and then the modifier will be disabled), (more than 0 is the duration in seconds) |
-  | SortPriority | Affecting an order of modifiers in the queue. It may be helpful when the user needs to fill the domain and then remove some fluid. A value larger than 1000 forces the system to append without sorting. |
+  | Duration | How long the fluid source remains active: less than 0 – infinite; 0 – applied in a single frame, then the modifier is disabled; more than 0 – duration in seconds. |
+  | SortPriority | Affects the order of modifiers in the queue. It may be helpful when the user needs to fill the domain and then remove some fluid. A value larger than 1000 forces the system to append without sorting. |
   | AutoActivate | The modifier can be inactive initially and activated by an event from gameplay or a sequencer. |
 
 ::: info
@@ -77,7 +77,7 @@ Mode= Add, Volume negative – slowly removes fluid
 The modifier container is a particular type of actor that can store multiple modifiers and send them to the simulation. If the actor implements the `BPI_FluxModifierContainer` interface, it’s considered a modifier container.
 
 ::: tip
-`BPI_FluxModifierContainer` interface can be implemented by any actor. A good example is `BP_DemoCharacter` that uses `BP_FluxModifierForceComponent` to interact with a fluid. AddModifiers function only needs to be implemented to make it work.
+`BPI_FluxModifierContainer` interface can be implemented by any actor. A good example is `BP_DemoCharacter` that uses `BP_FluxModifierForceComponent` to interact with a fluid. Only the AddModifiers function needs to be implemented to make it work.
 :::
 
 `BP_FluxModifierContainerActor` is a primary container that combines multiple modifier components into a single actor, allowing them to work simultaneously.
@@ -96,9 +96,9 @@ Every modifier is rendered in an additional render target pass, so it’s not ch
 
 - **Slope Scale (Increase)**<br>
   Increasing this parameter will scale the scene’s height on the Z-axis, making your fluid move slower on slopes. (This parameter will probably be redesigned in the future version for better consistency with the world scale measurements).
-- **OvershootingBlend**(increase), **OvershootingEdge**(Decrease) Fixes overshooting problem by smoothing
+- **OvershootingBlend** (increase), **OvershootingEdge** (decrease) – fix overshooting by smoothing.
 - **Simulation Delta Time (Decrease)**<br>
-  Fluid flux is updating with a constant delay time. That means the time that elapsed between two game frames is divided by delta time, and the result is the **number of iterations.** Generally, more iterations result in lower performance. By default, the Simulation Delta Time attribute is set to 0.2. Although it is not entirely accurate, it can achieve the highest performance.
+  Fluid Flux updates with a constant delta time. That means the time that elapsed between two game frames is divided by delta time, and the result is the **number of iterations.** Generally, more iterations result in lower performance. By default, the Simulation Delta Time attribute is set to 0.2. Although it is not entirely accurate, it can achieve the highest performance.
 - **Debug Preview / Debug Hidden In-Game (Debug)**<br>
   Pay attention to the ground debug preview. If you spot some red spikes where the simulation does not work correctly, your ground texture and geometry should probably be adjusted.
 - Tweaking other variables, such as **slope clamp, velocity clamp, friction, damping, gravity**, and even **world pixel scale,** can make a difference.
@@ -109,25 +109,25 @@ I am still experimenting with different solutions for this spike problem and try
 
 The `PDA_FluxSimulationState` is a unique data asset specifically designed to store the current frame of the simulation. The simulation state is the most essential structure in the system.
 
-The simulation actor dynamically updates simulation states. A dynamic simulation state is automatically created in the constructor script and stored in `BP_FluxSimulationDomain.CurrentState` actor. Data can be easily previewed and used for rendering and further fluid analysis.
+The simulation actor dynamically updates simulation states. A dynamic simulation state is automatically created in the constructor script and stored in `BP_FluxSimulationDomain.CurrentState`. Data can be easily previewed and used for rendering and further fluid analysis.
 
 The simulation state can be exported to the data asset and used later in many ways.
 
 - It can be loaded at runtime
 - It can be used as a starting point for the simulation
-- It can send data to render by the surface actor
+- It can provide data rendered by the surface actor
 - It can be used in other gameplay tools, in Niagara emitters and materials
 
 ### Exporting State
 
-`BP_FluxSimulationDomain`.**CurrentState can** be baked to an asset by clicking the right button on `BP_FluxSimulationDomain` and choosing **Scripted Actions -> Flux Export Simulation**. The short tutorial below presents the process of generating and exporting the fluid state to a data asset:
+`BP_FluxSimulationDomain.CurrentState` can be baked to an asset by right-clicking `BP_FluxSimulationDomain` and choosing **Scripted Actions -> Flux Export Simulation**. The short tutorial below presents the process of generating and exporting the fluid state to a data asset:
 
 <YouTube id="btVLbVRHuWg" />
 
 1. (0:07) Prepare data assets that will store the state
 2. (0:20) Start the simulation of fluid on your map and stop when it’s ready
 3. (0:50) Choose `SimulationDomain` → **Context Menu** → **Scripted Actions** → `FluxExportSimulation`
-4. (0.54) Select the newly created state as a target and adjust settings.
+4. (0:54) Select the newly created state as a target and adjust settings.
 
    ![](/images/2021/09/scripted.png)
 
@@ -145,22 +145,22 @@ After those actions, you should see the generated state and additional textures.
 *Example river state and baked textures.*
 
 ::: danger
-Pay attention to simulation resolution! The “Power of Two” rule is a fundamental necessity due to the way game engines work. You will not be able to export simulation state if it is size is not power of two (128/256/512/1024 etc.)
+Pay attention to simulation resolution! The “Power of Two” rule is a fundamental necessity due to the way game engines work. You will not be able to export the simulation state if its size is not a power of two (128, 256, 512, 1024, etc.).
 :::
 
 ### Use case 1: Initial state
 
-Using the state as the initial state of simulation allows us to start the simulation from a specific frame. It means that a simulation of flowing water does not have to be generated every time the game starts it can start from the saved frame.
+Using the state as the initial state of simulation allows us to start the simulation from a specific frame. It means that a simulation of flowing water does not have to be generated every time the game starts – it can start from the saved frame.
 
 1. Select SimulationDomain
 2. Find InitialState attribute
 3. Set the state exported before
 
-Since now, the simulation has started by reading data from the state.
+From now on, the simulation starts from the data stored in the state.
 
 ### Use case 2: Loading state in gameplay
 
-Sometimes, there is a need to load a state during gameplay in blueprints, like a checkpoint. `Simulation->LoadInitialState` function can be used to handle these tasks. Example use presented in the screenshot below:
+Sometimes, there is a need to load a state during gameplay in blueprints, like a checkpoint. `Simulation->LoadInitialState` function can be used to handle these tasks. An example is presented in the screenshot below:
 
 ![](/images/2021/09/load-state.jpg)
 
@@ -175,15 +175,15 @@ If you are not planning to update the simulation dynamically, then a better opti
 3. Set SimulationDomain->**AffectWorld** = **false**
 4. Set Surface->**SimulationState** directly using the exported asset.
 
-`BP_FluxSimulationDomain.SurfaceActorReference` is set, actors communicate with each other, and the state is automatically passed to `BP_FluxSurface.SimulationState`, but changing **AffectWorld** to **false** disables this connection.
+When `BP_FluxSimulationDomain.SurfaceActorReference` is set, the actors communicate with each other, and the state is automatically passed to `BP_FluxSurface.SimulationState`, but changing **AffectWorld** to **false** disables this connection.
 
 ::: tip
-SimulationDomain can be removed or set IsEditorOnlyActor to avoid spawning it in the final build and wasting memory.
+You can remove SimulationDomain or set IsEditorOnlyActor = true to avoid spawning it in the final build and wasting memory.
 :::
 
 ## Dynamic ground
 
-The Fluid Flux uses a static ground map for simulating fluids, but updates are allowed occasionally. It is costly, so it is not recommended to use this operation in every frame:
+Fluid Flux uses a static ground map for simulating fluids, but updates are allowed occasionally. It is costly, so it is not recommended to use this operation in every frame:
 
 <YouTube id="CQtthiQbJBo" />
 
@@ -191,14 +191,14 @@ The Fluid Flux uses a static ground map for simulating fluids, but updates are a
 
 ![](/images/2021/09/update.jpg)
 
-It evaluates **UpdatGroundMap** on a simulation actor, which takes the object’s position and size that will disappear to recreate the ground in this area. You can do the same operation when adding something on your level.
+It evaluates **UpdateGroundMap** on a simulation actor, which takes the object’s position and size that will disappear to recreate the ground in this area. You can do the same operation when adding something on your level.
 
 ## Mesh generator
 
-The static mesh mode is the most efficient way to render fluid flux water surfaces. In Fluid Flux 3.0, the mesh generator was rewritten to a new, separate editor actor tool called `BP_FluxSurfaceMeshGenerator`.
+The static mesh mode is the most efficient way to render Fluid Flux water surfaces. In Fluid Flux 3.0, the mesh generator was rewritten to a new, separate editor actor tool called `BP_FluxSurfaceMeshGenerator`.
 
 ::: info
-The new tool uses the **Geometry Scripts** **Plugin** introduced in Unreal Engine 5, so don’t forget to enable it in your projects!
+The new tool uses the **Geometry Script** plugin introduced in Unreal Engine 5, so don’t forget to enable it in your projects!
 :::
 
 ### Features of the mesh generator
@@ -216,10 +216,11 @@ The video below presents the optimized output mesh generated in the editor with 
 
 ### Limitations
 
-- Unfortunately, there are still some limitations:
+Unfortunately, there are still some limitations:
+
 - Geometry Scripts work only in the editor, so generating static meshes at runtime is no longer supported.
 - Generating huge meshes may take some time, as the system is partially implemented in blueprints.
-- The generator works only for rivers and lakes. Building a static mesh for the ocean makes sense, since it should be dynamic.
+- The generator works only for rivers and lakes. Building a static mesh for the ocean makes no sense, since the ocean should be dynamic.
 - The output mesh can’t be blended with the ocean because it uses another surface rendering mode.
 - If the mesh is too dense, generation may not execute, as it may exceed the available iteration count in blueprints. You can fix this by increasing the **Maximum Loop Iterations** parameter in Project Settings.
 
@@ -231,7 +232,7 @@ All generator attributes are organized in separate tabs designed for specific ta
 - **Source** – Source of data for generation. The system can read data from the Simulation Domain, Surface Actor, or Simulation Data Asset.
 - **Generator** – Parameters for processing mesh generation and mesh simplification.
 - **Preview** – The way the mesh is displayed to the user. Preview mode is crucial:<br>
-  PreviewEditor_GeneratedMesh – generated preview of mesh that can be adjusted.<br>
+  PreviewEditor_GeneratorMesh – generated preview of the mesh that can be adjusted.<br>
   PreviewActor_DataAsset – original data asset rendering.<br>
   PreviewActor_StaticMesh – final generated mesh on surface.
 
@@ -241,13 +242,13 @@ In the tutorial below, we will walk through a workflow for generating static mes
 
 1. Use a simulation domain to generate water. (previous chapters)
 2. Export simulated state to Simulation Data Asset (previous chapters)
-3. Switch surface to static mode (`SimulationDomain.AfectWorld`=false, `SurfaceActor->SimulationState`=Exported state.
+3. Switch the surface to static mode (`SimulationDomain.AffectWorld` = false, `SurfaceActor->SimulationState` = exported state).
 4. Add `BP_FluxSurfaceMeshGenerator` on the level.
 5. Set the `SurfaceMeshGenerator.SourceActor` = `Level.Surface` (it provides data for generation)<br>
    Alternatively, you can set the **SourceDataAsset** = exported data asset.
 6. Set the `SurfaceMeshGenerator.PreviewActor` = `Level.Surface` (it will display the data)
 7. Set previewMode = PreviewEditor_GeneratorMesh. This option renders the mesh directly in the editor. It can’t be used at runtime.
-8. Use Exporter options to **Target Static Mesh** or generate a new one when it’s undefined.
+8. In the Exporter options, set the **Target Static Mesh** or generate a new one when it’s undefined.
 9. Click **“Save to Mesh Asset”** to export the mesh.
 10. When `SurfaceMeshGenerator.TargetStaticMesh` is set, you can switch the preview option to **PreviewActor_StaticMesh** to see the exported mesh in the game.
 
@@ -255,7 +256,7 @@ The `BP_FluxSurface` actor renders static meshes using the special mode **Surfac
 
 The example preview material “`MI_River_SurfaceOverStatic`” is designed for static meshes and can handle fluid data such as foam and velocity encoded in vertex color. The material is set to the mode `Material.UseSimulation = false`, which means the system will read the data from the vertex information instead of sampling textures.
 
-Surface **PreviewActor_StaticMesh** uses **SurfaceOvewBakedMaterial** for rendering geometry.
+Surface **PreviewActor_StaticMesh** uses **SurfaceOverBakedMaterial** for rendering geometry.
 
 Below you can watch a short video presenting the process of using the `BP_FluxSurfaceMeshGenerator` on a preconfigured Surface with exported data state:
 
@@ -267,7 +268,7 @@ Creating an ocean scene is a complex topic that involves coordinating multiple a
 
 ### Configuration step by step
 
-1. Start with an empty map with some island/landscape/ground meshed.
+1. Start with an empty map with some island, landscape or ground meshes.
 2. Add actors:
    - Add `BP_FluxSimulationDomain` actor. Responsible for simulating water.
    - Add `BP_FluxSurface_Ocean` actor. Responsible for rendering.
@@ -303,13 +304,13 @@ Sequencer allows users to create in-game cinematics through its specialized mult
 If you want to preview the simulation with a sequencer, then this setup may be helpful for you:
 
 1. Drag and drop the sequencer on your map.
-2. Switch the AutoPlay option in LevelSequenceActor.
+2. Enable the AutoPlay option in LevelSequenceActor.
 3. Press “Play in selected viewport” or “Simulate.”
 
 Fluid Flux provides an option to use modifier activation/deactivation functions from a sequencer. The process of using this functionality is simple:
 
-1. Add Sequencer on the level and set parameter: Autoplay=True
-2. Add Source modifier on the level and set parameters Duration=-1, AutoActivate=false
+1. Add a Level Sequence to the level and set Autoplay = true.
+2. Add a Source modifier to the level and set Duration = -1, AutoActivate = false.
 
    ![](/images/2021/09/sourcemod.png)
 
@@ -319,4 +320,4 @@ Fluid Flux provides an option to use modifier activation/deactivation functions 
 
    ![](/images/2021/09/modifier.png)
 
-Now, you can test the scene by rendering a video or playing the game. The modifier should activate automatically by the sequencer event.
+Now, you can test the scene by rendering a video or playing the game. The modifier should be activated automatically by the Sequencer event.

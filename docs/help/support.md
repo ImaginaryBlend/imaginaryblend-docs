@@ -9,7 +9,7 @@ Many problems already have a known solution, so check the [Troubleshooting](/hel
 <div class="link-cards">
 
 [**Support email**<br>imaginaryblend@gmail.com](mailto:imaginaryblend@gmail.com){.i-mail}
-[**Discord**<br>Support threads and community](https://discord.gg/rG2q3SB5EB){.i-chat}
+[**Discord**<br>Support threads and community](https://discord.gg/JavGBJB){.i-chat}
 [**Fab questions**<br>Questions tab on the product page](https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11){.i-help}
 
 </div>
