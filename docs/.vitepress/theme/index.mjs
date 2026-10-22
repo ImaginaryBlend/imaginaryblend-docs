@@ -5,6 +5,7 @@ import MediaVideo from './MediaVideo.vue'
 import HeroSlideshow from './HeroSlideshow.vue'
 import UsedIn from './UsedIn.vue'
 import Tweet from './Tweet.vue'
+import BugReportForm from './BugReportForm.vue'
 import SiteFooter from './SiteFooter.vue'
 import NotFoundPage from './NotFoundPage.vue'
 import { useReadingSection } from './readingSection.mjs'
@@ -30,6 +31,7 @@ export default {
     app.component('HeroSlideshow', HeroSlideshow)
     app.component('UsedIn', UsedIn)
     app.component('Tweet', Tweet)
+    app.component('BugReportForm', BugReportForm)
   },
   setup() {
     useReadingSection()

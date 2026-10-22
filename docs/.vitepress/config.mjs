@@ -183,6 +183,8 @@ export default defineConfig({
   title: 'Fluid Flux',
   description: DESCRIPTION,
   cleanUrls: true,
+  // pages kept for later but not published (bug report form – theme/BugReportForm.vue)
+  srcExclude: ['help/bug-report-form.md'],
   // sitemap.xml for search engines
   sitemap: { hostname: SITE_URL },
   // "Last updated" under each page, taken from the git history (the deploy workflow fetches the full history)

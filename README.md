@@ -24,7 +24,7 @@ Foldery odpowiadają menu po lewej stronie.
 - `docs/getting-started/` – Getting started: `installation.md`, `project-settings.md`, `updating.md`, `tutorials.md`
 - `docs/core-systems/` – Core systems: project-structure, player-character, buoyancy, surface-actor (+ color-presets, world-painter, reading-fluid-data, niagara-integration, translucency, cut-mask-and-holes), interactions, ground-capture, simulation-domain, coastline-domain, glass-system
 - `docs/compatibility/` – Compatibility: substrate, multiplayer, open-world, platforms, plugins
-- `docs/help/` – Help: `troubleshooting.md` (typowe problemy), `support.md` (kontakt), `reporting-bugs.md` (zgłaszanie błędów i minimal project)
+- `docs/help/` – Help: `troubleshooting.md` (typowe problemy), `support.md` (kontakt), `reporting-bugs.md` (zgłaszanie błędów i minimal project), `bug-report-form.md` (formularz zgłoszenia, ukryty – wyłączony w `srcExclude` w `config.mjs`, komponent `theme/BugReportForm.vue`)
 
 **Pozostałe**
 - `docs/.vitepress/config.mjs` – menu, linki, nazwa strony
