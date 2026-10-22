@@ -2,8 +2,6 @@
 
 Fluid Flux is a comprehensive solution for simulating realistic water surfaces and fluid interactions within Unreal Engine. This documentation outlines its core features, tools, and best practices to help users achieve optimal results.
 
-[![Fab marketplace](/images/fab-logo.png){.fab-logo}](https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11)
-
 Fluid Flux is distributed through the [Fab marketplace](https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11) and is installed directly into your Unreal Engine project using the **Fab plugin** built into the editor. This chapter walks you through the first installation of the package.
 
 ::: info Already using Fluid Flux?

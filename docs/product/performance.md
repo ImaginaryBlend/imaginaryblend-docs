@@ -19,10 +19,10 @@ In the case of bigger maps, efficiency may sometimes be a problem. I recommend a
 ## Scalability
 
 The simulation domain requires allocating floating-point render targets and updating them every frame, which can be expensive.
-The size of domains can be increased by changing the precision of details per simulation cell. Ocean setup does not require allocating memory, but rendering water is limited by floating-point calculations. You may encourage many unpredictable behaviors, such as disappearing post-process and surfacing far from the center of the map; 20 km in every direction is the limit.
+The size of domains can be increased by changing the precision of details per simulation cell. Ocean setup does not require allocating memory, but rendering water is limited by floating-point calculations. Far from the center of the map, floating-point precision may cause unpredictable behaviors, such as disappearing post-process or surface artifacts. The coastline domain covers up to 10 km x 10 km (2048 x 2048 at 500 cm per pixel); the ocean has been used up to 160 km x 160 km and has no fixed size limit.
 
 | Domain | Resolution | Precision | Maximum domain size |
 | --- | --- | --- | --- |
 | Simulation | up to 1024 x 1024 | up to 100 cm per pixel | 1km x 1km |
 | Coastline (island) | up to 2048 x 2048 | up to 500 cm per pixel | 10 km x 10 km |
-| Ocean | n/a | n/a | 150 km x 150 km |
+| Ocean | n/a | n/a | 160 km x 160 km (no fixed limit) |

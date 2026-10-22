@@ -952,24 +952,6 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   color: var(--ib-teal);
 }
 
-/* Logo Fab obok opisu instalacji */
-.vp-doc img.fab-logo {
-  float: right;
-  width: 120px;
-  margin: 0 0 12px 24px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-@media (max-width: 639px) {
-  .vp-doc img.fab-logo {
-    width: 88px;
-  }
-}
-.vp-doc .custom-block,
-.vp-doc h2 {
-  clear: both;
-}
-
 /* Ikonki grup w menu bocznym: szare, turkusowe gdy w grupie jest otwarta strona */
 .VPSidebar .ib-icon {
   width: 16px;
