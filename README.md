@@ -18,13 +18,13 @@ Foldery odpowiadają menu po lewej stronie.
 - `docs/index.md` – Product → Overview (strona startowa: logo i tytuł, opis z wersjami silnika, przyciski Fab/demo, pokaz zdjęć, przewijany pasek „Made with Fluid Flux” – lista w `theme/UsedIn.vue`, kafelki z odsyłaczami)
 - `docs/product/` – Product: `showcase.md` (funkcje, demo, filmy, galeria, gry), `performance.md`, `limitations.md`, `faq.md`
 - `docs/purchase/` – Purchase: `license.md`, `refund-policy.md`
-- `docs/updates/` – Updates: `index.md` (Roadmap), `3-0.md`, `2-0.md`, `1-1.md`
+- `docs/updates/` – Release Notes: `index.md` (wersje i plany), `3-0.md`, `2-0.md`, `1-1.md`
 
 **Dział Documentation**
 - `docs/getting-started/` – Getting started: `installation.md`, `project-settings.md`, `updating.md`, `tutorials.md`
 - `docs/core-systems/` – Core systems: project-structure, player-character, buoyancy, surface-actor (+ color-presets, world-painter, reading-fluid-data, niagara-integration, translucency, cut-mask-and-holes), interactions, ground-capture, simulation-domain, coastline-domain, glass-system
 - `docs/compatibility/` – Compatibility: substrate, multiplayer, open-world, platforms, plugins
-- `docs/help/` – Help: `support.md` (pomoc i zgłaszanie błędów), `minimal-project.md`
+- `docs/help/` – Help: `troubleshooting.md` (typowe problemy), `support.md` (kontakt), `reporting-bugs.md` (zgłaszanie błędów i minimal project)
 
 **Pozostałe**
 - `docs/.vitepress/config.mjs` – menu, linki, nazwa strony

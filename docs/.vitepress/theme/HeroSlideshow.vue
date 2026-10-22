@@ -6,7 +6,6 @@ import { withBase } from 'vitepress'
 const slides = [
   '/images/gallery/hero-beach.jpg',
   '/images/gallery/glass-tunnel.jpg',
-  '/images/gallery/waterfall.jpg',
   '/images/gallery/sunset-beach.jpg',
   '/images/gallery/coastline-waves.jpg',
   '/images/gallery/island-coastline.jpg'

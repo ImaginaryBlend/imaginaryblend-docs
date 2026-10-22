@@ -13,6 +13,7 @@ const PAGES = {
   '/simulation-domain': '/core-systems/simulation-domain',
   '/coastline-domain': '/core-systems/coastline-domain',
   '/glass-system': '/core-systems/glass-system',
+  '/help/minimal-project': '/help/reporting-bugs#minimal-project',
   '/api-examples': '/',
   '/markdown-examples': '/'
 }
@@ -22,7 +23,9 @@ const SECTIONS = {
   '/introduction#installation': '/getting-started/installation',
   '/introduction#substrate-compatibility': '/compatibility/substrate',
   '/introduction#project-structure': '/core-systems/project-structure',
-  '/introduction#reporting-bugs': '/help/support',
+  '/introduction#reporting-bugs': '/help/reporting-bugs',
+  '/help/support#preparing-a-bug-report': '/help/reporting-bugs#what-to-include',
+  '/help/support#before-requesting-support': '/help/troubleshooting#before-you-ask',
   '/player-character#buoyancy-component': '/core-systems/buoyancy',
   '/surface-actor#world-painter-and-brush': '/core-systems/world-painter',
   '/surface-actor#reading-fluid-data': '/core-systems/reading-fluid-data',

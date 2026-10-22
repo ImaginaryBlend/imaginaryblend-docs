@@ -148,9 +148,10 @@
   }
 }
 
-/* Szerszy układ strony */
+/* Szerszy układ strony. Nie szerszy niż okno – VitePress liczy z tego szerokość menu bocznego,
+   a przy oknie węższym niż 1760 px menu kurczyło się i ucinało nazwy */
 :root {
-  --vp-layout-max-width: 1760px;
+  --vp-layout-max-width: min(1760px, 100vw);
 }
 @media (min-width: 1280px) {
   html .VPDoc.has-aside .content-container.content-container {
@@ -1126,4 +1127,76 @@ html body .VPNavBar.VPNavBar:not(.home.top) .divider-line.divider-line {
 /* bez linii pod samym „Fluid Flux” – VitePress rysuje ją nad menu bocznym, a u nas tytuł jest wyśrodkowany */
 html body .VPNavBarTitle.has-sidebar .title.title {
   border-bottom-color: transparent;
+}
+
+/* Menu boczne na tle strony, oddzielone od treści cienką linią obok pozycji menu (jak spis „On this page”) */
+:root {
+  --vp-sidebar-bg-color: var(--vp-c-bg);
+}
+@media (min-width: 960px) {
+  /* linia odsunięta od strzałek i podświetlenia: stoi 20 px za listą, bliżej krawędzi menu */
+  html body .VPSidebar .nav.nav {
+    /* menu zaczyna się na wysokości tytułu strony i spisu „On this page” */
+    margin-top: 48px;
+    margin-right: -20px;
+    padding-right: 28px;
+    border-right: 1px solid var(--vp-c-divider);
+  }
+  /* VitePress daje liście stałą szerokość, przez co wchodziła na linię */
+  html body .VPSidebar .group.group {
+    width: auto;
+  }
+}
+
+/* Górny pasek w ciemniejszym odcieniu niż tło strony (dawny kolor menu bocznego) */
+:root {
+  --vp-nav-bg-color: var(--vp-c-bg-alt);
+  --vp-local-nav-bg-color: var(--vp-c-bg-alt);
+}
+
+/* Ikona Fab w górnym pasku szersza od pozostałych – logo jest płaską elipsą i przy 20 px było nieczytelne */
+html body .VPSocialLink[aria-label*='Fab'] > svg {
+  width: 32px;
+  height: 21px;
+}
+/* odstęp od ikony YouTube – logo jest szersze niż pozostałe ikony */
+html body .VPSocialLink[aria-label*='Fab'] {
+  margin-left: 10px;
+}
+
+/* Stałe miejsce na pasek przewijania – krótka strona (np. Overview) nie zmienia szerokości
+   i górny pasek oraz menu nie przesuwają się przy przechodzeniu między stronami */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Główne działy menu (z ikonką) zawsze jasne, nie tylko ten z otwartą stroną */
+html body .VPSidebarItem.level-1:has(> .item .ib-icon):not(.is-active) > .item .text {
+  color: var(--vp-c-text-1);
+}
+/* dział, który jest też linkiem (Roadmap), po najechaniu turkusowy jak inne linki */
+html body .VPSidebarItem.level-1.is-link:has(> .item .ib-icon):not(.is-active) > .item:hover .text {
+  color: var(--vp-c-brand-1);
+}
+
+/* „Fluid Flux” i „Documentation” w górnym pasku to dwa przyciski działów – ten sam rozmiar i grubość */
+html body .VPNavBarTitle .title.title {
+  font-size: 15px;
+  font-weight: 600;
+}
+html body .VPNavBarMenuLink.VPNavBarMenuLink {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Logo Unreal Engine przy nazwie silnika w tabeli wymagań */
+.vp-doc .ib-icon.ib-ue-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: -5px;
+  color: var(--vp-c-text-1);
+}
+.vp-doc td:has(> .ib-ue-logo) {
+  white-space: nowrap;
 }

@@ -2,20 +2,6 @@
 
 Fluid Flux is distributed under the [Standard FAB license](https://www.fab.com/eula). You can use it in your projects and games, including releasing them on storefronts like Steam, Epic Games Store, PlayStation Store or Xbox Store. However, distributing or selling the product’s source code is strictly prohibited.
 
-## Pre-purchase checklist
-
-Before purchasing, make sure that Fluid Flux meets the expectations and requirements of your project:
-
-- check what the package offers on the [Showcase](/product/showcase#features) page,
-- read the [Limitations](/product/limitations) of the simulation and the [Compatibility](/product/limitations#compatibility) summary,
-- check the [Performance](/product/performance) results and domain size limits,
-- try the free [executable demo](https://imaginaryblend.itch.io/fluid-flux) on your target hardware,
-- read the [Refund Policy](/purchase/refund-policy).
-
-If you are uncertain whether Fluid Flux fits your project or need some clarification, [contact me](/help/support#contact) before purchasing – I will be happy to help.
-
-## License options
-
 <div class="pricing">
 <div class="plan">
 <div class="plan-name">Personal</div>
@@ -38,3 +24,15 @@ If you are uncertain whether Fluid Flux fits your project or need some clarifica
 </div>
 
 Current prices for both FAB licenses are listed on the [Fab product page](https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11).
+
+## Pre-purchase checklist
+
+Before purchasing, make sure that Fluid Flux meets the expectations and requirements of your project:
+
+- check what the package offers on the [Showcase](/product/showcase#features) page,
+- read the [Limitations](/product/limitations) of the simulation and the [Compatibility](/product/limitations#compatibility) summary,
+- check the [Performance](/product/performance) results and domain size limits,
+- try the free [executable demo](https://imaginaryblend.itch.io/fluid-flux) on your target hardware,
+- read the [Refund Policy](/purchase/refund-policy).
+
+If you are uncertain whether Fluid Flux fits your project or need some clarification, [contact me](/help/support#contact) before purchasing – I will be happy to help.
