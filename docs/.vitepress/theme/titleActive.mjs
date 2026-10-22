@@ -4,7 +4,7 @@ import { onMounted, watch, nextTick } from 'vue'
 import { useRoute, withBase } from 'vitepress'
 
 // everything outside the Documentation section belongs to the main Fluid Flux section
-const DOCS = /^\/(getting-started|core-systems)\//
+const DOCS = /^\/(getting-started|core-systems|compatibility|help)\//
 
 export function useTitleActive() {
   const route = useRoute()

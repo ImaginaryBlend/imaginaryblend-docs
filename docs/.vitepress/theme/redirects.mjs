@@ -20,10 +20,16 @@ const PAGES = {
 // Sections that moved to a different page; the remaining anchors keep their name.
 const SECTIONS = {
   '/introduction#installation': '/getting-started/installation',
-  '/introduction#substrate-compatibility': '/requirements/compatibility/substrate',
+  '/introduction#substrate-compatibility': '/compatibility/substrate',
   '/introduction#project-structure': '/core-systems/project-structure',
-  '/introduction#reporting-bugs': '/help/reporting-bugs',
+  '/introduction#reporting-bugs': '/help/support',
   '/player-character#buoyancy-component': '/core-systems/buoyancy',
+  '/surface-actor#world-painter-and-brush': '/core-systems/world-painter',
+  '/surface-actor#reading-fluid-data': '/core-systems/reading-fluid-data',
+  '/surface-actor#niagara-integration': '/core-systems/niagara-integration',
+  '/surface-actor#translucency': '/core-systems/translucency',
+  '/surface-actor#cut-the-mask-and-holes': '/core-systems/cut-mask-and-holes',
+  '/surface-actor#color-presets': '/core-systems/color-presets',
   '/surface-actor#interaction-system': '/core-systems/interactions'
 }
 

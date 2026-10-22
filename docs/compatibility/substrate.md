@@ -1,6 +1,6 @@
 # Substrate
 
-::: tip Tip
+::: tip
 Since the release of Unreal Engine 5.7, the Substrate-related chapter is no longer relevant; Substrate is officially stable and compatible with Fluid Flux.
 :::
 
@@ -8,7 +8,7 @@ Substrate is Unreal Engine 5’s advanced material authoring framework, replacin
 
 The Fluid Flux update 3.0.3 introduces Substrate support in UE5.4 and UE5.5. However, the pack is developed by default using the standard material system. Substrate translators do not fully convert Fluid Flux materials to the new system, so you need additional patched material files to ensure compatibility.
 
-::: info Info
+::: info
 In the case of Fluid Flux, there are no noticeable visual improvements or benefits from switching to the Substrate system. As a result, the entire process aims to maintain compatibility across all projects.
 :::
 

@@ -35,7 +35,7 @@ Try this configuration:
 3. Set `CoastlineDomain->IsEditorOnlyActor` = true
 4. Set `Surface->CoastlinerState` directly using the exported asset.
 
-::: info Info
+::: info
 You don’t have to remove the domain actor from the scene because IsEditorOnlyActor will remove it automatically for you in final build. Thanks to this solution you are able to use it later again in the editor for regenerating the state if the level geometry change.
 :::
 

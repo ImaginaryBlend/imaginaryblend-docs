@@ -15,20 +15,21 @@ Ręcznie:
 Foldery odpowiadają menu po lewej stronie.
 
 **Dział Fluid Flux** (logo w górnym pasku)
-- `docs/index.md` – Product → Features (strona startowa: opis, pokaz zdjęć, lista funkcji, trailer, demo)
-- `docs/showcase/` – Product → Showcase (filmy, galeria, gry)
-- `docs/requirements/` – Requirements: `limitations.md`, `performance.md`, `compatibility/` (substrate, multiplayer, open-world, platforms, plugins)
+- `docs/index.md` – Product → Overview (strona startowa: logo i tytuł, opis z wersjami silnika, przyciski Fab/demo, pokaz zdjęć, przewijany pasek „Made with Fluid Flux” – lista w `theme/UsedIn.vue`, kafelki z odsyłaczami)
+- `docs/product/` – Product: `showcase.md` (funkcje, demo, filmy, galeria, gry), `performance.md`, `limitations.md`, `faq.md`
 - `docs/purchase/` – Purchase: `license.md`, `refund-policy.md`
 - `docs/updates/` – Updates: `index.md` (Roadmap), `3-0.md`, `2-0.md`, `1-1.md`
-- `docs/help/` – Help: `faq.md`, `support.md`, `reporting-bugs.md`
 
 **Dział Documentation**
 - `docs/getting-started/` – Getting started: `installation.md`, `project-settings.md`, `updating.md`, `tutorials.md`
-- `docs/core-systems/` – Core systems: project-structure, player-character, buoyancy, surface-actor, interactions, ground-capture, simulation-domain, coastline-domain, glass-system
+- `docs/core-systems/` – Core systems: project-structure, player-character, buoyancy, surface-actor (+ color-presets, world-painter, reading-fluid-data, niagara-integration, translucency, cut-mask-and-holes), interactions, ground-capture, simulation-domain, coastline-domain, glass-system
+- `docs/compatibility/` – Compatibility: substrate, multiplayer, open-world, platforms, plugins
+- `docs/help/` – Help: `support.md` (pomoc i zgłaszanie błędów), `minimal-project.md`
 
 **Pozostałe**
 - `docs/.vitepress/config.mjs` – menu, linki, nazwa strony
 - `docs/.vitepress/theme/` – komponenty, style i skrypty (m.in. `redirects.mjs` – przekierowania ze starych adresów)
+- `docs/.vitepress/theme/icons.css` – ikonki w menu i kafelkach; w kafelku dopisz klasę po linku, np. `[**Tytuł**<br>opis](/adres){.i-rocket}`
 - `docs/public/images/` – wszystkie obrazki i filmy
 - `scripts/` – pomocnicze skrypty
 

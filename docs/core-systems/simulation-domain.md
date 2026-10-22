@@ -21,7 +21,7 @@ The Shallow Water simulation is based on the assumption of linear vertical press
 5. Fluid modifiers are used as input for the simulation to change the current state.
 6. The simulation frame accumulates fluid wetness and generates the fluid surface mesh displacement.
 
-::: info Info
+::: info
 The `BP_FluxSimulationDomain` actor placed on the map is doing nothing because it’s empty and needs to be filled with fluid. The simplest way to fill containers with fluid is by using a Modifier source actor.
 :::
 
@@ -59,7 +59,7 @@ The Fluid Flux contains predefined modifiers:
   | SortPriority | Affecting an order of modifiers in the queue. It may be helpful when the user needs to fill the domain and then remove some fluid. A value larger than 1000 forces the system to append without sorting. |
   | AutoActivate | The modifier can be inactive initially and activated by an event from gameplay or a sequencer. |
 
-::: info Info
+::: info
 There are many ways to remove fluid in the simulation domain. It depends on the mode you choose:
 
 Mode= Set, Volume=0 – will set 0 water in the area of the modifier
@@ -76,7 +76,7 @@ Mode= Add, Volume negative – slowly removes fluid
 
 The modifier container is a particular type of actor that can store multiple modifiers and send them to the simulation. If the actor implements the `BPI_FluxModifierContainer` interface, it’s considered a modifier container.
 
-::: tip Tip
+::: tip
 `BPI_FluxModifierContainer` interface can be implemented by any actor. A good example is `BP_DemoCharacter` that uses `BP_FluxModifierForceComponent` to interact with a fluid. AddModifiers function only needs to be implemented to make it work.
 :::
 
@@ -144,7 +144,7 @@ After those actions, you should see the generated state and additional textures.
 
 *Example river state and baked textures.*
 
-::: danger Important
+::: danger
 Pay attention to simulation resolution! The “Power of Two” rule is a fundamental necessity due to the way game engines work. You will not be able to export simulation state if it is size is not power of two (128/256/512/1024 etc.)
 :::
 
@@ -177,7 +177,7 @@ If you are not planning to update the simulation dynamically, then a better opti
 
 `BP_FluxSimulationDomain.SurfaceActorReference` is set, actors communicate with each other, and the state is automatically passed to `BP_FluxSurface.SimulationState`, but changing **AffectWorld** to **false** disables this connection.
 
-::: tip Tip
+::: tip
 SimulationDomain can be removed or set IsEditorOnlyActor to avoid spawning it in the final build and wasting memory.
 :::
 
@@ -197,7 +197,7 @@ It evaluates **UpdatGroundMap** on a simulation actor, which takes the object’
 
 The static mesh mode is the most efficient way to render fluid flux water surfaces. In Fluid Flux 3.0, the mesh generator was rewritten to a new, separate editor actor tool called `BP_FluxSurfaceMeshGenerator`.
 
-::: info Info
+::: info
 The new tool uses the **Geometry Scripts** **Plugin** introduced in Unreal Engine 5, so don’t forget to enable it in your projects!
 :::
 
