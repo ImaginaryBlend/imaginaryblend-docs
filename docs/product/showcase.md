@@ -6,7 +6,7 @@ What Fluid Flux offers and how it looks in action: features, the executable demo
 
 ### Simulation
 
-- **Realtime shallow water simulation** – fluid data modifiers, wave generator, and extendable interface. See [Simulation Domain](/core-systems/simulation-domain).
+- **Real-time shallow water simulation** – fluid data modifiers, wave generator, and extendable interface. See [Simulation Domain](/core-systems/simulation-domain).
 - **Fluid state management** – advanced fluid state management and loading state in gameplay. See [Fluid state](/core-systems/simulation-domain#fluid-state).
 - **Static mesh generator** – a tool for generating ultra-fast static meshes with flow maps baked into vertex color and UV. See [Mesh generator](/core-systems/simulation-domain#mesh-generator).
 - **Flow advection** – velocity-based fluid flow advection method for foam, caustics and waves.
@@ -123,5 +123,5 @@ Projects that use Fluid Flux:
 - [SOUNDGRASS](https://youtu.be/X1RRcRy8PU4)
 
 ::: info Show us your project
-Let me know if you'd like to see your project included on this list! Share it on [Discord](https://discord.gg/rG2q3SB5EB) or send it to [imaginaryblend@gmail.com](mailto:imaginaryblend@gmail.com).
+Let me know if you'd like to see your project included on this list! Share it on [Discord](https://discord.gg/JavGBJB) or send it to [imaginaryblend@gmail.com](mailto:imaginaryblend@gmail.com).
 :::

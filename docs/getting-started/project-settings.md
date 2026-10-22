@@ -24,7 +24,7 @@ Fluid Flux depends on several engine plugins. All of them ship with Unreal Engin
 
 ## Rendering settings
 
-In the final stage of configuring the project, make sure that the **project settings** are properly configured:
+Make sure that the following **project settings** are configured:
 
 | Setting | Value | Description |
 | --- | --- | --- |

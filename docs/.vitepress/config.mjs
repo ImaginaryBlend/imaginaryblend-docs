@@ -228,7 +228,7 @@ export default defineConfig({
       '/': SIDEBAR_FLUIDFLUX
     },
     socialLinks: [
-      { icon: 'discord', link: 'https://discord.gg/rG2q3SB5EB' },
+      { icon: 'discord', link: 'https://discord.gg/JavGBJB' },
       { icon: 'youtube', link: 'https://www.youtube.com/channel/UCtA9XJo3PIV0Cij5ZTcHr_Q' },
       {
         icon: {

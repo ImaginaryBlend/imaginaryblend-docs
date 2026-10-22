@@ -9,20 +9,20 @@ Before starting to change the color of the water, make sure the surface is confi
 ## Changing surface color
 
 1. Select the surface actor on your map.
-2. Find MeshRendering Tab and attributes: **BaseColorPreset.**
+2. In the **MeshRendering** tab, find the **BaseColorPreset** attribute.
 3. You can use any preset from my list of predefined colors or create a duplicate and modify it.
 
 <MediaVideo src="/images/2023/05/2023-05-25-19-34-38.mp4" />
 
-## Creating new custom color preset data asset
+## Creating a custom color preset
 
-Many pre-configured color presets are available for oceans, shallow water, and rivers. Additionally, users can create their water presets by duplicating existing examples and adjusting the parameters as desired, allowing for seamless customization and experimentation.
+Many pre-configured color presets are available for oceans, shallow water, and rivers. Additionally, users can create their own water presets by duplicating existing examples and adjusting the parameters as desired, allowing for seamless customization and experimentation.
 
 1. In the Content Browser, open the folder /FluidFlux/Content/FluidFlux/Surface/Templates/Color/
 2. Find a data asset preset closest to the effect you want.
-3. Duplicate the chosen data asset
-4. Set the data asset to the surface rendered on your map (attribute BaseColorPreset)
-5. Open data assets and edit parameters:
+3. Duplicate the chosen data asset.
+4. Set the data asset in the surface rendered on your map (attribute BaseColorPreset).
+5. Open the data asset and edit the parameters:
 
    ![](/images/2021/09/data-asset.png)
 
@@ -35,7 +35,7 @@ To solve this, Fluid Flux provides a dedicated tool called **OpenSurfaceEditorTa
 You can find and run this tool from the **Details** panel of the selected Surface Actor.
 
 ::: warning
-If **OpenSurfaceEditorTab** does not appear after clicking the button, make sure the **Python** plugin is enabled in your project settings under **Edit > Plugins**. It is required for opening editor tabs.
+If **OpenSurfaceEditorTab** does not appear after clicking the button, make sure the **Python** plugin is enabled in your project (**Edit → Plugins**). It is required for opening editor tabs.
 :::
 
 ![](/images/2025/01/editor2.jpg)

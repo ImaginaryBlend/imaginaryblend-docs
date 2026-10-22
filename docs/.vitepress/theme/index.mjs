@@ -4,6 +4,7 @@ import YouTube from './YouTube.vue'
 import MediaVideo from './MediaVideo.vue'
 import HeroSlideshow from './HeroSlideshow.vue'
 import UsedIn from './UsedIn.vue'
+import Tweet from './Tweet.vue'
 import SiteFooter from './SiteFooter.vue'
 import NotFoundPage from './NotFoundPage.vue'
 import { useReadingSection } from './readingSection.mjs'
@@ -11,6 +12,7 @@ import { useSidebarAccordion } from './sidebarAccordion.mjs'
 import { useImageZoom } from './imageZoom.mjs'
 import { useTitleActive } from './titleActive.mjs'
 import { useRedirects } from './redirects.mjs'
+import { useNavAlign } from './navAlign.mjs'
 import './custom.css'
 import './icons.css'
 
@@ -27,6 +29,7 @@ export default {
     app.component('MediaVideo', MediaVideo)
     app.component('HeroSlideshow', HeroSlideshow)
     app.component('UsedIn', UsedIn)
+    app.component('Tweet', Tweet)
   },
   setup() {
     useReadingSection()
@@ -34,5 +37,6 @@ export default {
     useImageZoom()
     useTitleActive()
     useRedirects()
+    useNavAlign()
   }
 }

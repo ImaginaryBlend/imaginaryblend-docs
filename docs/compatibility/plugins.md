@@ -6,12 +6,12 @@ Fluid Flux can be used in combination with the **Voxel Plugin**, but it is also 
 
 <YouTube id="vJLU2CLuyNg" />
 
-Use `Simulation.RuntimeCaptureDelay` = 1.0 to force the simulation to wait for the voxel plugin map to generate a mesh before rendering it to the height map.
+Use `Simulation.RuntimeCaptureDelay` = 1.0 to force the simulation to wait for the Voxel Plugin map to generate a mesh before rendering it to the height map.
 The heightmap in this presentation is updated every frame using **CaptureGroundHeightmap**. It is inefficient and should probably be optimized to update the area around the brush only when something changes on the map. The **UpdateGroundMap**(Position, Size) function would be a better choice.
 
 ## Water Plugin
 
-Water Plugin is not supported. Combining my water material with the water plugin mesh is possible, but not officially supported.
+The Water Plugin is not supported. Combining my water material with the Water Plugin mesh is possible, but not officially supported.
 
 ## ALS, UDS, Fluid Ninja and other packs
 

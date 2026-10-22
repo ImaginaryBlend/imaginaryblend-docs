@@ -6,15 +6,15 @@ In the Fluid Flux pack, this task is handled by `FluxHeightmapComponent`, which 
 
 ## Visibility options
 
-The ground scene capture component renders the current scene into a heightmap texture. Sometimes, we must exclude certain actors, such as bridges, that should not block fluid. In the ‘**Domain:Heightmap: CaptureVisibility**‘ tab, you can find options that may help determine which meshes should be visible in the heightmap:
+The ground scene capture component renders the current scene into a heightmap texture. Sometimes, we must exclude certain actors, such as bridges, that should not block fluid. In the **Domain → Heightmap → CaptureVisibility** tab, you can find options that may help determine which meshes should be visible in the heightmap:
 
 ![](/images/2021/09/captureOptions.jpg)
 
 **VisibilityMode** can be used to determine whether the capture actor should render the entire scene and exclude specified actors (**HideAllListed**) or build a list of actors that should be used as blockers (**ShowOnlyListed**).
 
-- **ActorsReferences** – exclude chosen actor objects from your scene
-- **Actors of Class** – can be used for excluding by type of actor class and its child classes
-- **ActorsWithTag** = “`FluxHide`“: Every actor that uses this tag will be added to the list of excluded objects.
+- **ActorsReferences** – exclude chosen actors from your scene.
+- **Actors of Class** – exclude actors of a given class and its child classes.
+- **ActorsWithTag** = “`FluxHide`” – every actor that uses this tag will be added to the list of excluded objects.
 
   ![](/images/2021/09/hide.png)
 
@@ -58,10 +58,10 @@ The `M_Photoscan_Master` material is an example of a workaround for this problem
 
 Remember: after adding the **Domain actor to** your map, you must adjust the domain actor’s height (Z position) based on your landscape. The debug grid on top of the landscape geometry indicates everything works fine.
 
-### Groundmap works in the editor, but it breaks in the build or at runtime
+### Ground map works in the editor, but it breaks in the build or at runtime
 
 There is a slight difference between testing in PIE and running the Shipping/Development build. Understanding this issue is crucial for finding a solution. The editor uses assets that are already loaded and can render them immediately. However, when you run the executable, the system has to stream landscapes and meshes. When the Fluid Flux system captures the ground map and the scene has not yet been streamed, it may result in inaccuracies, such as a flat ground map or the use of lower LOD levels. There are several potential solutions:
 
 1. Increasing the `SimulationDomain.RuntimeCaptureDelay` – delay is the simplest way to determine if this is the issue in your case. If, after increasing the value, the ground is captured correctly, it indicates that the ground was not ready when it was initially captured. However, this is not the optimal solution because you cannot predict how fast the game will load on various target devices. Low-end PCs and consoles may load more slowly, which can result in unpredictable behavior.
-2. **OnLevelLoaded** events – The most effective approach is to use `SimulationDomain.RuntimeCaptureDelay = -1` and execute the function `SimulationDomain.BeginPlaySimulation` by hand from an event that notifies you when the level is loaded and ready for use. Unfortunately, there are no such events in the blueprint, so you will need to track this on your own in C++.
-3. Setting `SimulationDomain.UseInitialStateGround = true` forces the system to utilize the ground map from the data stored in the exported `SimulationDomain.InitialState`
+2. **OnLevelLoaded** events – The most effective approach is to use `SimulationDomain.RuntimeCaptureDelay = -1` and execute the function `SimulationDomain.BeginPlaySimulation` by hand from an event that notifies you when the level is loaded and ready for use. Unfortunately, there are no such events in blueprints, so you will need to track this on your own in C++.
+3. Setting `SimulationDomain.UseInitialStateGround = true` forces the system to use the ground map from the data stored in the exported `SimulationDomain.InitialState`.

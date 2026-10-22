@@ -34,7 +34,7 @@ Fluid Flux 2.0 for older engine versions no longer receives updates – new feat
 
 **Enable the Fab plugin**
 
-In your engine go to **Edit → Plugins**, find **Fab** and enable it.
+In the editor, go to **Edit → Plugins**, find **Fab** and enable it.
 
 </div>
 <div class="step">

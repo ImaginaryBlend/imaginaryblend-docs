@@ -1,6 +1,6 @@
 # Cut the mask and holes
 
-Generally, the system supports two methods for cutting holes in the water surface.
+The system supports two methods for cutting holes in the water surface.
 
 The first method is somewhat complex and is designed for small boats. Look at the example boat mesh (Demo/Environment/Boat/SM_Boat) that uses an additional cap mesh with the `M_FluxSurfaceInvisible` material. The `M_FluxSurfaceInvisible` renders translucent materials using the Single Layer Water mode, which overrides the water surface and makes it invisible.
 
