@@ -2,11 +2,23 @@
 
 Fluid Flux is a comprehensive solution for simulating realistic water surfaces and fluid interactions within Unreal Engine. This documentation outlines its core features, tools, and best practices to help users achieve optimal results.
 
+[![Fab marketplace](/images/fab-logo.png){.fab-logo}](https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11)
+
 Fluid Flux is distributed through the [Fab marketplace](https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11) and is installed directly into your Unreal Engine project using the **Fab plugin** built into the editor. This chapter walks you through the first installation of the package.
 
 ::: info Already using Fluid Flux?
 If the package is already installed in your project, follow the [Updating process](/getting-started/updating) instead.
 :::
+
+## Requirements
+
+| Requirement | Details |
+| --- | --- |
+| **Unreal Engine** | 5.3 – 5.8 |
+| **Older engine versions** | 4.27 – 5.2 – these engine versions also have access to Fluid Flux, in version 2.0. |
+| **Engine plugins** | Fab, Python Editor Script Plugin, Editor Scripting Utilities, Geometry Script, Procedural Mesh Component, Niagara – all included with the engine, see [Project settings](/getting-started/project-settings#required-plugins). |
+
+Fluid Flux 2.0 for older engine versions no longer receives updates – new features and fixes are released only for the current version.
 
 ## Before you begin
 
@@ -50,8 +62,3 @@ Find **Fluid Flux**, open its page (double-click) and click **Add to Project**.
 ::: tip
 **Add to Project** is available once the product is in your Fab library. The installation works best with a clean **FluidFlux** folder – remove any previous copy of the package first.
 :::
-
-## Next steps
-
-- [Project settings](/getting-started/project-settings) – enable the required plugins and configure the project before opening the demo maps.
-- [Project structure](/core-systems/project-structure) – find your way around the Fluid Flux folders.

@@ -15,7 +15,7 @@ Due to a rising number of fraudulent attempts to demand refunds immediately afte
 
 By making a purchase, you acknowledge the product limitations, especially the following:
 
-- The product’s documentation outlines its constraints, and it is essential to review them before purchasing. See [Limitations](/requirements/limitations).
+- The product’s documentation outlines its constraints, and it is essential to review them before purchasing. See [Limitations](/product/limitations).
 - Product demos showcase typical use cases for which they were created and thoroughly tested.
 - If the product’s capabilities are uncertain, ask questions and ensure it meets your expectations.
 - Make sure that the product supports the Unreal Engine version that you use.
@@ -30,7 +30,7 @@ By making a purchase, you acknowledge the product limitations, especially the fo
 - *“I wanted it to be more realistic.”*
   Before purchasing, test the demo executable to showcase the product’s capabilities. The demo is available on the FAB page.
 - *“I didn’t know it wouldn’t work on Mobile and VR, PathTracing, Ray Tracing, Lumen, Sequencer.”*
-  Customers must review the description for information and inquire about specific technologies or design details. See [Compatibility](/requirements/limitations#compatibility).
+  Customers must review the description for information and inquire about specific technologies or design details. See [Compatibility](/product/limitations#compatibility).
 - *“I’m a beginner; I don’t know how to use the engine; nothing works; I need tutorials.”*
   The product is intended for experienced Unreal Engine users. Support questions will be answered, but the creator is not obligated to teach how the engine works.
 - *“I wanted to create an open-world multiplayer, but it’s impossible.”*

@@ -79,7 +79,7 @@ Overall, the system is designed to generate SDFs in real-time. However, an addit
 2. Select `BP_SDFVolumeDomain`
 3. Click the right button on it and choose Script at **Actor Actions** → `SignedDistanceField->Export`.
 
-::: info Info
+::: info
 The exported `PDA_FluxSignedDistanceField` asset can be used directly in the Surface actor as `BP_FluxSurface->SignedDistanceFieldMask`. Remember to disable generation of the `BP_SDFVolumeDomain` by using the attribute AffectWorld=false or removing the Domain.
 :::
 

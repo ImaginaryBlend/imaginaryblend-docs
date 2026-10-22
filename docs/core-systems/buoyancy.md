@@ -2,7 +2,7 @@
 
 The **buoyancy** is an upward force exerted by a fluid that opposes the weight of a partially or wholly immersed object. The `BP_FluxBuoyancyComponent` calculates physical forces based on the configuration set using a `PDA_FluxBuoyancyData` data asset. Additionally, the system supports **drag** and **current** forces that use fluid velocity to determine movement.
 
-::: info Info
+::: info
 Multiple buoyancy components can share the same **Data Assets.** The Data asset can be also switched dynamically based on requirements (for example destroyed ship that is drowning can use another data asset).
 :::
 
@@ -12,13 +12,9 @@ Example use cases of the buoyancy system can be found in the demo actors:
 - `BP_FluxBoatPawn` – a combination of multiple pontoons attached to the static mesh.
 - `BP_DemoCharacter` – ragdoll is made of pontoons attached to a skeletal mesh.
 
-## Limitations
+## Implementation
 
-- The buoyancy forces require a physical body, which means it can’t be used in a sequencer that does not simulate rigid body physics in the editor.
-- Only spherical pontoons are supported, and this approximation is not precise, especially for hard-edged meshes.
-- The system requires `FluxDataComponent` to read the surface height and velocity weight.
-
-## Adding a buoyancy system to the actor
+To make an actor float, it needs a buoyancy component that applies the forces, a data component that reads the water height and velocity under the actor, and a data asset that describes the shape of the floating body as a set of pontoons. The steps below connect these elements; once they are in place, the actor reacts to the water automatically – it floats, drifts with the current and slows down in water.
 
 1. Add `BP_FluxBuoyancyComponent` to the actor.
 2. Add `BP_FluxDataComponent` to the actor – this will be responsible for reading water height.
@@ -28,7 +24,7 @@ Example use cases of the buoyancy system can be found in the demo actors:
 
 The actor is already configured, but you must edit `FluxBuoyancyData` and adjust the parameters. You can do it with the help of the `EUW_FluxBuoyancyEditor` tool described below.
 
-## Using `FluxBuoyancyEditor`
+## Buoyancy Editor
 
 `FluxBuoyancyEditor` is an Editor Utility Tool created to preview and edit buoyancy settings in a 3d viewport.
 
@@ -57,11 +53,13 @@ The buoyancy geometry is represented as a list of spherical **pontoons** that ap
 | DensityWeight | Scale of the density (larger density means a heavier object and less buoyant) |
 | DragWeight | The scale of the drag effect (how fluid movement pushes the pontoon) |
 
-::: tip Tip
+::: tip
 You can run the game and edit buoyancy setting in runtime, everything will be update and you will see the changes in your game.
 :::
 
-## Good practices and solving problems
+## Troubleshooting
+
+This section describes typical problems users may encounter when working with the buoyancy system, together with explanations and possible solutions.
 
 - If the **boat is flipping**, then adjust the center of mass Z location (set it to a lower value so it will behave stably)
 - Try to fit the pontoons to the mesh geometry. It is more precise when detecting water and behaves more predictably.
@@ -70,3 +68,6 @@ You can run the game and edit buoyancy setting in runtime, everything will be up
 - Make sure the physical body has **Tag** set to `FluxBuoyancyOwner`
 - Use the **DrawDebug** option to visualize pontoons in runtime.
 - In the `BP_FluxBuoyancyComponent`, UsePontoonsInFluxData forces Flux data to generate custom readback points for every pontoon; it is precise but may also be slow in case of many pontoons.
+- The buoyancy forces require a physical body, which means it can’t be used in a sequencer that does not simulate rigid body physics in the editor.
+- Only spherical pontoons are supported, and this approximation is not precise, especially for hard-edged meshes.
+- The system requires `FluxDataComponent` to read the surface height and velocity weight.

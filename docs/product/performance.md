@@ -24,5 +24,5 @@ The size of domains can be increased by changing the precision of details per si
 | Domain | Resolution | Precision | Maximum domain size |
 | --- | --- | --- | --- |
 | Simulation | up to 1024 x 1024 | up to 100 cm per pixel | 1km x 1km |
-| Coastline (island) | up to 2048 x 2048 | up to 1000 cm per pixel | 20 km x 20 km (pixel size 500 cm) |
-| Ocean | n/a | n/a | 40 km x 40 km (limit of floating point) |
+| Coastline (island) | up to 2048 x 2048 | up to 500 cm per pixel | 10 km x 10 km |
+| Ocean | n/a | n/a | 150 km x 150 km |

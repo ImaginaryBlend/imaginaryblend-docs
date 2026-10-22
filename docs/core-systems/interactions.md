@@ -11,7 +11,7 @@ The interaction system configuration is demonstrated in several example blueprin
 
 A detailed explanation of the implementation presented in `BP_DemoCharacter` can be found below:
 
-1. `Component.BP_FluxDataComponent` – This component reads the fluid data required for further interaction calculations, including height and velocity. You can find more information about this component and its configuration in the [Reading fluid data](/core-systems/surface-actor#reading-fluid-data) section.
+1. `Component.BP_FluxDataComponent` – This component reads the fluid data required for further interaction calculations, including height and velocity. You can find more information about this component and its configuration in the [Reading fluid data](/core-systems/reading-fluid-data) section.
 
 2. `Component.BP_FluxInteractionComponent` – This component stores a list of **interaction sources**. The **interaction source** is a sphere attached to the component (or skeletal mesh bone) that generates waves after interacting with fluid.
 
@@ -37,7 +37,7 @@ A detailed explanation of the implementation presented in `BP_DemoCharacter` can
 
 6. The `BP_FluxInteractionCapture` actor is placed on every map. The actor detects the interactable actors and manages the whole process of generating the interaction effect. The **InteractionCapture** actor uses the **overlap** to identify actors within the interaction actor’s area. This mechanism ensures that only the area’s actors are considered potential sources of interaction. For example, a character uses the Capsule component for overlap; custom actors require the addition of a collision component, such as SphereCollision.
 
-::: warning Note
+::: warning
 There are many steps to do before interaction start working but no worries you can debug and make sure that every part of your implementation works correctly:
 
 1. Test it on demo maps at first

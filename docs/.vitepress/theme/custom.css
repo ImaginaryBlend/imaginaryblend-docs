@@ -82,25 +82,54 @@
 /* Kafelki z linkami */
 .link-cards p {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
 }
-.link-cards a {
+/* kafelki w pełnych rzędach (np. 8 = 2 × 4): 4 kolumny na szerokiej treści, 2 na węższej, 1 na telefonie */
+.vp-doc .link-cards.even {
+  container-type: inline-size;
+}
+.vp-doc .link-cards.even p {
+  grid-template-columns: repeat(2, 1fr);
+}
+@container (min-width: 820px) {
+  .vp-doc .link-cards.even p {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@container (max-width: 440px) {
+  .vp-doc .link-cards.even p {
+    grid-template-columns: 1fr;
+  }
+}
+.vp-doc .link-cards a {
   display: block;
-  padding: 12px 16px;
+  padding: 16px 18px;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
+  border-radius: 10px;
+  background-color: var(--vp-c-bg-soft);
   color: var(--vp-c-text-2);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
   text-decoration: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, background-color 0.2s;
 }
-.link-cards a strong {
+/* tytuł kafelka: turkusowy, z ikonką (klasa {.i-nazwa} na linku), opis pod spodem */
+.vp-doc .link-cards a strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
   color: var(--vp-c-brand-1);
+  font-size: 15px;
+  font-weight: 600;
 }
-.link-cards a:hover {
+.vp-doc .link-cards a br {
+  display: none;
+}
+.vp-doc .link-cards a:hover {
   border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
 }
 
 /* Obrazek na stronie głównej */
@@ -236,6 +265,10 @@ html .VPSidebarItem.level-0 > .items.items {
   margin-left: -12px;
   padding-left: 12px;
 }
+/* podstrony grupy z ikonką zaczynają się w linii z nazwą grupy, a nie z ikonką */
+html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
+  padding-left: 26px;
+}
 /* Przeglądarki bez animowania height: auto (Firefox, Safari) */
 @supports not (interpolate-size: allow-keywords) {
   html .VPSidebarItem .items.items {
@@ -274,8 +307,52 @@ html .VPSidebarItem.level-0 > .items.items {
   --vp-custom-block-danger-bg: rgba(230, 80, 90, 0.16);
   --vp-custom-block-danger-border: transparent;
 }
-.vp-doc .custom-block {
-  border-radius: 4px;
+/* gradient: pasek z lewej i tło zanikające w prawo, tytuł małymi wersalikami */
+.vp-doc .custom-block.custom-block {
+  --ib-cb: 128 128 128;
+  border: 1px solid rgb(var(--ib-cb) / 0.12);
+  border-left: 4px solid rgb(var(--ib-cb));
+  border-radius: 6px;
+  background: linear-gradient(90deg, rgb(var(--ib-cb) / 0.16) 0%, rgb(var(--ib-cb) / 0.06) 55%, rgb(var(--ib-cb) / 0.02) 100%);
+  padding: 14px 20px 6px;
+}
+.dark .vp-doc .custom-block.custom-block {
+  background: linear-gradient(90deg, rgb(var(--ib-cb) / 0.15) 0%, rgb(var(--ib-cb) / 0.05) 55%, transparent 100%);
+}
+.vp-doc .custom-block.tip { --ib-cb: 46 170 100; }
+.vp-doc .custom-block.info { --ib-cb: 55 150 205; }
+.vp-doc .custom-block.warning { --ib-cb: 200 165 30; }
+.vp-doc .custom-block.danger { --ib-cb: 215 70 80; }
+.vp-doc .custom-block.details { --ib-cb: 55 190 190; }
+.dark .vp-doc .custom-block.tip { --ib-cb: 70 200 125; }
+.dark .vp-doc .custom-block.info { --ib-cb: 90 175 230; }
+.dark .vp-doc .custom-block.warning { --ib-cb: 225 200 75; }
+.dark .vp-doc .custom-block.danger { --ib-cb: 235 105 115; }
+/* ikonka typu bloku po lewej (kształty w icons.css), w kolorze paska */
+.vp-doc .custom-block.custom-block:not(.details) {
+  position: relative;
+  padding-left: 52px;
+}
+.vp-doc .custom-block:not(.details)::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(var(--ib-cb));
+  -webkit-mask: var(--ib-icon) no-repeat center / contain;
+  mask: var(--ib-icon) no-repeat center / contain;
+}
+/* blok bez własnego tytułu: zamiast „TIP” tylko ikonka */
+.vp-doc .custom-block .custom-block-title:has(> .ib-default-title:only-child) {
+  display: none;
+}
+.vp-doc .custom-block .custom-block-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 .vp-doc .custom-block.tip .custom-block-title { color: #1f8a4c; }
 .vp-doc .custom-block.info .custom-block-title { color: #1f6f9a; }
@@ -873,4 +950,161 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   font-size: 30px;
   font-weight: 700;
   color: var(--ib-teal);
+}
+
+/* Logo Fab obok opisu instalacji */
+.vp-doc img.fab-logo {
+  float: right;
+  width: 120px;
+  margin: 0 0 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+@media (max-width: 639px) {
+  .vp-doc img.fab-logo {
+    width: 88px;
+  }
+}
+.vp-doc .custom-block,
+.vp-doc h2 {
+  clear: both;
+}
+
+/* Ikonki grup w menu bocznym: szare, turkusowe gdy w grupie jest otwarta strona */
+.VPSidebar .ib-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  vertical-align: -3px;
+  color: var(--vp-c-text-3);
+  transition: color 0.2s;
+}
+.VPSidebarItem.has-active > .item .ib-icon,
+.VPSidebarItem.is-active > .item .ib-icon,
+.VPSidebarItem > .item:hover .ib-icon {
+  color: var(--vp-c-brand-1);
+}
+/* poprzednia/następna strona pod treścią – bez ikonek */
+.VPDocFooter .ib-icon {
+  display: none;
+}
+
+/* Strona główna: opis i przyciski */
+.vp-doc .ib-lead {
+  max-width: 760px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+@media (max-width: 639px) {
+  .vp-doc .ib-lead {
+    font-size: 17px;
+  }
+}
+.vp-doc .ib-cta p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 14px;
+  margin: 28px 0 18px;
+}
+.vp-doc .ib-cta a {
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 22px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 21px;
+  background-color: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+.vp-doc .ib-cta a:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+.vp-doc .ib-cta a.primary {
+  border-color: var(--ib-teal-dark);
+  background-color: var(--ib-teal-dark);
+  color: #fff;
+}
+.vp-doc .ib-cta a.primary:hover {
+  border-color: var(--ib-teal);
+  background-color: var(--ib-teal);
+  color: #fff;
+}
+
+/* Strona główna: nagłówek – duży tytuł, opis, przyciski i fakty z lewej, pokaz zdjęć z prawej.
+   Dwie kolumny, gdy treść ma co najmniej 720 px szerokości, węższa – jedna pod drugą */
+.vp-doc .ib-hero {
+  container-type: inline-size;
+  margin-bottom: 28px;
+}
+.vp-doc .ib-hero-grid {
+  display: grid;
+  gap: 24px;
+}
+@container (min-width: 720px) {
+  .vp-doc .ib-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 36px;
+  }
+  .vp-doc .ib-hero .ib-lead {
+    font-size: 17px;
+  }
+  /* tytuł z logo rośnie razem z szerokością, ale zostawia zapas w lewej kolumnie */
+  .vp-doc .ib-hero .ib-hero-grid h1 {
+    font-size: clamp(38px, 5cqi, 56px);
+  }
+}
+.vp-doc .ib-hero h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.28em;
+  margin: 0 0 16px;
+  font-size: clamp(32px, 7cqi, 52px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+/* tytuł strony głównej biały (w trybie jasnym zostaje ciemny) */
+.dark .vp-doc .ib-hero h1 {
+  color: #fff;
+}
+/* logo Fluid Flux przed tytułem, tej samej wysokości co litery */
+.vp-doc .ib-hero h1 img.ib-title-logo {
+  flex: none;
+  width: 1.05em;
+  height: 1.05em;
+  margin: 0;
+  outline: none;
+  cursor: default;
+}
+.vp-doc .ib-hero .ib-lead {
+  margin: 0;
+}
+/* wersje silnika w opisie: wyróżnione bielą (w trybie jasnym – kolorem tekstu), z logo Unreal Engine */
+.vp-doc .ib-lead .ib-ue {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.dark .vp-doc .ib-lead .ib-ue {
+  color: #fff;
+}
+.vp-doc .ib-lead .ib-ue .ib-icon {
+  width: 0.95em;
+  height: 0.95em;
+  margin-right: 0.3em;
+  vertical-align: -0.12em;
+}
+.vp-doc .ib-hero .ib-cta p {
+  margin: 24px 0 16px;
+}
+.vp-doc .ib-hero .hero-slideshow {
+  margin: 0;
 }

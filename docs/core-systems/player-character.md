@@ -13,7 +13,7 @@ Character-related implementation is simplified to a minimum and encapsulated in 
 | `FluxDriverComponent` | Implements communication between the vehicle and the character, which allows possession. |
 | `FluxModifierForceComponent` | Simulation modifier that moves water around the character only inside the domain area. |
 
-::: info Info
+::: info
 The easiest way to investigate how components are used in the character is to click the right mouse button on **Component -> “find references,”** the engine will show you all the places where it is implemented.
 :::
 
