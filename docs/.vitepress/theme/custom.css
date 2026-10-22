@@ -1090,3 +1090,40 @@ html body .VPNavBarHamburger.hamburger.hamburger {
 .vp-doc .ib-hero .hero-slideshow {
   margin: 0;
 }
+
+/* Wyróżniony cytat (<blockquote class="ib-quote">): duży turkusowy cudzysłów i większa kursywa */
+.vp-doc blockquote.ib-quote {
+  position: relative;
+  margin: 28px 0;
+  padding: 4px 0 4px 52px;
+  border-left: none;
+}
+.vp-doc blockquote.ib-quote::before {
+  content: '\201C';
+  position: absolute;
+  left: 0;
+  top: -6px;
+  color: var(--vp-c-brand-1);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 72px;
+  font-style: normal;
+  line-height: 1;
+}
+.vp-doc blockquote.ib-quote > p {
+  color: var(--vp-c-text-1);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* Linia pod górnym paskiem (po przewinięciu): na całą szerokość, w kolorze innych linii zamiast czarnej */
+html body .VPNavBar.has-sidebar .divider.divider {
+  padding-left: 0;
+}
+html body .VPNavBar.VPNavBar:not(.home.top) .divider-line.divider-line {
+  background-color: var(--vp-c-divider);
+}
+/* bez linii pod samym „Fluid Flux” – VitePress rysuje ją nad menu bocznym, a u nas tytuł jest wyśrodkowany */
+html body .VPNavBarTitle.has-sidebar .title.title {
+  border-bottom-color: transparent;
+}

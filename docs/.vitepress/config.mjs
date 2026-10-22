@@ -182,6 +182,10 @@ export default defineConfig({
   title: 'Fluid Flux',
   description: DESCRIPTION,
   cleanUrls: true,
+  // sitemap.xml for search engines
+  sitemap: { hostname: SITE_URL },
+  // "Last updated" under each page, taken from the git history (the deploy workflow fetches the full history)
+  lastUpdated: true,
   markdown: {
     // blocks without their own title show only the type icon (see theme/custom.css)
     container: {
@@ -234,13 +238,17 @@ export default defineConfig({
         ariaLabel: 'Fluid Flux on Fab'
       }
     ],
+    lastUpdated: {
+      text: 'Last updated',
+      formatOptions: { dateStyle: 'medium', forceLocale: true }
+    },
     editLink: {
       pattern: 'https://github.com/ImaginaryBlend/imaginaryblend-docs/edit/main/docs/:path',
       text: 'Suggest a change'
     },
     footer: {
       message: 'Contact: <a href="mailto:imaginaryblend@gmail.com">imaginaryblend@gmail.com</a>',
-      copyright: 'Copyright © Imaginary Blend - Krystian Komisarek'
+      copyright: `© ${new Date().getFullYear()} Imaginary Blend – Krystian Komisarek. All rights reserved.`
     }
   }
 })
