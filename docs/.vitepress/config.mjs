@@ -1,6 +1,9 @@
 import { defineConfig } from 'vitepress'
 
 const FAB = 'https://www.fab.com/listings/196c70cd-1283-4249-bf6b-c3019d1cbe11'
+const SITE_URL = 'https://imaginaryblend.github.io/imaginaryblend-docs/'
+const DESCRIPTION =
+  'Fluid Flux is a real-time water system for Unreal Engine, built on 2D shallow-water simulation – from interactive rivers and floods to coastlines and open oceans.'
 
 // icon before a top-level sidebar group name – icons are defined in theme/icons.css
 const icon = (name, text) => `<span class="ib-icon i-${name}"></span>${text}`
@@ -177,8 +180,7 @@ export default defineConfig({
   base: '/imaginaryblend-docs/',
   lang: 'en-US',
   title: 'Fluid Flux',
-  description:
-    'Fluid Flux is a real-time water system for Unreal Engine, built on 2D shallow-water simulation – from interactive rivers and floods to coastlines and open oceans.',
+  description: DESCRIPTION,
   cleanUrls: true,
   markdown: {
     // blocks without their own title show only the type icon (see theme/custom.css)
@@ -189,7 +191,23 @@ export default defineConfig({
       dangerLabel: DEFAULT_LABEL
     }
   },
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/imaginaryblend-docs/logo.png' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/imaginaryblend-docs/logo.png' }],
+    // link preview on Discord, Fab, social media (og:title and og:url are set per page in transformHead)
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'Fluid Flux' }],
+    ['meta', { property: 'og:description', content: DESCRIPTION }],
+    ['meta', { property: 'og:image', content: SITE_URL + 'images/gallery/hero-beach.jpg' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
+  ],
+  transformHead({ pageData }) {
+    const path = pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
+    const title = pageData.relativePath === 'index.md' ? 'Fluid Flux – real-time water for Unreal Engine' : `${pageData.title} | Fluid Flux`
+    return [
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:url', content: SITE_URL + path }]
+    ]
+  },
   themeConfig: {
     logo: { src: '/logo.png', alt: 'Fluid Flux' },
     search: { provider: 'local' },
@@ -209,7 +227,8 @@ export default defineConfig({
       { icon: 'youtube', link: 'https://www.youtube.com/channel/UCtA9XJo3PIV0Cij5ZTcHr_Q' },
       {
         icon: {
-          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8 7h2v6a2 2 0 0 0 4 0V7h2v6a4 4 0 0 1-8 0V7z"/></svg>'
+          // official Fab logo (public/images/fab-logo.png), rounded like an app icon
+          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><clipPath id="fab-icon"><rect width="24" height="24" rx="5"/></clipPath><image href="/imaginaryblend-docs/images/fab-logo.png" width="24" height="24" clip-path="url(#fab-icon)"/></svg>'
         },
         link: FAB,
         ariaLabel: 'Fluid Flux on Fab'

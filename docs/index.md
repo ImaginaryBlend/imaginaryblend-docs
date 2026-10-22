@@ -34,7 +34,7 @@ titleTemplate: Real-time water for Unreal Engine
 [**Compatibility**<br>Substrate, multiplayer, platforms](/product/limitations#compatibility){.i-puzzle}
 [**License**<br>Personal, professional and custom](/purchase/license){.i-cart}
 [**Getting started**<br>Installation and project setup](/getting-started/installation){.i-rocket}
-[**Documentation**<br>Actors, systems and tools](/core-systems/player-character){.i-book}
+[**Documentation**<br>Actors, systems and tools](/getting-started/installation){.i-book}
 [**Release notes**<br>What changed in each version](/updates/){.i-map}
 [**Support**<br>Discord, email, license](/help/support){.i-lifebuoy}
 
