@@ -7,7 +7,7 @@ const sections = [
   { title: 'Overview', text: 'What Fluid Flux is', link: '/', icon: 'i-waves' },
   { title: 'Getting started', text: 'Installation and project setup', link: '/getting-started/installation', icon: 'i-rocket' },
   { title: 'Documentation', text: 'Actors, systems and tools', link: '/core-systems/project-structure', icon: 'i-book' },
-  { title: 'Support', text: 'Discord, email, license', link: '/help/support', icon: 'i-lifebuoy' }
+  { title: 'Support', text: 'Contact, troubleshooting, bug reports', link: '/help/support', icon: 'i-lifebuoy' }
 ]
 
 // opens the local search box from the top bar

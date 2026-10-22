@@ -1,4 +1,4 @@
-# Roadmap
+# Release Notes
 
 Fluid Flux has received numerous updates, all provided free of charge to existing users.
 

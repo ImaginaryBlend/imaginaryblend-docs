@@ -90,7 +90,6 @@ Screenshots from the Fluid Flux demo maps. Click an image to enlarge it.
 
 <div class="gallery">
 
-![](/images/2022/04/Screen_006.jpg)
 ![](/images/2022/04/Screen_007.jpg)
 ![](/images/2022/04/Screen_008.jpg)
 ![](/images/2022/04/Screen_003.jpg)
@@ -101,7 +100,6 @@ Screenshots from the Fluid Flux demo maps. Click an image to enlarge it.
 ![](/images/2022/04/Screen_11.jpg)
 ![](/images/2022/04/Screen_12.jpg)
 ![](/images/gallery/glass-tunnel.jpg)
-![](/images/gallery/waterfall.jpg)
 ![](/images/gallery/waterfall-swimming.jpg)
 ![](/images/gallery/coastline-waves.jpg)
 ![](/images/gallery/sunset-beach.jpg)

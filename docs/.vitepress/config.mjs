@@ -34,7 +34,7 @@ const SIDEBAR_FLUIDFLUX = [
         ]
       },
       {
-        text: icon('map', 'Roadmap'),
+        text: icon('notes', 'Release Notes'),
         link: '/updates/',
         collapsed: true,
         items: [
@@ -168,8 +168,9 @@ const SIDEBAR_DOCUMENTATION = [
         text: icon('lifebuoy', 'Help'),
         collapsed: true,
         items: [
+          { text: 'Troubleshooting', link: '/help/troubleshooting' },
           { text: 'Support', link: '/help/support' },
-          { text: 'Minimal project', link: '/help/minimal-project' }
+          { text: 'Reporting a bug', link: '/help/reporting-bugs' }
         ]
       }
     ]
@@ -231,8 +232,8 @@ export default defineConfig({
       { icon: 'youtube', link: 'https://www.youtube.com/channel/UCtA9XJo3PIV0Cij5ZTcHr_Q' },
       {
         icon: {
-          // official Fab logo (public/images/fab-logo.png), rounded like an app icon
-          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><clipPath id="fab-icon"><rect width="24" height="24" rx="5"/></clipPath><image href="/imaginaryblend-docs/images/fab-logo.png" width="24" height="24" clip-path="url(#fab-icon)"/></svg>'
+          // official black-and-white Fab logo (public/images/fab-logo-mono.png) used as a mask, so it takes the text color like the other icons
+          svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="150 67 420 270"><mask id="fab-icon"><image href="/imaginaryblend-docs/images/fab-logo-mono.png" width="720" height="405"/></mask><rect width="720" height="405" fill="currentColor" mask="url(#fab-icon)"/></svg>'
         },
         link: FAB,
         ariaLabel: 'Fluid Flux on Fab'

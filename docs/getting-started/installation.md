@@ -12,7 +12,7 @@ If the package is already installed in your project, follow the [Updating proces
 
 | Requirement | Details |
 | --- | --- |
-| **Unreal Engine** | 5.3 – 5.8 |
+| <span class="ib-icon i-unreal ib-ue-logo"></span>**Unreal Engine** | 5.3 – 5.8 |
 | **Older engine versions** | 4.27 – 5.2 – these engine versions also have access to Fluid Flux, in version 2.0. |
 | **Engine plugins** | Fab, Python Editor Script Plugin, Editor Scripting Utilities, Geometry Script, Procedural Mesh Component, Niagara – all included with the engine, see [Project settings](/getting-started/project-settings#required-plugins). |
 

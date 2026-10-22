@@ -39,7 +39,7 @@ next: false
 [**License**<br>Personal, professional and custom](/purchase/license){.i-cart}
 [**Getting started**<br>Installation and project setup](/getting-started/installation){.i-rocket}
 [**Documentation**<br>Actors, systems and tools](/core-systems/project-structure){.i-book}
-[**Release notes**<br>What changed in each version](/updates/){.i-map}
-[**Support**<br>Discord, email, license](/help/support){.i-lifebuoy}
+[**Release notes**<br>What changed in each version](/updates/){.i-notes}
+[**Support**<br>Contact, troubleshooting, bug reports](/help/support){.i-lifebuoy}
 
 </div>
