@@ -41,11 +41,6 @@ Foldery odpowiadają menu po lewej stronie.
 - Nowa podstrona: utwórz plik `.md` w odpowiednim folderze w `docs/` i dopisz go w `sidebar` w `docs/.vitepress/config.mjs`.
 - Uwaga (VitePress): nieistniejący plik obrazka przerywa budowanie strony. Przed publikacją uruchom `npm run check`, który pokazuje brakujące pliki.
 
-## Praca z AI (Claude Code / Codex)
-Otwórz folder projektu w narzędziu i podawaj zasady, np.:
-„Nie tłumacz, nie streszczaj i nie poprawiaj literówek w treści. Zmieniaj tylko to, o co proszę.”
-Po zmianach sprawdź `git diff` / zakładkę Changes w GitHub Desktop.
-
 ## Publikacja zmian
 1. (opcjonalnie) sprawdź budowanie: `npm run docs:build`
 2. GitHub Desktop: wpisz Summary, **Commit to main**, **Push origin**
