@@ -170,7 +170,8 @@ const SIDEBAR_DOCUMENTATION = [
         items: [
           { text: 'Troubleshooting', link: '/help/troubleshooting' },
           { text: 'Support', link: '/help/support' },
-          { text: 'Reporting a bug', link: '/help/reporting-bugs' }
+          { text: 'Reporting a bug', link: '/help/reporting-bugs' },
+          { text: 'Glossary', link: '/help/glossary' }
         ]
       }
     ]

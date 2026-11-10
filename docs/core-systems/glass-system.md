@@ -16,7 +16,7 @@ The glass rendering system in Fluid Flux 3.0 is built upon three interdependent 
 
 Example use cases of glass systems are presented on demonstration maps and can be found in the Demo/Maps folder:
 
-- `FluxGlassSectionMap` – Only the glass system is used to render the borders of the simulation. The old fluid cross-section system was removed from the surface actor. This map uses a custom glass actor `BP_FluxGlassSection` (example on `FluxSectionMap`) to achieve the effect of the water volume cut.
+- `FluxSectionMap` – Only the glass system is used to render the borders of the simulation. The old fluid cross-section system was removed from the surface actor. This map uses a custom glass actor `BP_FluxGlassSection` to achieve the effect of the water volume cut.
 - `FluxOceanMap` – The simplest example of an SDF domain and a sphere of glass cutting a hole in the ocean.
 - `FluxCoastlineMap` – Single SDF domain capturing the spline mesh tunnel and rendering glass combined with the coastline.
 - `FluxIslandMap` – Advanced example presenting a mix of multiple types of SDF bodies and glass meshes (spline, Box, Sphere) and a simulation reacting on the glass mesh.

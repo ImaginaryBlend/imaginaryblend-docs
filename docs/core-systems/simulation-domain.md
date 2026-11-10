@@ -69,7 +69,7 @@ Mode= Adjust, `Actor.Z` position – lock fluid at a specific height
 Mode= Add, Volume negative – slowly removes fluid
 :::
 
-- `BP_FluxModifierGerstnerComponent` – Generates waves/fluid on the borders of the simulation domain. More info and use cases can be found in the chapters related to ocean configuration.
+- `BP_FluxModifierWaveComponent` – Generates waves/fluid on the borders of the simulation domain. More info and use cases can be found in the chapters related to ocean configuration.
 - `BP_FluxModifierForceComponent` – Generates forces when the actor moves (based on the velocity). It can be added to the character.
 
 ## Modifier Container
@@ -94,14 +94,14 @@ Every modifier is rendered in an additional render target pass, so it’s not ch
 
 *Simulation spikes are caused by the instability of simulation in some conditions.*
 
-- **Slope Scale (Increase)**<br>
-  Increasing this parameter will scale the scene’s height on the Z-axis, making your fluid move slower on slopes. (This parameter will probably be redesigned in the future version for better consistency with the world scale measurements).
+- **Area World Slope (Increase)**<br>
+  Increasing this parameter will scale the scene’s height on the Z-axis, making your fluid move slower on slopes. It replaces the deprecated **Slope Scale** parameter.
 - **OvershootingBlend** (increase), **OvershootingEdge** (decrease) – fix overshooting by smoothing.
 - **Simulation Delta Time (Decrease)**<br>
   Fluid Flux updates with a constant delta time. That means the time that elapsed between two game frames is divided by delta time, and the result is the **number of iterations.** Generally, more iterations result in lower performance. By default, the Simulation Delta Time attribute is set to 0.2. Although it is not entirely accurate, it can achieve the highest performance.
 - **Debug Preview / Debug Hidden In-Game (Debug)**<br>
   Pay attention to the ground debug preview. If you spot some red spikes where the simulation does not work correctly, your ground texture and geometry should probably be adjusted.
-- Tweaking other variables, such as **slope clamp, velocity clamp, friction, damping, gravity**, and even **world pixel scale,** can make a difference.
+- Tweaking other variables, such as **velocity limit, acceleration limit, fluid transport limit, friction, damping, gravity**, and even **world pixel scale,** can make a difference.
 
 I am still experimenting with different solutions for this spike problem and trying to figure out some method to force stability even in bad conditions. You can expect multiple improvements in future updates.
 
@@ -210,7 +210,7 @@ The new tool uses the **Geometry Script** plugin introduced in Unreal Engine 5, 
 - The new static mesh generator provides more precise results and supports bigger meshes, thanks to shorter generation time.
 - Exporting is simpler, as the target mesh can be pinned to the blueprint and overridden whenever it changes.
 
-The video below presents the optimized output mesh generated in the editor with wireframe preview enabled, which can be found in the **Demo/FluxRiverStaticMap**:
+The video below presents the optimized output mesh generated in the editor with wireframe preview enabled, which can be found in the **Demo/Maps/FluxRiverStaticMeshMap**:
 
 <MediaVideo src="/images/2024/11/2024-11-18-12-41-11.mp4" />
 

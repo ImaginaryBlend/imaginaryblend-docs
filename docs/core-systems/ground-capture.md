@@ -52,7 +52,7 @@ If the “PixelDepthOffset” feature is used in the material, it may not be ren
 
 The `M_Photoscan_Master` material is an example of a workaround for this problem using the `MF_FluxPixelDepthOffset` node.
 
-![](/images/2021/09/pixel-depth-300x83.jpg)
+![](/images/2021/09/pixel-depth.jpg)
 
 ### Wrong Domain Z location
 

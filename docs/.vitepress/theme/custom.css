@@ -24,7 +24,7 @@
   height: auto;
 }
 
-/* Kolorystyka z imaginaryblend.com */
+/* Colors from imaginaryblend.com */
 :root {
   --ib-teal: #37bebe;
   --ib-teal-dark: #2a9e9e;
@@ -36,8 +36,8 @@
   --vp-c-brand-soft: rgba(55, 190, 190, 0.14);
 }
 
-/* jasny motyw łagodniejszy dla oczu: złamana biel zamiast czystej bieli i delikatnie ciemniejsze warstwy
-   (pasek, kafelki, kod, tabele), linie w stonowanym, ciepłym szarym */
+/* softer light theme: off-white instead of pure white, slightly darker layers
+   (bar, cards, code, tables) and warm gray lines */
 :root:not(.dark) {
   --vp-c-bg: #f7f7f5;
   --vp-c-bg-alt: #efefec;
@@ -53,7 +53,7 @@
   color: #2f2f2f;
 }
 
-/* Tryb ciemny: nagłówki rozdziałów i linki w kolorze turkusowym */
+/* Dark mode: teal links and accents */
 .dark {
   --vp-c-brand-1: var(--ib-teal);
   --vp-c-brand-2: var(--ib-teal-light);
@@ -61,7 +61,7 @@
   --vp-c-brand-soft: rgba(55, 190, 190, 0.16);
 }
 
-/* turkus tylko dla tytułu strony (h1) – rozdziały i podrozdziały w kolorze tekstu */
+/* teal only for the page title (h1) – section headings use the text color */
 .dark .vp-doc h1 {
   color: var(--ib-teal);
 }
@@ -73,7 +73,7 @@
   color: var(--vp-c-text-1);
 }
 
-/* Galeria zdjęć */
+/* Image gallery */
 .gallery p {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -86,13 +86,13 @@
   border-radius: 6px;
 }
 
-/* Kafelki z linkami */
+/* Link cards */
 .link-cards p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
 }
-/* kafelki w pełnych rzędach (np. 8 = 2 × 4): 4 kolumny na szerokiej treści, 2 na węższej, 1 na telefonie */
+/* cards in full rows (e.g. 8 = 2 × 4): 4 columns on wide content, 2 on narrower, 1 on phones */
 .vp-doc .link-cards.even {
   container-type: inline-size;
 }
@@ -121,7 +121,7 @@
   text-decoration: none;
   transition: border-color 0.2s, background-color 0.2s;
 }
-/* tytuł kafelka: turkusowy, z ikonką (klasa {.i-nazwa} na linku), opis pod spodem */
+/* card title: teal, with an icon (class {.i-name} on the link), description below */
 .vp-doc .link-cards a strong {
   display: flex;
   align-items: center;
@@ -139,7 +139,7 @@
   background-color: var(--vp-c-brand-soft);
 }
 
-/* Obrazek na stronie głównej */
+/* Image on the start page */
 .VPHero .image-src {
   max-width: 100%;
   border-radius: 12px;
@@ -155,8 +155,8 @@
   }
 }
 
-/* Szerszy układ strony. Nie szerszy niż okno – VitePress liczy z tego szerokość menu bocznego,
-   a przy oknie węższym niż 1760 px menu kurczyło się i ucinało nazwy */
+/* Wider page layout, but never wider than the window – VitePress derives the sidebar width from it,
+   and with windows narrower than 1760 px the sidebar shrank and cut off names */
 :root {
   --vp-layout-max-width: min(1760px, 100vw);
 }
@@ -174,7 +174,7 @@
   }
 }
 
-/* Tabele w stylu imaginaryblend.com */
+/* Tables in the imaginaryblend.com style */
 :root {
   --ib-table-head-bg: #e2f2f1;
   --ib-table-bg: rgba(0, 0, 0, 0.03);
@@ -216,7 +216,7 @@
   background-color: var(--ib-table-bg);
 }
 
-/* Pasek boczny: podświetlenie aktualnej strony i czytanego rozdziału */
+/* Sidebar: highlight of the current page and the section being read */
 html .VPSidebarItem.is-active > .item,
 html .VPSidebarItem.ib-reading > .item {
   margin-left: -10px;
@@ -231,14 +231,14 @@ html .VPSidebarItem.is-active > .item > .indicator {
   width: 3px;
   background-color: var(--vp-c-brand-1);
 }
-/* Gdy czytany jest konkretny rozdział, strona zostaje tylko z paskiem */
+/* While a section is being read, the page item keeps only the bar */
 html .VPSidebarItem.is-active:has(.ib-reading) > .item {
   background-color: transparent;
 }
 html .VPSidebarItem.ib-reading > .item .link > .text {
   color: var(--vp-c-brand-1);
 }
-/* Kotwice (#rozdział) podświetla tylko przewijanie, nie ostatnio kliknięty link */
+/* Section links (#section) are highlighted by scrolling only, not by the last clicked link */
 html .VPSidebarItem.is-active:not(.ib-reading):has(> .item > a[href*="#"]) > .item {
   margin-left: 0;
   padding-left: 0;
@@ -251,7 +251,7 @@ html .VPSidebarItem.is-active:not(.ib-reading):has(> .item > a[href*="#"]) > .it
   color: var(--vp-c-text-2);
 }
 
-/* Pasek boczny: płynne zwijanie i rozwijanie działów */
+/* Sidebar: smooth collapsing and expanding of groups */
 html body .VPSidebarItem.collapsed .items.items {
   display: block;
 }
@@ -268,16 +268,16 @@ html .VPSidebarItem.collapsed > .items.items {
   opacity: 0;
   visibility: hidden;
 }
-/* miejsce na podświetlenie, które wystaje w lewo poza listę */
+/* room for the highlight that sticks out to the left of the list */
 html .VPSidebarItem.level-0 > .items.items {
   margin-left: -12px;
   padding-left: 12px;
 }
-/* podstrony grupy z ikonką zaczynają się w linii z nazwą grupy, a nie z ikonką */
+/* pages of a group with an icon start in line with the group name, not with the icon */
 html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   padding-left: 26px;
 }
-/* Przeglądarki bez animowania height: auto (Firefox, Safari) */
+/* Browsers without height: auto animation (Firefox, Safari) */
 @supports not (interpolate-size: allow-keywords) {
   html .VPSidebarItem .items.items {
     height: auto;
@@ -290,7 +290,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   }
 }
 
-/* Kolorowe ramki z podpowiedziami (jak na imaginaryblend.com) */
+/* Colored callout boxes (as on imaginaryblend.com) */
 :root:not(.dark) {
   --vp-custom-block-tip-bg: #c7f4d8;
   --vp-custom-block-tip-border: transparent;
@@ -315,7 +315,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   --vp-custom-block-danger-bg: rgba(230, 80, 90, 0.16);
   --vp-custom-block-danger-border: transparent;
 }
-/* gradient: pasek z lewej i tło zanikające w prawo, tytuł małymi wersalikami */
+/* gradient: bar on the left and a background fading to the right, title in small capitals */
 .vp-doc .custom-block.custom-block {
   --ib-cb: 128 128 128;
   border: 1px solid rgb(var(--ib-cb) / 0.12);
@@ -336,7 +336,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
 .dark .vp-doc .custom-block.info { --ib-cb: 90 175 230; }
 .dark .vp-doc .custom-block.warning { --ib-cb: 225 200 75; }
 .dark .vp-doc .custom-block.danger { --ib-cb: 235 105 115; }
-/* ikonka typu bloku po lewej (kształty w icons.css), w kolorze paska */
+/* box type icon on the left (shapes in icons.css), in the bar color */
 .vp-doc .custom-block.custom-block:not(.details) {
   position: relative;
   padding-left: 52px;
@@ -352,7 +352,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   -webkit-mask: var(--ib-icon) no-repeat center / contain;
   mask: var(--ib-icon) no-repeat center / contain;
 }
-/* blok bez własnego tytułu: zamiast „TIP” tylko ikonka */
+/* box without its own title: only the icon instead of "TIP" */
 .vp-doc .custom-block .custom-block-title:has(> .ib-default-title:only-child) {
   display: none;
 }
@@ -371,7 +371,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
 .dark .vp-doc .custom-block.warning .custom-block-title { color: #e2d45c; }
 .dark .vp-doc .custom-block.danger .custom-block-title { color: #f07a83; }
 
-/* Nazwy klas (kod w tekście) – czytelniejsze w trybie jasnym */
+/* Class names (inline code) – easier to read in light mode */
 :root:not(.dark) {
   --vp-code-color: #16706f;
   --vp-code-bg: rgba(55, 190, 190, 0.12);
@@ -380,7 +380,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   font-weight: 500;
 }
 
-/* Typografia w stylu dokumentacji Unreal Engine */
+/* Typography in the style of the Unreal Engine documentation */
 .vp-doc p,
 .vp-doc li {
   line-height: 1.65;
@@ -439,7 +439,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   .vp-doc h3 { font-size: 21px; }
 }
 
-/* Numeracja w kółkach (jak na imaginaryblend.com), podświetlana po najechaniu */
+/* Numbers in circles (as on imaginaryblend.com), highlighted on hover */
 :root {
   --ib-ol-bg: #eaeae6;
   --ib-ol-color: #666666;
@@ -477,7 +477,7 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   background-color: var(--ib-ol-hover-bg);
 }
 
-/* Większy odstęp przed listami i po nich */
+/* More space before and after lists */
 .vp-doc ul,
 .vp-doc ol {
   margin: 24px 0;
@@ -487,17 +487,17 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   margin: 8px 0;
 }
 
-/* Mniejszy odstęp między punktami listy */
+/* Smaller spacing between list items */
 .vp-doc li + li {
   margin-top: 6px;
 }
 
-/* Bez znaczka # przy nagłówkach */
+/* No # sign next to headings */
 .vp-doc .header-anchor {
   display: none;
 }
 
-/* Powiększanie obrazków po kliknięciu */
+/* Image zoom on click */
 :root {
   --ib-zoom-bg: rgba(255, 255, 255, 0.95);
 }
@@ -529,12 +529,12 @@ html .VPSidebarItem.level-1:has(> .item .ib-icon) > .items.items {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Większy odstęp pod głównym tytułem strony */
+/* More space under the page title */
 .vp-doc h1 {
   margin-bottom: 28px;
 }
 
-/* Górne menu: logo, Documentation i lupka z lewej, przełącznik trybu i ikony z prawej (podział na końcu pliku) */
+/* Top bar: logo, Documentation and search on the left, theme switch and icons on the right (split at the end of this file) */
 html body .VPNavBar .content-body.content-body {
   justify-content: flex-start;
 }
@@ -542,7 +542,7 @@ html body .VPNavBar .content-body.content-body {
   width: var(--vp-nav-logo-height);
   flex-shrink: 0;
 }
-/* lupka bez tekstu i skrótu */
+/* search button without text and shortcut */
 html body .VPNavBarSearch.search {
   flex-grow: 0;
   order: 1;
@@ -557,7 +557,7 @@ html body .VPNavBarSearch.search {
   padding: 0 8px;
   background: transparent;
 }
-/* przełącznik trybu jasny/ciemny zawsze widoczny, obok lupki */
+/* light/dark switch always visible, next to the search button */
 html body .VPNavBarAppearance.appearance {
   display: flex;
   order: 2;
@@ -584,7 +584,7 @@ html body .VPNavBarHamburger.hamburger {
   margin-left: auto;
 }
 @media (min-width: 960px) {
-  /* jednolite tło całego paska zamiast kolumny nad menu bocznym */
+  /* one background for the whole bar instead of a column above the sidebar */
   html body .VPNavBar.has-sidebar.has-sidebar {
     background-color: var(--vp-nav-bg-color);
   }
@@ -594,7 +594,7 @@ html body .VPNavBarHamburger.hamburger {
   html body .VPNavBarTitle.has-sidebar .title {
     border-bottom-color: transparent;
   }
-  /* elementy paska obok siebie – podział na lewą i prawą grupę jest na końcu pliku */
+  /* bar items side by side – the split into left and right groups is at the end of this file */
   html body .VPNavBar .container.container {
     justify-content: center;
     max-width: 100%;
@@ -616,7 +616,7 @@ html body .VPNavBarHamburger.hamburger {
   }
 }
 
-/* Odrobinę mniejsze nagłówki rozdziałów */
+/* Slightly smaller section headings */
 .vp-doc h2 {
   font-size: 26px;
 }
@@ -628,7 +628,7 @@ html body .VPNavBarHamburger.hamburger {
   .vp-doc h3 { font-size: 19px; }
 }
 
-/* Turkusowa obwódka na obrazku po najechaniu (jak na imaginaryblend.com) */
+/* Teal outline on images on hover (as on imaginaryblend.com) */
 .vp-doc img,
 .VPHero .image-src {
   outline: 5px solid transparent;
@@ -644,13 +644,13 @@ html body .VPNavBarHamburger.hamburger {
   outline-color: #1b3133;
 }
 
-/* Obrazki z ostrymi krawędziami (bez zaokrągleń) */
+/* Images with sharp corners (no rounding) */
 .vp-doc img,
 .vp-doc .gallery img,
 .VPHero .image-src {
   border-radius: 0;
 }
-/* obwódka rysowana na zewnątrz obrazka */
+/* outline drawn outside the image */
 .vp-doc img,
 .VPHero .image-src {
   outline-offset: 0;
@@ -660,7 +660,7 @@ html body .VPNavBarHamburger.hamburger {
   z-index: 1;
 }
 
-/* Nazwy klas: wariant 2 – prawie czarny tekst na jasnoszarym tle (tryb jasny) */
+/* Class names in light mode: near-black text on a light gray background */
 :root:not(.dark) {
   --vp-code-color: #2f2f2f;
   --vp-code-bg: #ebebe7;
@@ -670,16 +670,22 @@ html body .VPNavBarHamburger.hamburger {
 :root:not(.dark) .vp-doc :not(pre) > code {
   border: 1px solid #dde1e4;
 }
+/* dark mode: class names in a light, muted teal close to the text color;
+   class names in links keep the full teal so it is clear they are clickable */
+.dark {
+  --vp-code-color: #a9d6d3;
+  --vp-code-link-color: var(--vp-c-brand-1);
+}
 .vp-doc a > code {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-/* odrobinę szerszy odstęp między literami w nazwach klas */
+/* slightly wider letter spacing in class names */
 .vp-doc :not(pre) > code {
   letter-spacing: 0.03em;
 }
-/* jedno, delikatne podkreślenie pod nazwą klasy w linku */
+/* a single, subtle underline under a class name in a link */
 .vp-doc a:has(> code) {
   text-decoration: none;
 }
@@ -693,7 +699,7 @@ html body .VPNavBarHamburger.hamburger {
   text-decoration-color: currentColor;
 }
 
-/* Tablet (768–959 px): menu pod przyciskiem ☰ jak na telefonie, żeby pasek się mieścił */
+/* Tablet (768–959 px): menu behind the ☰ button, as on phones, so the bar fits */
 @media (min-width: 768px) and (max-width: 959px) {
   html body .VPNavBarMenu.menu,
   html body .VPNavBarExtra.extra {
@@ -707,7 +713,7 @@ html body .VPNavBarHamburger.hamburger {
   }
 }
 
-/* Strona główna: tekst nie nachodzi na obrazek na średnich ekranach */
+/* Start page: text does not overlap the image on medium screens */
 @media (min-width: 960px) and (max-width: 1279.98px) {
   .VPHero.has-image .main .tagline,
   .VPHero.has-image .main .text {
@@ -715,7 +721,7 @@ html body .VPNavBarHamburger.hamburger {
   }
 }
 
-/* Strona główna: mniejszy opis pod tytułem */
+/* Start page: smaller description under the title */
 .VPHero .tagline {
   font-size: 18px;
   line-height: 1.6;
@@ -727,7 +733,7 @@ html body .VPNavBarHamburger.hamburger {
   }
 }
 
-/* Strona główna: większy pokaz zdjęć w nagłówku */
+/* Start page: larger slideshow in the header */
 @media (min-width: 1280px) {
   .VPHero .image-container {
     width: 600px;
@@ -750,7 +756,7 @@ html body .VPNavBarHamburger.hamburger {
   }
 }
 
-/* Strona główna: tytuł „FLUID FLUX” wielkimi literami, biały/czarny */
+/* Start page: "FLUID FLUX" title in capitals, white/black */
 :root {
   --vp-home-hero-name-color: var(--vp-c-text-1);
 }
@@ -759,7 +765,7 @@ html body .VPNavBarHamburger.hamburger {
   letter-spacing: 0.01em;
 }
 
-/* Przełącznik trybu jasny/ciemny po prawej, obok ikon */
+/* Light/dark switch on the right, next to the icons */
 html body .VPNavBarAppearance.appearance {
   order: 4;
   margin-left: 16px;
@@ -783,7 +789,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   }
 }
 
-/* „Fluid Flux” w górnym pasku = przycisk działu Introduction, podświetlony gdy ten dział jest otwarty */
+/* "Fluid Flux" in the top bar opens the product section and is highlighted while it is open */
 .VPNavBarTitle .title span {
   transition: color 0.25s;
 }
@@ -792,7 +798,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   color: var(--vp-c-brand-1);
 }
 
-/* Kroki z obrazkami obok siebie (np. Installing from Fab) */
+/* Steps with images side by side (e.g. Installing from Fab) */
 .vp-doc .steps {
   counter-reset: ib-step;
   display: grid;
@@ -845,7 +851,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   background-color: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
 }
-/* obrazek kroku w naturalnych proporcjach – dzięki temu powiększenie pokazuje go w pełnym rozmiarze */
+/* step image in its natural proportions, so the zoom shows it at full size */
 .vp-doc .step img {
   width: auto;
   max-width: 100%;
@@ -855,7 +861,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   background: none;
 }
 
-/* Lupka wyszukiwania po prawej, tuż przed przełącznikiem trybu */
+/* Search button right before the theme switch */
 html body .VPNavBarSearch.search.search {
   order: 4;
   margin-left: 16px;
@@ -879,7 +885,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   }
 }
 
-/* Showcase: filmy po dwa w rzędzie */
+/* Showcase: two videos per row */
 .vp-doc .video-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -898,7 +904,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   margin: 8px 0 16px;
 }
 
-/* Licencje w stylu cennika: nazwa u góry, opis, przycisk na dole */
+/* License cards in a pricing style: name on top, description, button at the bottom */
 .vp-doc .pricing {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -960,7 +966,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   color: var(--ib-teal);
 }
 
-/* Ikonki grup w menu bocznym: szare, turkusowe gdy w grupie jest otwarta strona */
+/* Sidebar group icons: gray, teal when the group contains the open page */
 .VPSidebar .ib-icon {
   width: 16px;
   height: 16px;
@@ -974,12 +980,12 @@ html body .VPNavBarHamburger.hamburger.hamburger {
 .VPSidebarItem > .item:hover .ib-icon {
   color: var(--vp-c-brand-1);
 }
-/* poprzednia/następna strona pod treścią – bez ikonek */
+/* previous/next page links under the content – no icons */
 .VPDocFooter .ib-icon {
   display: none;
 }
 
-/* Strona główna: opis i przyciski */
+/* Start page: description and buttons */
 .vp-doc .ib-lead {
   max-width: 760px;
   font-size: 19px;
@@ -1027,8 +1033,8 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   color: #fff;
 }
 
-/* Strona główna: nagłówek – duży tytuł, opis, przyciski i fakty z lewej, pokaz zdjęć z prawej.
-   Dwie kolumny, gdy treść ma co najmniej 720 px szerokości, węższa – jedna pod drugą */
+/* Start page header: title, description and buttons on the left, slideshow on the right.
+   Two columns when the content is at least 720 px wide, stacked below that */
 .vp-doc .ib-hero {
   container-type: inline-size;
   margin-bottom: 28px;
@@ -1046,7 +1052,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   .vp-doc .ib-hero .ib-lead {
     font-size: 17px;
   }
-  /* tytuł z logo rośnie razem z szerokością, ale zostawia zapas w lewej kolumnie */
+  /* the title with the logo grows with the width but leaves room in the left column */
   .vp-doc .ib-hero .ib-hero-grid h1 {
     font-size: clamp(38px, 5cqi, 56px);
   }
@@ -1061,11 +1067,11 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
-/* tytuł strony głównej biały (w trybie jasnym zostaje ciemny) */
+/* start page title in white (dark in light mode) */
 .dark .vp-doc .ib-hero h1 {
   color: #fff;
 }
-/* logo Fluid Flux przed tytułem, tej samej wysokości co litery */
+/* Fluid Flux logo before the title, as tall as the letters */
 .vp-doc .ib-hero h1 img.ib-title-logo {
   flex: none;
   width: 1.05em;
@@ -1077,7 +1083,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
 .vp-doc .ib-hero .ib-lead {
   margin: 0;
 }
-/* wersje silnika w opisie: wyróżnione bielą (w trybie jasnym – kolorem tekstu), z logo Unreal Engine */
+/* engine versions in the description: highlighted in white (text color in light mode), with the Unreal Engine logo */
 .vp-doc .ib-lead .ib-ue {
   color: var(--vp-c-text-1);
   font-weight: 600;
@@ -1099,7 +1105,7 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   margin: 0;
 }
 
-/* Wyróżniony cytat (<blockquote class="ib-quote">): duży turkusowy cudzysłów i większa kursywa */
+/* Highlighted quote (<blockquote class="ib-quote">): large teal quotation mark and larger italics */
 .vp-doc blockquote.ib-quote {
   position: relative;
   margin: 28px 0;
@@ -1124,26 +1130,25 @@ html body .VPNavBarHamburger.hamburger.hamburger {
   line-height: 1.6;
 }
 
-/* Linia pod górnym paskiem (po przewinięciu): na całą szerokość, w kolorze innych linii zamiast czarnej */
+/* Line under the top bar (after scrolling): full width, in the regular divider color instead of black */
 html body .VPNavBar.has-sidebar .divider.divider {
   padding-left: 0;
 }
 html body .VPNavBar.VPNavBar:not(.home.top) .divider-line.divider-line {
   background-color: var(--vp-c-divider);
 }
-/* bez linii pod samym „Fluid Flux” – VitePress rysuje ją nad menu bocznym, a u nas tytuł jest wyśrodkowany */
+/* no line under "Fluid Flux" – VitePress draws it above the sidebar, but here the title is not there */
 html body .VPNavBarTitle.has-sidebar .title.title {
   border-bottom-color: transparent;
 }
 
-/* Menu boczne na tle strony, oddzielone od treści cienką linią obok pozycji menu (jak spis „On this page”) */
+/* Sidebar on the page background, separated from the content by a thin line (like "On this page") */
 :root {
   --vp-sidebar-bg-color: var(--vp-c-bg);
 }
 @media (min-width: 960px) {
-  /* menu zaczyna się na wysokości tytułu strony i spisu „On this page” (pod górnym paskiem), więc pasek
-     przewijania nie chowa się pod belką; linia jest krawędzią menu, a cienki pasek przewijania stoi po jej
-     wewnętrznej stronie – zamiast dwóch kresek obok siebie */
+  /* the sidebar starts at the height of the page title and "On this page" (below the top bar), so its
+     scrollbar is not hidden under the bar; the line is the sidebar edge and the thin scrollbar sits inside it */
   html body .VPSidebar.VPSidebar {
     top: calc(var(--vp-layout-top-height, 0px) + var(--vp-nav-height) + 48px);
     padding-top: 0;
@@ -1155,44 +1160,44 @@ html body .VPNavBarTitle.has-sidebar .title.title {
   html body .VPSidebar .curtain {
     display: none;
   }
-  /* VitePress daje liście stałą szerokość, przez co wchodziła na linię */
+  /* VitePress gives the list a fixed width, which made it overlap the line */
   html body .VPSidebar .group.group {
     width: auto;
   }
 }
 
-/* Górny pasek w ciemniejszym odcieniu niż tło strony (dawny kolor menu bocznego) */
+/* Top bar slightly darker than the page background */
 :root {
   --vp-nav-bg-color: var(--vp-c-bg-alt);
   --vp-local-nav-bg-color: var(--vp-c-bg-alt);
 }
 
-/* Ikona Fab w górnym pasku szersza od pozostałych – logo jest płaską elipsą i przy 20 px było nieczytelne */
+/* Fab icon in the top bar is wider than the others – the logo is a flat ellipse and was unreadable at 20 px */
 html body .VPSocialLink[aria-label*='Fab'] > svg {
   width: 32px;
   height: 21px;
 }
-/* odstęp od ikony YouTube – logo jest szersze niż pozostałe ikony */
+/* space after the YouTube icon – the logo is wider than the other icons */
 html body .VPSocialLink[aria-label*='Fab'] {
   margin-left: 10px;
 }
 
-/* Stałe miejsce na pasek przewijania – krótka strona (np. Overview) nie zmienia szerokości
-   i górny pasek oraz menu nie przesuwają się przy przechodzeniu między stronami */
+/* Reserved scrollbar space – short pages (e.g. Overview) keep the same width,
+   so the top bar and the sidebar don't shift when switching pages */
 html {
   scrollbar-gutter: stable;
 }
 
-/* Główne działy menu (z ikonką) zawsze jasne, nie tylko ten z otwartą stroną */
+/* Main sidebar sections (with an icon) always use the bright text color, not only the open one */
 html body .VPSidebarItem.level-1:has(> .item .ib-icon):not(.is-active) > .item .text {
   color: var(--vp-c-text-1);
 }
-/* dział, który jest też linkiem (Roadmap), po najechaniu turkusowy jak inne linki */
+/* a section that is also a link (Release Notes) turns teal on hover like other links */
 html body .VPSidebarItem.level-1.is-link:has(> .item .ib-icon):not(.is-active) > .item:hover .text {
   color: var(--vp-c-brand-1);
 }
 
-/* „Fluid Flux” i „Documentation” w górnym pasku to dwa przyciski działów – ten sam rozmiar i grubość */
+/* "Fluid Flux" and "Documentation" in the top bar are the two section buttons – same size and weight */
 html body .VPNavBarTitle .title.title {
   font-size: 15px;
   font-weight: 600;
@@ -1202,7 +1207,7 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
   font-weight: 600;
 }
 
-/* Logo Unreal Engine przy nazwie silnika w tabeli wymagań */
+/* Unreal Engine logo next to the engine name in the requirements table */
 .vp-doc .ib-icon.ib-ue-logo {
   width: 20px;
   height: 20px;
@@ -1214,10 +1219,10 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
   white-space: nowrap;
 }
 
-/* Górny pasek rozdzielony: logo, Documentation i lupka z lewej, przełącznik trybu i ikony z prawej */
+/* Top bar split: logo, Documentation and search on the left, theme switch and icons on the right */
 @media (min-width: 960px) {
-  /* pasek w granicach kolumny treści: logo w linii z tytułem strony, ikony kończą się z prawą krawędzią treści
-     (pozycję mierzy theme/navAlign.mjs; bez pomiaru – szerokość układu strony) */
+  /* bar within the content column: logo aligned with the page title, icons end at the right edge of the content
+     (measured by theme/navAlign.mjs; without a measurement – the page layout width) */
   html body .VPNavBar .container.container.container {
     justify-content: flex-start;
     width: var(--ib-nav-width, calc(min(1760px, 100%) - 64px));
@@ -1232,8 +1237,8 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
   }
 }
 
-/* Wąskie ekrany (telefon, tablet): w pasku samo logo i „Documentation”, żeby przechodzić między działami
-   bez otwierania menu. Napis „Fluid Flux” jest ukryty tylko wizualnie (czytniki ekranu nadal go odczytają) */
+/* Narrow screens (phone, tablet): only the logo and "Documentation" in the bar, to switch sections without the menu.
+   The "Fluid Flux" text is only visually hidden (screen readers still read it) */
 @media (max-width: 959.98px) {
   html body .VPNavBarTitle .title span {
     position: absolute;
@@ -1248,7 +1253,7 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
     margin-left: 4px;
   }
 }
-/* Wąskie ekrany: Discord i Fab w pasku zamiast menu ☰ (YouTube na telefonie niepotrzebny) */
+/* Narrow screens: Discord and Fab in the bar instead of the ☰ menu (no YouTube on phones) */
 @media (max-width: 959.98px) {
   html body .VPNavBarSocialLinks.social-links.social-links {
     display: flex;
@@ -1262,7 +1267,7 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
     display: none;
   }
 }
-/* telefon: ciaśniejsze odstępy, żeby logo, Documentation, lupka, przełącznik i dwie ikony zmieściły się w 360 px */
+/* phone: tighter spacing so the logo, Documentation, search, theme switch and two icons fit in 360 px */
 @media (max-width: 767.98px) {
   html body .VPNavBar .container.container.container {
     margin-left: 0;
@@ -1289,4 +1294,25 @@ html body .VPNavBarMenuLink.VPNavBarMenuLink {
     width: 28px;
     height: 19px;
   }
+}
+
+/* Class names with a glossary entry (Help → Glossary): dotted underline, description on hover */
+.vp-doc code.ib-term {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--vp-c-text-3);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.vp-doc code.ib-term:hover,
+.vp-doc code.ib-term:focus-visible {
+  text-decoration-color: var(--vp-c-brand-1);
+  outline: none;
+}
+
+/* Glossary page: compact tables – name on one line, description next to it, linked row highlighted */
+.vp-doc tr:has(td:first-child code) td:first-child {
+  white-space: nowrap;
+}
+.vp-doc tr.ib-term-target td {
+  background-color: var(--vp-c-brand-soft);
 }

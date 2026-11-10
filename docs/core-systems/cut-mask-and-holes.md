@@ -6,11 +6,11 @@ The first method is somewhat complex and is designed for small boats. Look at th
 
 ![](/images/2021/09/boat.jpg)
 
-The second method for cutting holes requires the `BP_SurfaceCutMask` actor, which defines the rectangular area to remove. Unfortunately, only one cut mask per surface actor is currently supported.
+The second method for cutting holes requires the `BP_FluxSurfaceCutMask` actor, which defines the rectangular area to remove. Unfortunately, only one cut mask per surface actor is currently supported.
 
 <MediaVideo src="/images/2023/05/2023-06-06-11-39-21.mp4" />
 
-1. Drag and drop the `BP_SurfaceCutMask` actor into an area where you want to cut out the water.
+1. Drag and drop the `BP_FluxSurfaceCutMask` actor into an area where you want to cut out the water.
 2. Select the `BP_FluxSurface` actor in your level and set the newly created actor to the **CutMaskActor** attribute.
 
    ![](/images/2021/09/cutmask.jpg)

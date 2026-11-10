@@ -17,7 +17,7 @@ Exporting the current coastline state can be described in a few simple steps:
 2. Export the state to the newly created data asset.<br>
    Select `CoastlineDomain` → **Right mouse button** → **Scripted Action** → `FluxExportCoastline`
 
-![](/images/2021/09/export-1-300x221.jpg)
+![](/images/2021/09/export-1.jpg)
 
 The exported **CoastlineState** data asset stores two textures:
 
